@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-neutral-900 antialiased;
+}
+
+
+h1, h2, h3, h4 {
+  @apply font-sans;
+}
+
+p {
+  @apply leading-7;
+}
+
+
+a {
+  @apply text-inherit no-underline;
+}
+
+section {
+  scroll-margin-top: 5rem; 
+}
