@@ -1,21 +1,41 @@
 import Container from "../layout/Container";
+import Image from "next/image";
 
 export default function Hero({ data }) {
   return (
-    <section id="top" className="py-20 sm:py-28">
-      <Container className="grid gap-10 lg:grid-cols-2 lg:items-center">
-        <div>
-          <h1 className="text-5xl sm:text-6xl font-semibold tracking-tight">{data.name}</h1>
-          <p className="mt-4 text-xl opacity-80">{data.tagline}</p>
+    <section id="top" className="relative h-screen">
+      {/* Background image */}
+      <Image
+        src="/images/Ramón Cuevas (5).JPG"
+        alt="Ramón Cuevas Martínez"
+        fill
+        priority
+        className="object-cover"
+      />
 
-          <div className="mt-8">
-            <a href={data.cta.href} className="inline-flex rounded-md bg-black px-5 py-3 text-white hover:opacity-90">
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/35" />
+
+      {/* Content */}
+      <Container className="relative z-10 flex h-full pt-124 sm:pt-128">
+        <div className="max-w-3xl">
+          <h1 className="text-5xl sm:text-7xl font-semibold tracking-tight text-white">
+            Ramón Cuevas Martínez
+          </h1>
+
+          <p className="mt-4 text-xl sm:text-2xl text-white/80">
+            Impulso Completo
+          </p>
+
+          <div className="mt-10">
+            <a
+              href={data.cta.href}
+              className="inline-flex rounded-md bg-white px-6 py-3 text-black font-medium hover:opacity-90"
+            >
               {data.cta.label}
             </a>
           </div>
         </div>
-
-        <div className="rounded-2xl border min-h-[260px] bg-gradient-to-br from-neutral-100 to-neutral-200" />
       </Container>
     </section>
   );
