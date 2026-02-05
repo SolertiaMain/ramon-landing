@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Container from "./Container";
 
-export default function Header({ nav, cta }) {
+export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -15,22 +15,24 @@ export default function Header({ nav, cta }) {
   }, []);
 
   return (
-    <header className={`sticky top-0 z-50 transition ${scrolled ? "bg-white/80 backdrop-blur border-b" : "bg-transparent"}`}>
+    <header
+      className={`sticky top-0 z-50 transition border-b border-neutral-300 ${
+        scrolled ? "bg-[#f4efe8]/90 backdrop-blur" : "bg-[#f4efe8]"
+      }`}
+    >
+
       <Container className="flex h-16 items-center justify-between">
         <a href="#top" className="font-semibold tracking-tight">
           Ramon
         </a>
 
-        <nav className="hidden md:flex items-center gap-6 text-sm">
-          {nav.map((item) => (
-            <a key={item.href} href={item.href} className="hover:opacity-70">
-              {item.label}
-            </a>
-          ))}
-          <a href={cta.href} className="rounded-md bg-black px-4 py-2 text-white text-sm hover:opacity-90">
-            {cta.label}
-          </a>
+        <nav className="hidden md:flex flex-1 items-center justify-center gap-20 text-xs font-semibold tracking-widest uppercase">
+          <a href="/certificacion" className="nav-link">Certificación</a>
+          <a href="/talleres" className="nav-link">Talleres</a>
+          <a href="/podcast" className="nav-link">Podcast</a>
+          <a href="/blog" className="nav-link">Blog</a>
         </nav>
+
 
         <button
           className="md:hidden rounded-md border px-3 py-2 text-sm"
@@ -39,6 +41,22 @@ export default function Header({ nav, cta }) {
         >
           Menú
         </button>
+
+        <button
+          type="button"
+          aria-label="Buscar"
+          className="hidden md:inline-flex h-9 w-9 items-center justify-center rounded-full hover:bg-black/5"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="opacity-80">
+            <path
+              d="M21 21l-4.3-4.3m1.8-5.2a7 7 0 11-14 0 7 7 0 0114 0z"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
+          </svg>
+        </button>
+
       </Container>
 
       {open && (

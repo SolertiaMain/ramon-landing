@@ -29,3 +29,11 @@ a {
 section {
   scroll-margin-top: 5rem; 
 }
+
+.nav-link {
+  opacity: 0.85;
+}
+
+.nav-link:hover {
+  opacity: 1;
+}
