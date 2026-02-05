@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Container from "./Container";
 import { site } from "../../content/site";
 import SocialLinks from "./SocialLinks";
+import { FaEnvelope } from "react-icons/fa";
 
 export default function Footer() {
   const ref = useRef(null);
@@ -71,15 +72,16 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-4">Contacto</h4>
 
             <ul className="space-y-2 text-sm text-stone-300">
-              <li>
-                <span className="text-stone-300">Correo:</span>
+              <li className="flex items-center gap-2">
+                <FaEnvelope className="text-stone-400 text-base translate-x-[1px]" />
                 <a
                   href="mailto:informes@ramoncuevas.com"
-                  className="ml-1 underline underline-offset-4 hover:text-white transition-colors"
+                  className="underline underline-offset-4 hover:text-white transition-colors"
                 >
                   informes@ramoncuevas.com
                 </a>
               </li>
+
 
               <li className="pt-2">
                 <SocialLinks />
