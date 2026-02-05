@@ -6,7 +6,7 @@ export default function Hero({ data }) {
     <section id="top" className="relative h-screen">
       {/* Background image */}
       <Image
-        src="/images/Ramón Cuevas (5).JPG"
+        src="/images/ramon.jpg"
         alt="Ramón Cuevas Martínez"
         fill
         priority
