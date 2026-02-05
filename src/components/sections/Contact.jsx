@@ -30,9 +30,23 @@ export default function Contact({ data }) {
         <h2 className="text-3xl font-semibold tracking-tight">{data.title}</h2>
         <p className="mt-3 opacity-80">{data.subtitle}</p>
         <div className="mt-8">
-          <a href={data.button.href} className="inline-flex rounded-md bg-black px-6 py-3 text-white hover:opacity-90">
+          <a
+            href={data.button.href}
+            className="
+              inline-flex
+              items-center
+              rounded-md
+              border border-black
+              bg-neutral-300
+              px-6 py-3
+              text-white
+              transition
+              hover:bg-neutral-600
+            "
+          >
             {data.button.label}
           </a>
+
         </div>
       </Container>
     </section>
