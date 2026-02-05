@@ -9,7 +9,6 @@ import Workshops from "../components/sections/Workshops";
 import Podcast from "../components/sections/Podcast";
 import Blog from "../components/sections/Blog";
 import Contact from "../components/sections/Contact";
-
 import { site } from "../content/site";
 
 export default function Page() {
