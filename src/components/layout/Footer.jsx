@@ -39,12 +39,10 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-3">
           {/* Marca */}
           <div>
-            {/* ✅ Se queda blanco */}
             <h3 className="text-2xl font-semibold tracking-tight">
               {site.hero.name}
             </h3>
 
-            {/* ✅ Todo lo demás en otro color */}
             <p className="mt-2 text-sm text-stone-300">
               {site.hero.tagline}
             </p>
@@ -52,10 +50,8 @@ export default function Footer() {
 
           {/* Navegación */}
           <div>
-            {/* ✅ Se queda blanco */}
             <h4 className="text-lg font-semibold mb-4">Navegación</h4>
 
-            {/* ✅ Links y labels en otro color */}
             <ul className="space-y-2 text-sm text-stone-300">
               {site.nav.map((item) => (
                 <li key={item.href}>
@@ -72,10 +68,8 @@ export default function Footer() {
 
           {/* Contacto */}
           <div>
-            {/* ✅ Se queda blanco */}
             <h4 className="text-lg font-semibold mb-4">Contacto</h4>
 
-            {/* ✅ Texto en otro color */}
             <ul className="space-y-2 text-sm text-stone-300">
               <li>
                 <span className="text-stone-300">Correo:</span>
@@ -94,7 +88,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* ✅ Copyright en otro color */}
         <div className="mt-12 border-t border-white/10 pt-6 text-xs text-stone-500">
           © {currentYear} {site.hero.name}. Todos los derechos reservados.
         </div>
