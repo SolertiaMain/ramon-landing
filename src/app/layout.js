@@ -1,9 +1,10 @@
 import "./globals.css";
+import { Libre_Baskerville } from "next/font/google";
 
-export const metadata = {
-  title: "Ramon",
-  description: "Impulso completo",
-};
+export const libreBaskerville = Libre_Baskerville({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
 
 export default function RootLayout({ children }) {
   return (

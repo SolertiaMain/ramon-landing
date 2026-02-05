@@ -36,4 +36,6 @@ section {
 
 .nav-link:hover {
   opacity: 1;
+:root {
+  --font-serif: 'Libre Baskerville', serif;
 }
