@@ -2,6 +2,7 @@
 
 Landing page profesional desarrollada con Next.js para mostrar los servicios, certificaciones, talleres, podcast y blog de Ramon.
 
+
 ## 🚀 Tecnologías
 
 - **Next.js 16.1.6** - Framework React con App Router
