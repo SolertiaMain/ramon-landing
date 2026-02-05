@@ -24,7 +24,7 @@ export default function Hero({ data }) {
           </h1>
 
           <p className="mt-4 text-xl sm:text-2xl text-white/80">
-            Impulso Completo
+            -Impulso Completo-
           </p>
 
           <div className="mt-10">
