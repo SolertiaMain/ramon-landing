@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Container from "./Container";
+import Link from "next/link";
+
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -22,12 +24,15 @@ export default function Header() {
     >
 
       <Container className="flex h-16 items-center justify-between">
-        <a href="#top" className="font-semibold tracking-tight">
-          Ramon
-        </a>
+        <Link href="/#top" className="font-semibold tracking-tight">
+          Ramón C. Martínez
+        </Link>
+
 
         <nav className="hidden md:flex flex-1 items-center justify-center gap-20 text-xs font-semibold tracking-widest uppercase">
-          <a href="/certificacion" className="nav-link">Certificación</a>
+          <Link href="/certifications" className="nav-link">
+            Certificaciones
+          </Link>
           <a href="/talleres" className="nav-link">Talleres</a>
           <a href="/podcast" className="nav-link">Podcast</a>
           <a href="/blog" className="nav-link">Blog</a>

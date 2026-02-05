@@ -29,7 +29,7 @@ export default function Letter({ data }) {
       {/* BLOQUE FULL WIDTH: título + carta */}
       <div
         className={`
-          w-full bg-stone-100 py-24
+          w-full bg-stone-200 py-24
           transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
           ${visible ? "opacity-100" : "opacity-0"}
         `}

@@ -1,6 +1,3 @@
-import Header from "../components/layout/Header";
-import Footer from "../components/layout/Footer";
-
 import Hero from "../components/sections/Hero";
 import Statement from "../components/sections/Statement";
 import Letter from "../components/sections/Letter";
@@ -14,7 +11,6 @@ import { site } from "../content/site";
 export default function Page() {
   return (
     <>
-      <Header nav={site.nav} cta={site.hero.cta} />
 
       <main>
         <Hero data={site.hero} />
@@ -29,7 +25,6 @@ export default function Page() {
         <Contact data={site.contact} />
       </main>
 
-      <Footer />
     </>
   );
 }

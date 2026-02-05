@@ -5,6 +5,8 @@ import Container from "./Container";
 import { site } from "../../content/site";
 import SocialLinks from "./SocialLinks";
 import { FaEnvelope } from "react-icons/fa";
+import Link from "next/link";
+
 
 export default function Footer() {
   const ref = useRef(null);

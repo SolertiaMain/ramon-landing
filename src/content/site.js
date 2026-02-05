@@ -1,12 +1,12 @@
 export const site = {
   nav: [
-    { label: "Certificaciones", href: "#certificaciones" },
+    { label: "Certificaciones", href: "/certifications" },
     { label: "Talleres", href: "#talleres" },
     { label: "Podcast", href: "#podcast" },
     { label: "Blog", href: "#blog" },
   ],
   hero: {
-    name: "Ramón Cuevas Martínez",
+    name: "Ramón C. Martínez",
     tagline: "Impulso completo",
     cta: { label: "Contacto", href: "#contacto" },
   },
