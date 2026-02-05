@@ -73,9 +73,9 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4">Contacto</h4>
 
-            <ul className="space-y-3 text-sm text-stone-300">
+            <ul className="space-y-2 text-sm text-stone-300">
               <li className="flex items-center gap-2">
-                <FaEnvelope className="text-base text-stone-400 flex-shrink-0" />
+                <FaEnvelope className="text-stone-400 text-base translate-x-[1px]" />
                 <a
                   href="mailto:informes@ramoncuevas.com"
                   className="underline underline-offset-4 hover:text-white transition-colors"
@@ -84,7 +84,8 @@ export default function Footer() {
                 </a>
               </li>
 
-              <li>
+
+              <li className="pt-2">
                 <SocialLinks />
               </li>
             </ul>
