@@ -29,3 +29,7 @@ a {
 section {
   scroll-margin-top: 5rem; 
 }
+
+:root {
+  --font-serif: 'Libre Baskerville', serif;
+}
