@@ -3,11 +3,15 @@
 import { useEffect, useState } from "react";
 import Container from "./Container";
 import Link from "next/link";
+import { site } from "@/content/site";
 
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const nav = site.nav;
+  const cta = site.hero?.cta;
+
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -77,13 +81,6 @@ export default function Header() {
                 {item.label}
               </a>
             ))}
-            <a
-              href={cta.href}
-              className="mt-2 inline-flex justify-center rounded-md bg-black px-4 py-2 text-white"
-              onClick={() => setOpen(false)}
-            >
-              {cta.label}
-            </a>
           </Container>
         </div>
       )}
