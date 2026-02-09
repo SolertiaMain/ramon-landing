@@ -11,7 +11,7 @@ export default function SocialLinks() {
         rel="noopener noreferrer"
         className="flex items-center gap-2 text-stone-300 hover:text-white transition-colors"
       >
-        <FaLinkedin className="text-xl text-blue-400" />
+        <FaLinkedin className="text-xl text-stone-400" />
         <span>Ramón Cuevas Martínez</span>
       </a>
     </div>
