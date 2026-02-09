@@ -33,14 +33,55 @@ export default function Header() {
         </Link>
 
 
-        <nav className="hidden md:flex flex-1 items-center justify-center gap-20 text-xs font-semibold tracking-widest uppercase">
-          <Link href="/certifications" className="nav-link">
-            Certificaciones
-          </Link>
-          <a href="/talleres" className="nav-link">Talleres</a>
-          <a href="/podcast" className="nav-link">Podcast</a>
-          <a href="/blog" className="nav-link">Blog</a>
+        <nav className="
+         hidden md:flex flex-1
+         h-16 
+         items-stretch 
+         justify-center text-xs 
+         font-semibold tracking-widest uppercase">
+          {[
+            { label: "Certificaciones", href: "/certifications" },
+            { label: "Talleres", href: "/talleres" },
+            { label: "Podcast", href: "/podcast" },
+            { label: "Blog", href: "/blog" },
+          ].map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="
+                group relative
+                flex items-center
+                h-full
+                px-6
+                transition-colors duration-300 ease-out
+                hover:bg-black/10
+              "
+            >
+              {/* White bar at the top */}
+              <span
+                className="
+                  absolute top-0 left-0
+                  h-[3px] w-full
+                  bg-black
+                  opacity-0
+                  transition-opacity duration-300 ease-out
+                  group-hover:opacity-100
+                "
+              />
+              {/* Text highlight */}
+              <span
+                className="
+                  text-neutral-600
+                  transition-colors duration-300 ease-out
+                  group-hover:text-black
+                "
+              >
+                {item.label}
+              </span>
+            </Link>
+          ))}
         </nav>
+
 
 
         <button
