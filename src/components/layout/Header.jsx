@@ -68,8 +68,22 @@ export default function Header() {
 
       </Container>
 
-      {open && (
-        <div className="md:hidden border-t bg-white">
+      <div
+        className={[
+          "md:hidden overflow-hidden border-t bg-white transition-all",
+          open
+            ? "max-h-96 opacity-100 duration-800 ease-out"
+            : "max-h-0 opacity-0 duration-350 ease-linear",
+        ].join(" ")}
+      >
+        <div
+          className={[
+            "transition-transform",
+            open
+              ? "translate-y-0 duration-400 ease-out"
+              : "-translate-y-1 duration-200 ease-in",
+          ].join(" ")}
+        >
           <Container className="py-4 flex flex-col gap-3">
             {nav.map((item) => (
               <a
@@ -83,7 +97,8 @@ export default function Header() {
             ))}
           </Container>
         </div>
-      )}
+      </div>
+
     </header>
   );
 }
