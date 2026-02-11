@@ -4,6 +4,13 @@ import { Libre_Baskerville } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Imperial_Script } from "next/font/google";
+import { Cormorant_Garamond } from "next/font/google";
+
+export const heroFont = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+});
+
 
 export const signatureFont = Imperial_Script({
   subsets: ["latin"],
