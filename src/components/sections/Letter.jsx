@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Container from "../layout/Container";
 import { libreBaskerville } from "@/app/layout";
+import { signatureFont } from "@/app/layout";
 
 
 export default function Letter({ data }) {
@@ -77,29 +78,39 @@ export default function Letter({ data }) {
             >
 
 
-              {data.blocks.map((block, idx) => (
-                <p
-                  key={idx}
-                  className={
-                    idx === 0
-                      ? "font-[var(--font-serif)] text-lg leading-8 text-neutral-800"
-                      : ""
-                  }
-                >
-                  {Array.isArray(block.text)
-                    ? block.text.map((seg, i) => (
-                        <span
-                          key={i}
-                          className={
-                            seg.bold ? "font-semibold text-neutral-900" : ""
-                          }
-                        >
-                          {seg.t}
-                        </span>
-                      ))
-                    : block.text}
-                </p>
-              ))}
+              {data.blocks.map((block, idx) => {
+                const isFirst = idx === 0;
+
+                return (
+                  <p
+                    key={idx}
+                    className={[
+                      isFirst
+                        ? "font-[var(--font-serif)] text-lg leading-8 text-neutral-800"
+                        : "",
+                      block.align === "right" ? "text-right" : "",
+                    ].join(" ")}
+                    style={{
+                      marginTop: block.spacingTop || undefined,
+                    }}
+                  >
+                    {Array.isArray(block.text)
+                      ? block.text.map((seg, i) => (
+                          <span
+                            key={i}
+                            className={[
+                              seg.bold ? "font-semibold text-neutral-900" : "",
+                              seg.italic ? `${signatureFont.className} text-[40px] tracking-wide` : "",
+                            ].join(" ")}
+                          >
+                            {seg.t}
+                          </span>
+                        ))
+                      : block.text}
+                  </p>
+                );
+                })}
+
             </div>
           </article>
         </Container>
