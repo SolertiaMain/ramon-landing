@@ -88,8 +88,18 @@ export const site = {
           { t: "Así como el primer día, todos los días decido renunciar a la tranquilidad de la quincena y los bonos directivos para abrirme paso en el mundo del emprendimiento. ", bold: false },
           { t: "Es una decisión consciente, me hace feliz y me tiene aquí compartiendo mi historia.", bold: true }
         ]
+      },
+
+
+      {
+        type: "p",
+        align: "right",
+        spacingTop: "5rem",
+        text: [
+          { t: "Ramón C. Martínez", italic: true }
+        ]
       }
-    ]
+    ]    
   },
   contact: {
     title: "Contáctame",
