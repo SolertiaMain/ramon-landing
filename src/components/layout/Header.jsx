@@ -5,19 +5,18 @@ import Container from "./Container";
 import Link from "next/link";
 import { site } from "@/content/site";
 
-
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState("");
+  const [shouldRenderSearch, setShouldRenderSearch] = useState(false);
 
   const centerRef = useRef(null);
   const searchBtnRef = useRef(null);
 
   const nav = site.nav;
   const cta = site.hero?.cta;
-
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -30,12 +29,28 @@ export default function Header() {
     if (!searchOpen) return;
 
     const onKeyDown = (e) => {
-      if (e.key === "Escape") setSearchOpen(false);
+      if (e.key === "Escape") closeSearch();
     };
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
 }, [searchOpen]);
+
+  useEffect(() => {
+    if (!searchOpen && shouldRenderSearch) {
+      const t = setTimeout(() => setShouldRenderSearch(false), 300);
+      return () => clearTimeout(t);
+    }
+  }, [searchOpen, shouldRenderSearch]);
+
+  const openSearch = () => {
+    setShouldRenderSearch(true);
+    requestAnimationFrame(() => setSearchOpen(true));
+  };
+
+  const closeSearch = () => {
+    setSearchOpen(false);
+  };
 
   return (
     <header
@@ -43,12 +58,10 @@ export default function Header() {
         scrolled ? "bg-[#f4efe8]/90 backdrop-blur" : "bg-[#f4efe8]"
       }`}
     >
-
       <Container className="flex h-16 items-center justify-between">
         <Link href="/#top" className="font-semibold tracking-tight">
           Ramón C. Martínez
         </Link>
-
 
         <div ref={centerRef} className="hidden md:flex flex-1 h-16 items-center justify-center relative">
           {/* NAV (visible when closed) */}
@@ -96,7 +109,7 @@ export default function Header() {
             aria-label="Buscar"
             aria-hidden={searchOpen}
             tabIndex={searchOpen ? -1 : 0}
-            onClick={() => setSearchOpen(true)}
+            onClick={openSearch}
             className={`
               absolute right-0 top-1/2 -translate-y-1/2
               h-9 w-9
@@ -120,8 +133,6 @@ export default function Header() {
 
         </div>
 
-        
-
         <button
           className="md:hidden rounded-md border px-3 py-2 text-sm"
           onClick={() => setOpen((v) => !v)}
@@ -129,8 +140,6 @@ export default function Header() {
         >
           Menú
         </button>
-
-
       </Container>
        
       <div
@@ -165,62 +174,59 @@ export default function Header() {
       </div>
 
       {/* PASTE THE OVERLAY SEARCH PANEL */}
-      <div
-        className={`
-          fixed inset-0 z-[999]
-          ${searchOpen ? "pointer-events-auto" : "pointer-events-none"}
-        `}
-      >
-        {/* Backdrop */}
+      {shouldRenderSearch && (
         <div
-          onClick={() => setSearchOpen(false)}
           className={`
-            absolute inset-0 bg-black/40
-            transition-opacity duration-300
-            ${searchOpen ? "opacity-100" : "opacity-0"}
-          `}
-        />
-
-        {/* Sliding panel */}
-        <div
-          onClick={(e) => e.stopPropagation()}
-          className={`
-            fixed right-0 top-0
-            w-full
-            h-[30.5vh]
-            bg-white
-            rounded-b-lg
-            shadow-xl
-            transform transition-transform duration-250 ease-out
-            ${searchOpen ? "translate-x-0" : "translate-x-full"}
+            fixed inset-0 z-[999]
+            ${searchOpen ? "pointer-events-auto" : "pointer-events-none"}
           `}
         >
-          <div className="h-full px-4 md:px-6">
-            <div className="h-16 relative flex items-center pr-24">
-              {/* left spacer (balances the right side) */}
-              <div className="w-[96px]" />
+          {/* Backdrop */}
+          <div
+            onClick={closeSearch}
+            className={`
+              absolute inset-0 bg-black/40
+              transition-opacity duration-300
+              ${searchOpen ? "opacity-100" : "opacity-0"}
+            `}
+          />
 
-              {/* centered search */}
-              <div className="flex-1 flex justify-center">
-                <div className="w-full max-w-[1058px]">
+          {/* Sliding panel */}
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className={`
+              fixed right-0 top-0 w-full
+              h-[32vh] min-h-[260px] max-h-[420px]
+              bg-white rounded-b-lg shadow-xl overflow-hidden
+              transition-transform duration-325 ease-out
+              ${searchOpen ? "translate-x-0" : "translate-x-full"}
+            `}
+          >
+            <div className="h-full px-4 md:px-6">
+              {/* Row: search + cancelar */}
+              <div className="relative h-16 flex items-center">
+                {/* Cancelar pinned right */}
+                <button
+                  type="button"
+                  onClick={closeSearch}
+                  className="absolute right-0 top-1/2 -translate-y-1/2 text-[15px] font-semibold hover:opacity-70 transition cursor-pointer"
+                >
+                  Cancelar
+                </button>
+
+                {/* Shared rail (search bar) — centered, but leaves room for Cancelar */}
+                <div className="mx-auto w-full max-w-[1058px] pr-28">
                   <form
                     onSubmit={(e) => {
                       e.preventDefault();
                       console.log("SEARCH:", query);
                     }}
-                    className="flex items-center h-10 rounded-full border bg-neutral-50 pl-0 pr-4"
+                    className="flex items-center h-11 rounded-full border bg-neutral-50 pr-3 w-full"
                   >
                     <button
                       type="button"
                       aria-label="Buscar"
-                      className="
-                        h-10 w-10
-                        flex items-center justify-center
-                        rounded-full
-                        cursor-pointer
-                        hover:bg-black/10
-                        transition-colors
-                      "
+                      className="h-11 w-11 flex items-center justify-center rounded-full hover:bg-black/10 transition-colors cursor-pointer"
                     >
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="opacity-80">
                         <path
@@ -238,64 +244,35 @@ export default function Header() {
                       onChange={(e) => setQuery(e.target.value)}
                       type="text"
                       placeholder="Buscar…"
-                      className="w-full bg-transparent text-sm outline-none pl-2"
+                      className="min-w-0 w-full bg-transparent text-sm outline-none pl-2"
                     />
                   </form>
                 </div>
               </div>
 
-              {/* right slot for Cancelar */}
-              <div className="w-[96px] flex justify-end pr-4">
-                <button
-                  type="button"
-                  onClick={() => setSearchOpen(false)}
-                  className="
-                    absolute right-5 top-1/2 -translate-y-1/2
-                    text-[15px] font-semibold
-                    hover:opacity-70 transition cursor-pointer
-                  "
-                >
-                  Cancelar
-                </button>
+              {/* Popular searches aligned to same rail */}
+              <div className="mx-auto w-full max-w-[1058px]">
+                <p className="text-xs font-semibold tracking-widest uppercase text-neutral-500 mb-3">
+                  Búsquedas populares
+                </p>
 
-              </div>
-            </div>
-
-
-            {/* Optional: popular searches */}
-            <div className="mt-7 pb-6">
-              <div className="w-full max-w-[1058px] mx-auto">
-                <div style={{ transform: "translateX(-48px)" }}>
-                  <p className="text-xs font-semibold tracking-widest uppercase text-neutral-500 mb-3">
-                    Búsquedas populares
-                  </p>
-
-                  <div className="flex flex-wrap gap-2">
-                    {["Certificaciones", "Talleres", "Podcast", "Blog"].map((t) => (
-                      <button
-                        key={t}
-                        className="px-4 py-2 rounded-full bg-neutral-100 hover:bg-neutral-200 text-sm font-semibold transition cursor-pointer"
-                      >
-                        {t}
-                      </button>
-                    ))}
-                  </div>
+                <div className="flex flex-wrap gap-2">
+                  {["Certificaciones", "Talleres", "Podcast", "Blog"].map((t) => (
+                    <button
+                      key={t}
+                      className="px-4 py-2 rounded-full bg-neutral-100 hover:bg-neutral-200 text-sm font-semibold transition cursor-pointer"
+                    >
+                      {t}
+                    </button>
+                  ))}
                 </div>
               </div>
             </div>
 
 
-
-
-
           </div>
-
         </div>
-
-      </div>
-      
+      )}
     </header>
-
-
   );
 }
