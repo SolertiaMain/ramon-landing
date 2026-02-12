@@ -31,7 +31,7 @@ export default function PodcastPage() {
       {/* HERO */}
       <section className="relative h-[52vh] min-h-[360px] w-full overflow-hidden">
         <img
-          src="/images/podcast.jpg"
+          src="/images/podcast_ramon.jpg"
           alt="Podcast"
           className="absolute inset-0 h-full w-full object-cover"
         />
