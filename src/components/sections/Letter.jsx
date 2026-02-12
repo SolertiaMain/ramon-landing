@@ -58,15 +58,26 @@ export default function Letter({ data }) {
             className={`
               w-full
               max-w-5xl
-              bg-white
+              bg-[#f8f5ef]
               p-12
-              border
-              border-neutral-300
+              border border-neutral-300
+              shadow-[0_10px_40px_rgba(0,0,0,0.08)]
               transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
               ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
             `}
-            style={{ transitionDelay: "220ms" }}
+            style={{
+              backgroundColor: "#f8f5ef",
+              backgroundImage: `
+                linear-gradient(to bottom, rgba(255,255,255,0.35), rgba(0,0,0,0.02)),
+                radial-gradient(rgba(0,0,0,0.015) 1px, transparent 1px),
+                radial-gradient(rgba(0,0,0,0.015) 1px, transparent 1px)
+              `,
+              backgroundSize: "6px 6px, 8px 8px",
+              backgroundPosition: "0 0, 3px 3px",
+              boxShadow: "0 15px 60px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.6)"
+            }}
           >
+
             <div
               className={`
                 ${libreBaskerville.className}
