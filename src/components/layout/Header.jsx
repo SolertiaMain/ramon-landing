@@ -4,6 +4,7 @@ import { useEffect, useState, useRef} from "react";
 import Container from "./Container";
 import Link from "next/link";
 import { site } from "@/content/site";
+import { createPortal } from "react-dom";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -27,14 +28,12 @@ export default function Header() {
 
   useEffect(() => {
     if (!searchOpen) return;
-
     const onKeyDown = (e) => {
       if (e.key === "Escape") closeSearch();
     };
-
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-}, [searchOpen]);
+  }, [searchOpen]);
 
   useEffect(() => {
     if (!searchOpen && shouldRenderSearch) {
@@ -42,6 +41,13 @@ export default function Header() {
       return () => clearTimeout(t);
     }
   }, [searchOpen, shouldRenderSearch]);
+
+  useEffect(() => {
+    document.body.style.overflow = searchOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [searchOpen]);
 
   const openSearch = () => {
     setShouldRenderSearch(true);
@@ -174,7 +180,8 @@ export default function Header() {
       </div>
 
       {/* PASTE THE OVERLAY SEARCH PANEL */}
-      {shouldRenderSearch && (
+      {shouldRenderSearch && 
+        createPortal(
         <div
           className={`
             fixed inset-0 z-[999]
@@ -271,8 +278,9 @@ export default function Header() {
 
 
           </div>
-        </div>
-      )}
+        </div>,
+        document.body
+        )}
     </header>
   );
 }
