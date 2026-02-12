@@ -275,13 +275,20 @@ export default function Header() {
                 </p>
 
                 <div className="flex flex-wrap gap-2">
-                  {["Certificaciones", "Talleres", "Podcast", "Blog"].map((t) => (
-                    <button
-                      key={t}
-                      className="px-4 py-2 rounded-full bg-neutral-100 hover:bg-neutral-200 text-sm font-semibold transition cursor-pointer"
+                  {[
+                    { label: "Certificaciones", href: "/certifications" },
+                    { label: "Talleres", href: "/talleres" },
+                    { label: "Podcast", href: "/podcast" },
+                    { label: "Blog", href: "/blog" },
+                  ].map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={closeSearch}
+                      className="px-4 py-2 rounded-full bg-neutral-100 hover:bg-neutral-200 text-sm font-semibold transition cursor-pointer inline-block"
                     >
-                      {t}
-                    </button>
+                      {item.label}
+                    </Link>
                   ))}
                 </div>
               </div>
