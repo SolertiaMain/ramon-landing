@@ -9,26 +9,26 @@ const CERTS = [
       "Consultoras y Consultores en Prácticas de Igualdad Laboral y No Discriminación",
     description:
       "Formación orientada a comprender e implementar prácticas clave de la Norma Mexicana NMX-R-025-SCFI-2015, fortaleciendo capacidades de acompañamiento y mejora en centros de trabajo.",
-    href: "/images/Consult_Igualdad.pdf",
+    href: "/files/Consult_Igualdad.pdf",
   },
   {
     title: "Consultoras y Consultores en Gestión basada en Resultados",
     description:
       "Enfoque para planear, dar seguimiento y evaluar programas y proyectos con orientación a resultados, monitoreo y evaluación, fortaleciendo la toma de decisiones y la rendición de cuentas.",
-    href: "/images/Consult_Gestion.pdf",
+    href: "/files/Consult_Gestion.pdf",
   },
   {
     title:
       "Gestión y Acreditación Corporativa de Prácticas de Igualdad Laboral y No Discriminación",
     description:
       "Acompañamiento para preparar y certificar al centro de trabajo en la Norma Mexicana NMX-R-025-SCFI-2015, con énfasis en requisitos, evidencia y procesos de auditoría.",
-    href: "/images/NoViolencia.pdf",
+    href: "/files/NoViolencia.pdf",
   },
   {
     title: "Certificación de Ombudsperson",
     description:
       "Certificación/curso especializado para fortalecer la atención imparcial de quejas y conflictos internos, promoviendo entornos laborales respetuosos y mecanismos institucionales de resolución.",
-    href: "/images/Ombudsperson.pdf",
+    href: "/files/Ombudsperson.pdf",
   },
 ];
 
