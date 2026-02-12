@@ -1,68 +1,118 @@
-# Ramon Landing Page
+# Ramon Landing
 
-Landing page profesional desarrollada con Next.js para mostrar los servicios, certificaciones, talleres, podcast y blog de Ramon.
+Landing page profesional desarrollada para presentar los servicios,
+certificaciones, talleres y contenido de Ramón Cuevas Martínez.\
+Proyecto desarrollado con **Next.js + Tailwind CSS** siguiendo una
+arquitectura modular y escalable.
 
+------------------------------------------------------------------------
 
-## 🚀 Tecnologías
+## Demo
 
-- **Next.js 16.1.6** - Framework React con App Router
-- **React 19.2.3** - Biblioteca de UI
-- **Tailwind CSS v4** - Framework de CSS utility-first
-- **ESLint** - Linter para mantener la calidad del código
+> [Demo](https://main.d1tuzymnbnwa77.amplifyapp.com)
 
-## 📋 Requisitos Previos
+------------------------------------------------------------------------
 
-- Node.js 18.17 o superior
-- npm, yarn, pnpm o bun
+## Descripción
 
-## 🛠️ Instalación
+Este proyecto es una landing page moderna, minimalista y totalmente
+responsiva. Su objetivo es:
 
-1. Clona el repositorio:
-git clone <url-del-repositorio>
-cd ramon-landing2. Instala las dependencias:
-npm install
-# o
-yarn install
-# o
-pnpm install## 🏃 Desarrollo
+-   Presentar servicios profesionales
+-   Mostrar certificaciones
+-   Publicar talleres y contenido relevante
+-   Generar contacto directo con potenciales clientes
+-   Mantener una imagen digital profesional y sólida
 
-Inicia el servidor de desarrollo:
+La estructura está pensada para facilitar futuras expansiones (blog,
+integraciones, automatizaciones, etc.).
 
-npm run dev
-# o
-yarn dev
-# o
-pnpm devAbre [http://localhost:3000](http://localhost:3000) en tu navegador para ver la aplicación.
+------------------------------------------------------------------------
 
-## 📦 Scripts Disponibles
+## Tecnologías Utilizadas
 
-- `npm run dev` - Inicia el servidor de desarrollo
-- `npm run build` - Construye la aplicación para producción
-- `npm run start` - Inicia el servidor de producción
-- `npm run lint` - Ejecuta ESLint para verificar el código
+-   **Next.js (App Router)**
+-   **React**
+-   **Tailwind CSS**
+-   **React Icons**
+-   **ESLint**
 
-## 📁 Estructura del Proyecto
-ramon-landing/
-├── src/
-│   ├── app/
-│   │   ├── globals.css      # Estilos globales con Tailwind CSS
-│   │   ├── layout.js        # Layout principal
-│   │   └── page.js          # Página principal
-│   ├── components/
-│   │   ├── layout/
-│   │   │   ├── Container.jsx
-│   │   │   ├── Footer.jsx
-│   │   │   └── Header.jsx
-│   │   └── sections/
-│   │       ├── Blog.jsx
-│   │       ├── Certifications.jsx
-│   │       ├── Contact.jsx
-│   │       ├── Hero.jsx
-│   │       ├── Letter.jsx
-│   │       ├── Podcast.jsx
-│   │       ├── Statement.jsx
-│   │       └── Workshops.jsx
-│   └── content/
-│       └── site.js          # Contenido y configuración del sitio
-├── public/                  # Archivos estáticos
-└── package.json
+------------------------------------------------------------------------
+
+## Estructura del Proyecto
+
+    ramon-landing/
+    ├── public/
+    ├── src/
+    │   ├── app/
+    │   │   ├── layout.js
+    │   │   ├── page.js
+    │   │   └── globals.css
+    │   ├── components/
+    │   │   ├── layout/
+    │   │   │   ├── Container.jsx
+    │   │   │   ├── Footer.jsx
+    │   │   │   └── SocialLinks.jsx
+    │   │   └── sections/
+    │   │       ├── Hero.jsx
+    │   │       ├── Letter.jsx
+    │   │       ├── Certifications.jsx
+    │   │       ├── Workshops.jsx
+    │   │       ├── Podcast.jsx
+    │   │       └── Contact.jsx
+    │   └── content/
+    │       └── site.js
+    ├── package.json
+    └── README.md
+
+------------------------------------------------------------------------
+
+## ⚙️ Instalación
+
+Clona el repositorio:
+
+    git clone https://github.com/SolertiaMain/ramon-landing.git
+    cd ramon-landing
+
+Instala dependencias:
+
+    npm install
+
+------------------------------------------------------------------------
+
+## Desarrollo
+
+Para correr el servidor en modo desarrollo:
+
+    npm run dev
+
+Abrir en:
+
+    http://localhost:3000
+
+------------------------------------------------------------------------
+
+## Build de Producción
+
+    npm run build
+    npm run start
+
+------------------------------------------------------------------------
+
+## Características Implementadas
+
+-   Diseño minimalista y profesional
+-   Transiciones suaves entre secciones
+-   Footer con animación (fade-in)
+-   Efectos hover en navegación
+-   Integración de íconos sociales
+-   Arquitectura modular por secciones
+-   Preparado para SEO y optimización
+
+------------------------------------------------------------------------
+
+## Autor
+
+Desarrollado por Solertia Group\
+Proyecto para Ramón Cuevas Martínez
+
