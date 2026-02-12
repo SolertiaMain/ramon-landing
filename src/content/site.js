@@ -11,8 +11,8 @@ export const site = {
     cta: { label: "Contacto", href: "#contacto" },
   },
   statement: {
-    text: "Statement en construcción.",
-    author: "— Ramón Cuevas Martínez",
+    text: "Una persona sólo puede mirar a otra persona hacia abajo, cuando es para ayudarle a levantarse.",
+    author: "— Ramón C. Martínez",
   },
   letter: {
     title: "Sobre mí",
