@@ -31,7 +31,7 @@ export default function TalleresPage() {
       {/* HERO */}
       <section className="relative h-[52vh] min-h-[360px] w-full overflow-hidden">
         <img
-          src="/images/talleres.jpg"
+          src="/images/talleres_ramon.jpg"
           alt="Talleres"
           className="absolute inset-0 h-full w-full object-cover"
         />

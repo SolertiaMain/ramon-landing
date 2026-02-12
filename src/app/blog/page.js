@@ -31,7 +31,7 @@ export default function BlogPage() {
       {/* HERO */}
       <section className="relative h-[52vh] min-h-[360px] w-full overflow-hidden">
         <img
-          src="/images/blog.jpg"
+          src="/images/blog_ramon.jpg"
           alt="Blog"
           className="absolute inset-0 h-full w-full object-cover"
         />
