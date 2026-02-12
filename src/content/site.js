@@ -101,9 +101,5 @@ export const site = {
       }
     ]    
   },
-  contact: {
-    title: "Contáctame",
-    subtitle: "Cuéntame qué necesitas y te respondo lo antes posible.",
-    button: { label: "Contactar", href: "#"},
-  },
+
 };
