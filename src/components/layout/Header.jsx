@@ -37,7 +37,7 @@ export default function Header() {
 
   useEffect(() => {
     if (!searchOpen && shouldRenderSearch) {
-      const t = setTimeout(() => setShouldRenderSearch(false), 300);
+      const t = setTimeout(() => setShouldRenderSearch(false), 325);
       return () => clearTimeout(t);
     }
   }, [searchOpen, shouldRenderSearch]);
@@ -212,49 +212,60 @@ export default function Header() {
             <div className="h-full px-4 md:px-6">
               {/* Row: search + cancelar */}
               <div className="relative h-16 flex items-center">
-                {/* Cancelar pinned right */}
-                <button
-                  type="button"
-                  onClick={closeSearch}
-                  className="absolute right-0 top-1/2 -translate-y-1/2 text-[15px] font-semibold hover:opacity-70 transition cursor-pointer"
-                >
-                  Cancelar
-                </button>
+                {/* Shared rail (search bar) — centered */}
+                <div className="mx-auto w-full max-w-[1058px]">
+                  <div className="flex items-center gap-3">
+                    <form
+                      onSubmit={(e) => {
+                        e.preventDefault();
+                        console.log("SEARCH:", query);
+                      }}
+                      className="flex items-center h-11 rounded-full border bg-neutral-50 pr-3 w-full"
+                    >
+                      <button
+                        type="button"
+                        aria-label="Buscar"
+                        className="h-11 w-11 flex items-center justify-center rounded-full hover:bg-black/10 transition-colors cursor-pointer"
+                      >
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="opacity-80">
+                          <path
+                            d="M21 21l-4.3-4.3m1.8-5.2a7 7 0 11-14 0 7 7 0 0114 0z"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                          />
+                        </svg>
+                      </button>
 
-                {/* Shared rail (search bar) — centered, but leaves room for Cancelar */}
-                <div className="mx-auto w-full max-w-[1058px] pr-28">
-                  <form
-                    onSubmit={(e) => {
-                      e.preventDefault();
-                      console.log("SEARCH:", query);
-                    }}
-                    className="flex items-center h-11 rounded-full border bg-neutral-50 pr-3 w-full"
-                  >
+                      <input
+                        autoFocus={searchOpen}
+                        value={query}
+                        onChange={(e) => setQuery(e.target.value)}
+                        type="text"
+                        placeholder="Buscar…"
+                        className="min-w-0 w-full bg-transparent text-sm outline-none pl-2"
+                      />
+                    </form>
+
+                    {/* X next to the search bar */}
                     <button
                       type="button"
-                      aria-label="Buscar"
-                      className="h-11 w-11 flex items-center justify-center rounded-full hover:bg-black/10 transition-colors cursor-pointer"
+                      onClick={closeSearch}
+                      aria-label="Cerrar búsqueda"
+                      className="h-10 w-10 flex items-center justify-center rounded-full hover:bg-black/10 transition-colors cursor-pointer shrink-0"
                     >
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="opacity-80">
                         <path
-                          d="M21 21l-4.3-4.3m1.8-5.2a7 7 0 11-14 0 7 7 0 0114 0z"
+                          d="M6 6l12 12M18 6L6 18"
                           stroke="currentColor"
                           strokeWidth="2"
                           strokeLinecap="round"
                         />
                       </svg>
                     </button>
-
-                    <input
-                      autoFocus={searchOpen}
-                      value={query}
-                      onChange={(e) => setQuery(e.target.value)}
-                      type="text"
-                      placeholder="Buscar…"
-                      className="min-w-0 w-full bg-transparent text-sm outline-none pl-2"
-                    />
-                  </form>
+                  </div>
                 </div>
+
               </div>
 
               {/* Popular searches aligned to same rail */}
