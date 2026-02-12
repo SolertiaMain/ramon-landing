@@ -45,8 +45,9 @@ export default function PodcastPage() {
             <p className="mt-4 text-white/85">
               <strong className="text-white">Escucha nuestro podcast.</strong>
               <br />
-              Explora conversaciones sobre liderazgo, estrategia y desarrollo
-              profesional a través de ideas prácticas y perspectivas actuales.
+              Bienvenidas y bienvenidos a mi podcast, donde en cada episodio reflexiono sobre diferentes 
+              temas que afectan nuestro desempeño laboral 
+              o condicionan nuestra vida personal y familiar.
             </p>
           </div>
         </div>
