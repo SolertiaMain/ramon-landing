@@ -64,31 +64,41 @@ export default function Hero({ data }) {
           <h1
             className={[
               heroFont.className,
-              "text-2xl sm:text-3xl font-normal tracking-[0.25em] text-white/70",
+              "font-normal tracking-[0.25em] text-white/70",
+              "leading-none",
+              "whitespace-nowrap",
+              "max-w-[92vw] px-4 overflow-hidden text-ellipsis",
               "transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]",
               mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6",
             ].join(" ")}
-            style={{ transitionDelay: "120ms" }}
+            style={{
+              transitionDelay: "120ms",
+              fontSize: "clamp(1rem, 3.6vw, 1.9rem)",
+            }}
           >
             - Ramón Cuevas Martínez -
           </h1>
+
 
           <div
             className={[
               heroFont.className,
               "mt-8 sm:mt-10",
-              "text-white uppercase font-semibold",
-              "tracking-tight whitespace-nowrap",
+              "text-white uppercase font-semibold tracking-tight",
+              "leading-none",
+              "whitespace-nowrap",
+              "max-w-[92vw] px-4 overflow-hidden text-ellipsis",
               "transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]",
               mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6",
             ].join(" ")}
             style={{
               transitionDelay: "300ms",
-              fontSize: "clamp(2.8rem, 6vw, 6.5rem)",
+              fontSize: "clamp(1.8rem, 8.2vw, 6.5rem)",
             }}
           >
             IMPULSO COMPLETO
           </div>
+
 
           <div
             className={[
