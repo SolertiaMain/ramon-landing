@@ -9,26 +9,26 @@ const CERTS = [
       "Consultoras y Consultores en Prácticas de Igualdad Laboral y No Discriminación",
     description:
       "Formación orientada a comprender e implementar prácticas clave de la Norma Mexicana NMX-R-025-SCFI-2015, fortaleciendo capacidades de acompañamiento y mejora en centros de trabajo.",
-    href: "https://maxan.com.mx/servicios/cursos/induccion-a-la-norma-mexicana-nmx-r-025-scfi-2015-en-igualdad-laboral-y-no-discriminacion",
+    href: "/images/Consult_Igualdad.pdf",
   },
   {
     title: "Consultoras y Consultores en Gestión basada en Resultados",
     description:
       "Enfoque para planear, dar seguimiento y evaluar programas y proyectos con orientación a resultados, monitoreo y evaluación, fortaleciendo la toma de decisiones y la rendición de cuentas.",
-    href: "https://gobernova.com.mx/servicios/estandar-competencia/informacion-general",
+    href: "/images/Consult_Gestion.pdf",
   },
   {
     title:
       "Gestión y Acreditación Corporativa de Prácticas de Igualdad Laboral y No Discriminación",
     description:
       "Acompañamiento para preparar y certificar al centro de trabajo en la Norma Mexicana NMX-R-025-SCFI-2015, con énfasis en requisitos, evidencia y procesos de auditoría.",
-    href: "https://gobernova.com.mx/servicios/perspectiva-genero/capacitacion/asesoria-certificacion-norma-mexicana-nmx-r-025-scfi-2015",
+    href: "/images/NoViolencia.pdf",
   },
   {
     title: "Certificación de Ombudsperson",
     description:
       "Certificación/curso especializado para fortalecer la atención imparcial de quejas y conflictos internos, promoviendo entornos laborales respetuosos y mecanismos institucionales de resolución.",
-    href: "https://strapi.grupointegra.dev/uploads/CURSOS_MAXAN_2025_33f6945735.pdf",
+    href: "/images/Ombudsperson.pdf",
   },
 ];
 
