@@ -20,11 +20,23 @@ const PODCAST_ITEMS = [
 
 export default function PodcastPage() {
   const [mounted, setMounted] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     const t = setTimeout(() => setMounted(true), 60);
     return () => clearTimeout(t);
   }, []);
+
+  useEffect(() => {
+    const onScroll = () => setScrollY(window.scrollY || 0);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const imgOffset = Math.min(scrollY * 0.18, 95);
+  const gradOffset = Math.min(scrollY * 0.3, 140);
+  const darkAlpha = Math.min(0.65, 0.35 + scrollY / 1400);
 
   return (
     <main className="min-h-screen bg-stone-200">
@@ -33,21 +45,59 @@ export default function PodcastPage() {
         <img
           src="/images/podcast_ramon.jpg"
           alt="Podcast"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover will-change-transform"
+          style={{
+            transform: `translateY(${imgOffset}px) ${
+              mounted ? "scale(1.05)" : "scale(1)"
+            }`,
+            transition: "transform 1600ms cubic-bezier(0.22,1,0.36,1)",
+          }}
         />
-        <div className="absolute inset-0 bg-black/65" />
 
-        <div className="relative mx-auto max-w-7xl px-6 h-full flex items-end pb-14">
+        <div
+          className="absolute inset-0"
+          style={{ backgroundColor: `rgba(0,0,0,${darkAlpha})` }}
+        />
+
+        <div
+          className="absolute inset-0 will-change-transform"
+          style={{
+            transform: `translateY(${gradOffset}px)`,
+            background:
+              "linear-gradient(to top, rgba(0,0,0,0.78), rgba(0,0,0,0.25), rgba(0,0,0,0.00))",
+          }}
+        />
+
+        <div className="relative z-10 mx-auto flex h-full max-w-7xl items-end px-6 pb-14">
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-6xl font-semibold text-white">
+            <h1
+              className={[
+                "text-4xl md:text-6xl font-semibold tracking-tight text-white",
+                "transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                mounted
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-6",
+              ].join(" ")}
+              style={{ transitionDelay: "140ms" }}
+            >
               Podcast
             </h1>
-            <p className="mt-4 text-white/85">
+
+            <p
+              className={[
+                "mt-4 text-white/85 max-w-2xl",
+                "transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                mounted
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-6",
+              ].join(" ")}
+              style={{ transitionDelay: "320ms" }}
+            >
               <strong className="text-white">Escucha nuestro podcast.</strong>
               <br />
-              Bienvenidas y bienvenidos a mi podcast, donde en cada episodio reflexiono sobre diferentes 
-              temas que afectan nuestro desempeño laboral 
-              o condicionan nuestra vida personal y familiar.
+              Bienvenidas y bienvenidos a mi podcast, donde en cada episodio
+              reflexiono sobre diferentes temas que afectan nuestro desempeño
+              laboral o condicionan nuestra vida personal y familiar.
             </p>
           </div>
         </div>
@@ -63,9 +113,7 @@ export default function PodcastPage() {
                 "bg-white rounded-2xl shadow-sm border border-black/5",
                 "p-6 flex flex-col min-h-[240px]",
                 "transition-all duration-700 ease-out",
-                mounted
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-3",
+                mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3",
               ].join(" ")}
               style={{ transitionDelay: `${idx * 80}ms` }}
             >
