@@ -20,11 +20,24 @@ const TALLERES_ITEMS = [
 
 export default function TalleresPage() {
   const [mounted, setMounted] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     const t = setTimeout(() => setMounted(true), 60);
     return () => clearTimeout(t);
   }, []);
+
+  useEffect(() => {
+    const onScroll = () => setScrollY(window.scrollY || 0);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // MISMO sistema que Certificaciones
+  const imgOffset = Math.min(scrollY * 0.18, 95);
+  const gradOffset = Math.min(scrollY * 0.30, 140);
+  const darkAlpha = Math.min(0.60, 0.33 + scrollY / 1400);
 
   return (
     <main className="min-h-screen bg-stone-200">
@@ -33,17 +46,61 @@ export default function TalleresPage() {
         <img
           src="/images/talleres_ramon.jpg"
           alt="Talleres"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover will-change-transform"
+          style={{
+            transform: `translateY(${imgOffset}px) ${
+              mounted ? "scale(1.05)" : "scale(1)"
+            }`,
+            transition:
+              "transform 1600ms cubic-bezier(0.22,1,0.36,1)",
+          }}
         />
-        <div className="absolute inset-0 bg-black/55" />
 
-        <div className="relative mx-auto max-w-7xl px-6 h-full flex items-end pb-14">
+        {/* Overlay dinámico */}
+        <div
+          className="absolute inset-0"
+          style={{ backgroundColor: `rgba(0,0,0,${darkAlpha})` }}
+        />
+
+        {/* Gradiente dinámico */}
+        <div
+          className="absolute inset-0 will-change-transform"
+          style={{
+            transform: `translateY(${gradOffset}px)`,
+            background:
+              "linear-gradient(to top, rgba(0,0,0,0.72), rgba(0,0,0,0.22), rgba(0,0,0,0.00))",
+          }}
+        />
+
+        {/* Texto con animación */}
+        <div className="relative z-10 mx-auto flex h-full max-w-7xl items-end px-6 pb-14">
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-6xl font-semibold text-white">
+            <h1
+              className={[
+                "text-4xl md:text-6xl font-semibold tracking-tight text-white",
+                "transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                mounted
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-6",
+              ].join(" ")}
+              style={{ transitionDelay: "140ms" }}
+            >
               Talleres
             </h1>
-            <p className="mt-4 text-white/85">
-              <strong className="text-white">Descubre nuestros talleres.</strong>
+
+            <p
+              className={[
+                "mt-4 text-white/85 max-w-2xl",
+                "transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                mounted
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-6",
+              ].join(" ")}
+              style={{ transitionDelay: "320ms" }}
+            >
+              <strong className="text-white">
+                Descubre nuestros talleres.
+              </strong>
               <br />
               Participa en experiencias formativas diseñadas para desarrollar
               habilidades estratégicas y generar impacto real en equipos y
@@ -72,6 +129,7 @@ export default function TalleresPage() {
               <h2 className="text-lg font-semibold text-neutral-900">
                 {item.title}
               </h2>
+
               <p className="mt-3 text-sm text-neutral-700 leading-relaxed">
                 {item.description}
               </p>

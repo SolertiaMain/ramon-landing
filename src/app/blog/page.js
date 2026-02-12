@@ -20,11 +20,24 @@ const BLOG_ITEMS = [
 
 export default function BlogPage() {
   const [mounted, setMounted] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     const t = setTimeout(() => setMounted(true), 60);
     return () => clearTimeout(t);
   }, []);
+
+  useEffect(() => {
+    const onScroll = () => setScrollY(window.scrollY || 0);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Parallax + gradiente dinámico (igual que Certificaciones)
+  const imgOffset = Math.min(scrollY * 0.18, 95);
+  const gradOffset = Math.min(scrollY * 0.3, 140);
+  const darkAlpha = Math.min(0.6, 0.33 + scrollY / 1400);
 
   return (
     <main className="min-h-screen bg-stone-200">
@@ -33,16 +46,57 @@ export default function BlogPage() {
         <img
           src="/images/blog_ramon.jpg"
           alt="Blog"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover will-change-transform"
+          style={{
+            transform: `translateY(${imgOffset}px) ${
+              mounted ? "scale(1.05)" : "scale(1)"
+            }`,
+            transition: "transform 1600ms cubic-bezier(0.22,1,0.36,1)",
+          }}
         />
-        <div className="absolute inset-0 bg-black/50" />
 
-        <div className="relative mx-auto max-w-7xl px-6 h-full flex items-end pb-14">
+        {/* Overlay oscuro dinámico */}
+        <div
+          className="absolute inset-0"
+          style={{ backgroundColor: `rgba(0,0,0,${darkAlpha})` }}
+        />
+
+        {/* Gradiente dinámico */}
+        <div
+          className="absolute inset-0 will-change-transform"
+          style={{
+            transform: `translateY(${gradOffset}px)`,
+            background:
+              "linear-gradient(to top, rgba(0,0,0,0.72), rgba(0,0,0,0.22), rgba(0,0,0,0.00))",
+          }}
+        />
+
+        {/* Texto (con delay por elemento) */}
+        <div className="relative z-10 mx-auto flex h-full max-w-7xl items-end px-6 pb-14">
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-6xl font-semibold text-white">
+            <h1
+              className={[
+                "text-4xl md:text-6xl font-semibold tracking-tight text-white",
+                "transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                mounted
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-6",
+              ].join(" ")}
+              style={{ transitionDelay: "140ms" }}
+            >
               Blog
             </h1>
-            <p className="mt-4 text-white/85">
+
+            <p
+              className={[
+                "mt-4 text-white/85 max-w-2xl",
+                "transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                mounted
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-6",
+              ].join(" ")}
+              style={{ transitionDelay: "320ms" }}
+            >
               <strong className="text-white">Explora nuestro blog.</strong>
               <br />
               Encuentra análisis, herramientas y reflexiones orientadas al
@@ -62,9 +116,7 @@ export default function BlogPage() {
                 "bg-white rounded-2xl shadow-sm border border-black/5",
                 "p-6 flex flex-col min-h-[240px]",
                 "transition-all duration-700 ease-out",
-                mounted
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-3",
+                mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3",
               ].join(" ")}
               style={{ transitionDelay: `${idx * 80}ms` }}
             >
