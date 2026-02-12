@@ -12,6 +12,9 @@ export default function Header() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [shouldRenderSearch, setShouldRenderSearch] = useState(false);
+  const [results, setResults] = useState([]);
+  const [activeIndex, setActiveIndex] = useState(-1);
+
 
   const centerRef = useRef(null);
   const searchBtnRef = useRef(null);
@@ -48,6 +51,53 @@ export default function Header() {
       document.body.style.overflow = "";
     };
   }, [searchOpen]);
+
+  useEffect(() => {
+    if (!searchOpen) return;
+
+    const t = setTimeout(() => {
+      runSearch(query);
+    }, 180);
+
+    return () => clearTimeout(t);
+  }, [query, searchOpen]);
+
+
+  const SEARCH_INDEX = [
+    { title: "Certificaciones", href: "/certifications", type: "Página" },
+    { title: "Talleres", href: "/talleres", type: "Página" },
+    { title: "Podcast", href: "/podcast", type: "Página" },
+    { title: "Blog", href: "/blog", type: "Página" },
+
+    // examples (delete if you want)
+    { title: "Certificación Scrum Master", href: "/certifications/scrum-master", type: "Certificación" },
+    { title: "Taller de Liderazgo", href: "/talleres/liderazgo", type: "Taller" },
+  ];
+
+  const normalize = (s) =>
+    (s ?? "")
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .trim();
+
+  const runSearch = async (rawQ) => {
+    const q = normalize(rawQ);
+
+    if (!q) {
+      setResults([]);
+      setActiveIndex(-1);
+      return;
+    }
+
+    const filtered = SEARCH_INDEX
+      .filter((item) => normalize(item.title).includes(q))
+      .slice(0, 8);
+
+    setResults(filtered);
+    setActiveIndex(filtered.length ? 0 : -1);
+  };
+
 
   const openSearch = () => {
     setShouldRenderSearch(true);
@@ -136,7 +186,6 @@ export default function Header() {
               />
             </svg>
           </button>
-
         </div>
 
         <button
@@ -216,14 +265,14 @@ export default function Header() {
                 <div className="mx-auto w-full max-w-[1058px]">
                   <div className="flex items-center gap-3">
                     <form
-                      onSubmit={(e) => {
-                        e.preventDefault();
-                        console.log("SEARCH:", query);
-                      }}
+                        onSubmit={(e) => {
+                          e.preventDefault();
+                          runSearch(query);
+                        }}
                       className="flex items-center h-11 rounded-full border bg-neutral-50 pr-3 w-full"
                     >
                       <button
-                        type="button"
+                        type="submit"
                         aria-label="Buscar"
                         className="h-11 w-11 flex items-center justify-center rounded-full hover:bg-black/10 transition-colors cursor-pointer"
                       >
@@ -265,7 +314,6 @@ export default function Header() {
                     </button>
                   </div>
                 </div>
-
               </div>
 
               {/* Popular searches aligned to same rail */}
@@ -292,9 +340,52 @@ export default function Header() {
                   ))}
                 </div>
               </div>
+
+              {/* Results / suggestions */}
+              {query.trim().length > 0 && (
+                <div className="mx-auto w-full max-w-[1058px] mt-5">
+                  <p className="text-xs font-semibold tracking-widest uppercase text-neutral-500 mb-3">
+                    Resultados
+                  </p>
+
+                  {results.length === 0 ? (
+                    <div className="text-sm text-neutral-500">
+                      No encontramos resultados para{" "}
+                      <span className="font-semibold">“{query}”</span>.
+                    </div>
+                  ) : (
+                    <div className="flex flex-wrap gap-2">
+                      {results.map((r) => (
+                        <Link
+                          key={r.href}
+                          href={r.href}
+                          onClick={closeSearch}
+                          className="
+                            group
+                            rounded-lg border bg-white
+                            px-3 py-2
+                            text-sm
+                            hover:bg-neutral-50 hover:border-neutral-300
+                            transition
+                          "
+                        >
+                          <div className="flex items-center gap-2">
+                            <span className="font-medium text-neutral-800">{r.title}</span>
+                            <span className="text-[10px] uppercase tracking-wider text-neutral-400">
+                              {r.type}
+                            </span>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
+
+
+
+
             </div>
-
-
           </div>
         </div>,
         document.body
