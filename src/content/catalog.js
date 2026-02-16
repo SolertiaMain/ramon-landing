@@ -1,8 +1,11 @@
 // src/content/catalog.js
 
 export const BLOG_ITEMS = [
-    { id: "articulo-1", title: "Artículo 1", href: "/blog#articulo-1" },
-    { id: "articulo-2", title: "Artículo 2", href: "/blog#articulo-2" },
+    { 
+        id: "Reforma a la Ley Federal del Trabajo",
+        title: "Reforma a la Ley Federal del Trabajo",
+        subtitle: "Prevencion y eliminación de la violencia laboral hacia las mujeres",
+        href: "/files/blogs/reformaLFT.pdf" },
 ];
 
 export const PODCAST_ITEMS = [
@@ -20,24 +23,24 @@ export const CERTS = [
         id: "igualdad-consultoria",
         title: "Igualdad laboral (Consultoría)",
         subtitle: "Consultoras y Consultores en Prácticas de Igualdad Laboral y No Discriminación",
-        href: "/files/CERTIFICACIÓNDECONSULTORASYCONSULTORESENPRÁCTICASDEIGUALDADLABORALYNODISCRIMINACIÓN.pdf",
+        href: "/files/certificaciones/CERTIFICACIÓNDECONSULTORASYCONSULTORESENPRÁCTICASDEIGUALDADLABORALYNODISCRIMINACIÓN.pdf",
     },
     {
         id: "gbr",
         title: "Gestión por resultados",
         subtitle: "Consultoras y Consultores en Gestión basada en Resultados",
-        href: "/files/CERTIFICACIÓNDECONSULTORASYCONSULTORESENGESTIÓNYPRESUPUESTACIÓNBASADAENRESULTADOS.pdf",
+        href: "/files/certificaciones/CERTIFICACIÓNDECONSULTORASYCONSULTORESENGESTIÓNYPRESUPUESTACIÓNBASADAENRESULTADOS.pdf",
     },
     {
         id: "igualdad-acreditacion",
         title: "Igualdad laboral (Acreditación)",
         subtitle: "Gestión y Acreditación Corporativa de Prácticas de Igualdad Laboral y No Discriminación",
-        href: "/files/CERTIFICACIÓNDEPERSONASQUEREALIZANLAIMPLEMENTACIÓNYEVALUACIÓNCORPORATIVADEPRÁCTICASDEIGUALDADLABORALYNODISCRIMINACIÓN.pdf",
+        href: "/files/certificaciones/CERTIFICACIÓNDEPERSONASQUEREALIZANLAIMPLEMENTACIÓNYEVALUACIÓNCORPORATIVADEPRÁCTICASDEIGUALDADLABORALYNODISCRIMINACIÓN.pdf",
     },
     {
         id: "ombudsperson",
         title: "Ombudsperson",
         subtitle: "Certificación de Ombudsperson",
-        href: "/files/CERTIFICACIÓNPARAPERSONASOMBUDSPERSON.pdf",
+        href: "/files/certificaciones/CERTIFICACIÓNPARAPERSONASOMBUDSPERSON.pdf",
     },
 ];
