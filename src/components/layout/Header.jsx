@@ -14,7 +14,7 @@ export default function Header() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [shouldRenderSearch, setShouldRenderSearch] = useState(false);
 
-  // search engine (logic lives in the hook now)
+  // search engine 
   const { query, setQuery, results, runSearch, reset } = useHeaderSearch(searchOpen);
 
   const centerRef = useRef(null);
