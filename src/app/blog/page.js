@@ -37,17 +37,20 @@ export default function BlogPage() {
     <main className="min-h-screen bg-stone-200">
       {/* HERO */}
       <section className="relative h-[52vh] min-h-[360px] w-full overflow-hidden">
+      
         <img
-          src="/images/blog_ramon.jpg"
-          alt="Blog"
-          className="absolute inset-0 h-full w-full object-cover will-change-transform"
-          style={{
-            transform: `translateY(${imgOffset}px) ${
-              mounted ? "scale(1.05)" : "scale(1)"
-            }`,
-            transition: "transform 1600ms cubic-bezier(0.22,1,0.36,1)",
-          }}
-        />
+        src="/images/blog_ramon.jpg"
+        alt="Blog"
+        className="absolute inset-0 h-full w-full object-cover will-change-transform"
+        style={{
+          objectPosition: "center 20%",
+          transform: `translateY(${imgOffset}px) ${
+            mounted ? "scale(1.05)" : "scale(1)"
+          }`,
+          transition: "transform 1600ms cubic-bezier(0.22,1,0.36,1)",
+        }}
+      />
+
 
         {/* Overlay oscuro dinámico */}
         <div
