@@ -5,16 +5,10 @@ import { useEffect, useState } from "react";
 
 const BLOG_ITEMS = [
   {
-    title: "Artículo 1",
+    title: "¿En qué consiste la reforma a la Ley Federal del Trabajo para sistematizar la prevención y eliminación de la violencia laboral hacia las mujeres?",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    href: "#",
-  },
-  {
-    title: "Artículo 2",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    href: "#",
+      "La reforma a la LFT publicada el 15 de enero de 2026 establece la necesidad de contar con entornos laborales libres de violencia y sin discriminación.",
+    href: "/files/blogs/REFORMALFTPREVENCIONYELIMINACIONDELAVIOLENCIALABORALHACIALASMUJERES.pdf",
   },
 ];
 
