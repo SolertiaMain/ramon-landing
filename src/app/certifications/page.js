@@ -59,13 +59,15 @@ export default function CertificacionesPage() {
       <section className="relative h-[52vh] min-h-[380px] w-full overflow-hidden">
         {/* Imagen: parallax + zoom */}
         <img
-          src="/images/certificaciones.jpg" 
+          src="/images/certificaciones_ramon.jpg" 
           alt="Certificaciones"
           className="absolute inset-0 h-full w-full object-cover will-change-transform"
           style={{
-            transform: `translateY(${imgOffset}px) ${mounted ? "scale(1.05)" : "scale(1)"}`,
-            transition:
-              "transform 1600ms cubic-bezier(0.22,1,0.36,1)",
+            objectPosition: "center 40%", 
+            transform: `translateY(${imgOffset}px) ${
+              mounted ? "scale(1.05)" : "scale(1)"
+            }`,
+            transition: "transform 1600ms cubic-bezier(0.22,1,0.36,1)",
           }}
         />
 

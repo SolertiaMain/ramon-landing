@@ -48,7 +48,7 @@ export default function PodcastPage() {
           className="absolute inset-0 h-full w-full object-cover will-change-transform"
           style={{
             transform: `translateY(${imgOffset}px) ${
-              mounted ? "scale(1.05)" : "scale(1)"
+              mounted ? "scale(1.00)" : "scale(1)"
             }`,
             transition: "transform 1600ms cubic-bezier(0.22,1,0.36,1)",
           }}

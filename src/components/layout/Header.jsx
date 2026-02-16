@@ -71,7 +71,7 @@ export default function Header() {
     >
       <Container className="flex h-16 items-center justify-between">
         <Link href="/#top" className="font-semibold tracking-tight">
-          Ramón C. Martínez
+          Impulso Completo
         </Link>
 
         <div
