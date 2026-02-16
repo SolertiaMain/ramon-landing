@@ -34,7 +34,7 @@ export default function BlogPage() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Parallax + gradiente dinámico (igual que Certificaciones)
+  // Parallax + gradiente dinámico 
   const imgOffset = Math.min(scrollY * 0.18, 95);
   const gradOffset = Math.min(scrollY * 0.3, 140);
   const darkAlpha = Math.min(0.6, 0.33 + scrollY / 1400);

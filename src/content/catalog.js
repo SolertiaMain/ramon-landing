@@ -20,24 +20,24 @@ export const CERTS = [
         id: "igualdad-consultoria",
         title: "Igualdad laboral (Consultoría)",
         subtitle: "Consultoras y Consultores en Prácticas de Igualdad Laboral y No Discriminación",
-        href: "/files/Consult_Igualdad.pdf",
+        href: "/files/CERTIFICACIÓNDECONSULTORASYCONSULTORESENPRÁCTICASDEIGUALDADLABORALYNODISCRIMINACIÓN.pdf",
     },
     {
         id: "gbr",
         title: "Gestión por resultados",
         subtitle: "Consultoras y Consultores en Gestión basada en Resultados",
-        href: "/files/Consult_Gestion.pdf",
+        href: "/files/CERTIFICACIÓNDECONSULTORASYCONSULTORESENGESTIÓNYPRESUPUESTACIÓNBASADAENRESULTADOS.pdf",
     },
     {
         id: "igualdad-acreditacion",
         title: "Igualdad laboral (Acreditación)",
         subtitle: "Gestión y Acreditación Corporativa de Prácticas de Igualdad Laboral y No Discriminación",
-        href: "/files/NoViolencia.pdf",
+        href: "/files/CERTIFICACIÓNDEPERSONASQUEREALIZANLAIMPLEMENTACIÓNYEVALUACIÓNCORPORATIVADEPRÁCTICASDEIGUALDADLABORALYNODISCRIMINACIÓN.pdf",
     },
     {
         id: "ombudsperson",
         title: "Ombudsperson",
         subtitle: "Certificación de Ombudsperson",
-        href: "/files/Ombudsperson.pdf",
+        href: "/files/CERTIFICACIÓNPARAPERSONASOMBUDSPERSON.pdf",
     },
 ];

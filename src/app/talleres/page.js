@@ -34,7 +34,7 @@ export default function TalleresPage() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // MISMO sistema que Certificaciones
+ 
   const imgOffset = Math.min(scrollY * 0.18, 95);
   const gradOffset = Math.min(scrollY * 0.30, 140);
   const darkAlpha = Math.min(0.60, 0.33 + scrollY / 1400);
