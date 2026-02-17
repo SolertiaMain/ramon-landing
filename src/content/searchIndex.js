@@ -1,3 +1,14 @@
+/**
+ * SEARCH_INDEX
+ *
+ * Central searchable dataset.
+ *
+ * Combines navigation items and content catalog
+ * into a unified structure consumed by useHeaderSearch.
+ *
+ * Pure data layer.
+ */
+
 import { site } from "@/content/site";
 import { BLOG_ITEMS, PODCAST_ITEMS, TALLERES_ITEMS, CERTS } from "@/content/catalog";
 

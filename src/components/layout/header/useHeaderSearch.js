@@ -1,3 +1,18 @@
+/**
+ * useHeaderSearch
+ *
+ * Search logic hook.
+ *
+ * Responsibilities:
+ * - Manages search query state
+ * - Filters SEARCH_INDEX
+ * - Normalizes input for matching
+ * - Debounces live suggestions
+ * - Provides runSearch and reset methods
+ *
+ * Pure logic layer (no UI rendering).
+ */
+
 "use client";
 
 import { useEffect, useMemo, useState } from "react";

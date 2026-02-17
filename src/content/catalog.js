@@ -1,4 +1,14 @@
-// src/content/catalog.js
+/**
+ * Content Catalog
+ *
+ * Central source of truth for site content metadata:
+ * - Blog posts
+ * - Podcast episodes
+ * - Talleres
+ * - Certifications
+ *
+ * Used by pages and search system.
+ */
 
 export const BLOG_ITEMS = [
     { id: "articulo-1", title: "Artículo 1", href: "/blog#articulo-1" },
