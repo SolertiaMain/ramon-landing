@@ -24,8 +24,8 @@ export const SEARCH_INDEX = [
     // Certifications (PDFs)
     ...CERTS.map((c) => ({
         id: `cert:${c.id}`,
-        title: c.title,         // short title for bins
-        subtitle: c.subtitle,   // optional, for later UI
+        title: c.title,         
+        subtitle: c.subtitle,   
         href: c.href,
         type: "Certificación",
     })),

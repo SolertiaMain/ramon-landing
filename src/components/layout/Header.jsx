@@ -27,7 +27,7 @@ export default function Header() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [shouldRenderSearch, setShouldRenderSearch] = useState(false);
 
-  // search engine (logic lives in the hook now)
+  // search engine 
   const { query, setQuery, results, runSearch, reset } = useHeaderSearch(searchOpen);
 
   const centerRef = useRef(null);
@@ -84,7 +84,7 @@ export default function Header() {
     >
       <Container className="flex h-16 items-center justify-between">
         <Link href="/#top" className="font-semibold tracking-tight">
-          Ramón C. Martínez
+          Impulso Completo
         </Link>
 
         <div

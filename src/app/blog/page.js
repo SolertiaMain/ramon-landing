@@ -5,16 +5,10 @@ import { useEffect, useState } from "react";
 
 const BLOG_ITEMS = [
   {
-    title: "Artículo 1",
+    title: "¿En qué consiste la reforma a la Ley Federal del Trabajo para sistematizar la prevención y eliminación de la violencia laboral hacia las mujeres?",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    href: "#",
-  },
-  {
-    title: "Artículo 2",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    href: "#",
+      "La reforma a la LFT publicada el 15 de enero de 2026 establece la necesidad de contar con entornos laborales libres de violencia y sin discriminación.",
+    href: "/files/blogs/REFORMALFTPREVENCIONYELIMINACIONDELAVIOLENCIALABORALHACIALASMUJERES.pdf",
   },
 ];
 
@@ -34,7 +28,7 @@ export default function BlogPage() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Parallax + gradiente dinámico (igual que Certificaciones)
+  // Parallax + gradiente dinámico 
   const imgOffset = Math.min(scrollY * 0.18, 95);
   const gradOffset = Math.min(scrollY * 0.3, 140);
   const darkAlpha = Math.min(0.6, 0.33 + scrollY / 1400);
@@ -43,17 +37,20 @@ export default function BlogPage() {
     <main className="min-h-screen bg-stone-200">
       {/* HERO */}
       <section className="relative h-[52vh] min-h-[360px] w-full overflow-hidden">
+      
         <img
-          src="/images/blog_ramon.jpg"
-          alt="Blog"
-          className="absolute inset-0 h-full w-full object-cover will-change-transform"
-          style={{
-            transform: `translateY(${imgOffset}px) ${
-              mounted ? "scale(1.05)" : "scale(1)"
-            }`,
-            transition: "transform 1600ms cubic-bezier(0.22,1,0.36,1)",
-          }}
-        />
+        src="/images/blog_ramon.jpg"
+        alt="Blog"
+        className="absolute inset-0 h-full w-full object-cover will-change-transform"
+        style={{
+          objectPosition: "center 20%",
+          transform: `translateY(${imgOffset}px) ${
+            mounted ? "scale(1.05)" : "scale(1)"
+          }`,
+          transition: "transform 1600ms cubic-bezier(0.22,1,0.36,1)",
+        }}
+      />
+
 
         {/* Overlay oscuro dinámico */}
         <div

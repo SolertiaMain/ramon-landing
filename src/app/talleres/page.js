@@ -34,7 +34,7 @@ export default function TalleresPage() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // MISMO sistema que Certificaciones
+ 
   const imgOffset = Math.min(scrollY * 0.18, 95);
   const gradOffset = Math.min(scrollY * 0.30, 140);
   const darkAlpha = Math.min(0.60, 0.33 + scrollY / 1400);
@@ -46,13 +46,13 @@ export default function TalleresPage() {
         <img
           src="/images/talleres_ramon.jpg"
           alt="Talleres"
-          className="absolute inset-0 h-full w-full object-cover will-change-transform"
+           className="absolute inset-0 h-full w-full object-cover will-change-transform"
           style={{
+            objectPosition: "center 30%", 
             transform: `translateY(${imgOffset}px) ${
               mounted ? "scale(1.05)" : "scale(1)"
             }`,
-            transition:
-              "transform 1600ms cubic-bezier(0.22,1,0.36,1)",
+            transition: "transform 1600ms cubic-bezier(0.22,1,0.36,1)",
           }}
         />
 

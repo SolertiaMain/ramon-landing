@@ -9,26 +9,26 @@ const CERTS = [
       "Consultoras y Consultores en Prácticas de Igualdad Laboral y No Discriminación",
     description:
       "Formación orientada a comprender e implementar prácticas clave de la Norma Mexicana NMX-R-025-SCFI-2015, fortaleciendo capacidades de acompañamiento y mejora en centros de trabajo.",
-    href: "/files/Consult_Igualdad.pdf",
+    href: "/files/certificaciones/CERTIFICACIÓNDECONSULTORASYCONSULTORESENPRÁCTICASDEIGUALDADLABORALYNODISCRIMINACIÓN.pdf",
   },
   {
     title: "Consultoras y Consultores en Gestión basada en Resultados",
     description:
       "Enfoque para planear, dar seguimiento y evaluar programas y proyectos con orientación a resultados, monitoreo y evaluación, fortaleciendo la toma de decisiones y la rendición de cuentas.",
-    href: "/files/Consult_Gestion.pdf",
+    href: "/files/certificaciones/CERTIFICACIÓNDECONSULTORASYCONSULTORESENGESTIÓNYPRESUPUESTACIÓNBASADAENRESULTADOS.pdf",
   },
   {
     title:
       "Gestión y Acreditación Corporativa de Prácticas de Igualdad Laboral y No Discriminación",
     description:
       "Acompañamiento para preparar y certificar al centro de trabajo en la Norma Mexicana NMX-R-025-SCFI-2015, con énfasis en requisitos, evidencia y procesos de auditoría.",
-    href: "/files/NoViolencia.pdf",
+    href: "/files/certificaciones/CERTIFICACIÓNDEPERSONASQUEREALIZANLAIMPLEMENTACIÓNYEVALUACIÓNCORPORATIVADEPRÁCTICASDEIGUALDADLABORALYNODISCRIMINACIÓN.pdf",
   },
   {
     title: "Certificación de Ombudsperson",
     description:
       "Certificación/curso especializado para fortalecer la atención imparcial de quejas y conflictos internos, promoviendo entornos laborales respetuosos y mecanismos institucionales de resolución.",
-    href: "/files/Ombudsperson.pdf",
+    href: "/files/certificaciones/CERTIFICACIÓNPARAPERSONASOMBUDSPERSON.pdf",
   },
 ];
 
@@ -59,13 +59,15 @@ export default function CertificacionesPage() {
       <section className="relative h-[52vh] min-h-[380px] w-full overflow-hidden">
         {/* Imagen: parallax + zoom */}
         <img
-          src="/images/certificaciones.jpg" // <- cambia extensión si es .png / .webp
+          src="/images/certificaciones_ramon.jpg" 
           alt="Certificaciones"
           className="absolute inset-0 h-full w-full object-cover will-change-transform"
           style={{
-            transform: `translateY(${imgOffset}px) ${mounted ? "scale(1.05)" : "scale(1)"}`,
-            transition:
-              "transform 1600ms cubic-bezier(0.22,1,0.36,1)",
+            objectPosition: "center 40%", 
+            transform: `translateY(${imgOffset}px) ${
+              mounted ? "scale(1.05)" : "scale(1)"
+            }`,
+            transition: "transform 1600ms cubic-bezier(0.22,1,0.36,1)",
           }}
         />
 
