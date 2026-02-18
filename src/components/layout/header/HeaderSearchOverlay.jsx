@@ -1,3 +1,17 @@
+/**
+ * HeaderSearchOverlay
+ *
+ * UI-only component rendered via portal.
+ *
+ * Responsibilities:
+ * - Renders search panel and backdrop
+ * - Displays input, popular searches, and dynamic results
+ * - Handles user interactions (click, submit)
+ * - Opens PDFs or routes internally
+ *
+ * Does NOT perform search logic or data filtering.
+ */
+
 "use client";
 
 import Link from "next/link";
