@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-02-19T03:39:49.635Z",
+  "certs": [
+    {
+      "id": "consultoria-gbr",
+      "title": "Gestión por resultados (Consultoría)",
+      "subtitle": "Consultoras y consultores en gestión y presupuestación basada en resultados",
+      "href": "/files/certificaciones/CERTIFICACIÓNDECONSULTORASYCONSULTORESENGESTIÓNYPRESUPUESTACIÓNBASADAENRESULTADOS.pdf",
+      "type": "Certificación"
+    },
+    {
+      "id": "consultoria-igualdad",
+      "title": "Igualdad laboral (Consultoría)",
+      "subtitle": "Consultoras y consultores en prácticas de igualdad laboral y no discriminación",
+      "href": "/files/certificaciones/CERTIFICACIÓNDECONSULTORASYCONSULTORESENPRÁCTICASDEIGUALDADLABORALYNODISCRIMINACIÓN.pdf",
+      "type": "Certificación"
+    },
+    {
+      "id": "institucional-gbr",
+      "title": "Gestión por resultados (Institucional)",
+      "subtitle": "Personas en prácticas institucionales de gestión y presupuestación basada en resultados",
+      "href": "/files/certificaciones/CERTIFICACIÓNDEPERSONASENPRÁCTICASINSTITUCIONALESDEGESTIÓNYPRESUPUESTACIÓNBASADAENRESULTADOS.pdf",
+      "type": "Certificación"
+    },
+    {
+      "id": "corporativa-igualdad",
+      "title": "Igualdad laboral (Corporativa)",
+      "subtitle": "Implementación y evaluación corporativa de prácticas de igualdad laboral y no discriminación",
+      "href": "/files/certificaciones/CERTIFICACIÓNDEPERSONASQUEREALIZANLAIMPLEMENTACIÓNYEVALUACIÓNCORPORATIVADEPRÁCTICASDEIGUALDADLABORALYNODISCRIMINACIÓN.pdf",
+      "type": "Certificación"
+    },
+    {
+      "id": "gestion-protocolo-violencia",
+      "title": "Protocolo de violencia laboral",
+      "subtitle": "Gestión corporativa del protocolo para prevenir, atender y sancionar violencia laboral y discriminación",
+      "href": "/files/certificaciones/CERTIFICACIÓNENGESTIÓNCORPORATIVADELPROTOCOLOPARA PREVENIRATENDERYSANCIONARACTOSDEVIOLENCIALABORALYDISCRIMINACIÓN.pdf",
+      "type": "Certificación"
+    },
+    {
+      "id": "ombudsperson",
+      "title": "Ombudsperson",
+      "subtitle": "Certificación de Ombudsperson",
+      "href": "/files/certificaciones/CERTIFICACIÓNPARAPERSONASOMBUDSPERSON.pdf",
+      "type": "Certificación"
+    }
+  ]
+}

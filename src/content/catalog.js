@@ -10,6 +10,8 @@
  * Used by pages and search system.
  */
 
+import pdfManifest from "@/content/generated/pdfs.json";
+
 export const BLOG_ITEMS = [
     { 
         id: "Reforma a la Ley Federal del Trabajo",
@@ -28,29 +30,5 @@ export const TALLERES_ITEMS = [
     { id: "taller-2", title: "Taller 2", href: "/talleres#taller-2" },
 ];
 
-export const CERTS = [
-    {
-        id: "igualdad-consultoria",
-        title: "Igualdad laboral (Consultoría)",
-        subtitle: "Consultoras y Consultores en Prácticas de Igualdad Laboral y No Discriminación",
-        href: "/files/certificaciones/CERTIFICACIÓNDECONSULTORASYCONSULTORESENPRÁCTICASDEIGUALDADLABORALYNODISCRIMINACIÓN.pdf",
-    },
-    {
-        id: "gbr",
-        title: "Gestión por resultados",
-        subtitle: "Consultoras y Consultores en Gestión basada en Resultados",
-        href: "/files/certificaciones/CERTIFICACIÓNDECONSULTORASYCONSULTORESENGESTIÓNYPRESUPUESTACIÓNBASADAENRESULTADOS.pdf",
-    },
-    {
-        id: "igualdad-acreditacion",
-        title: "Igualdad laboral (Acreditación)",
-        subtitle: "Gestión y Acreditación Corporativa de Prácticas de Igualdad Laboral y No Discriminación",
-        href: "/files/certificaciones/CERTIFICACIÓNDEPERSONASQUEREALIZANLAIMPLEMENTACIÓNYEVALUACIÓNCORPORATIVADEPRÁCTICASDEIGUALDADLABORALYNODISCRIMINACIÓN.pdf",
-    },
-    {
-        id: "ombudsperson",
-        title: "Ombudsperson",
-        subtitle: "Certificación de Ombudsperson",
-        href: "/files/certificaciones/CERTIFICACIÓNPARAPERSONASOMBUDSPERSON.pdf",
-    },
-];
+export const CERTS = pdfManifest.certs;
+

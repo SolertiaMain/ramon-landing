@@ -156,11 +156,8 @@ export default function HeaderSearchOverlay({
                                         {results.map((r) => {
                                             const isPdf = (r.href || "").toLowerCase().endsWith(".pdf");
 
-                                            const commonProps = {
-                                                onClick: onClose,
-                                                className:
-                                                    "rounded-lg border bg-white px-3 py-2 text-sm hover:bg-neutral-50 hover:border-neutral-300 transition",
-                                            };
+                                            const commonClass =
+                                                "rounded-lg border bg-white px-3 py-2 text-sm hover:bg-neutral-50 hover:border-neutral-300 transition";
 
 
                                             const content = (
@@ -180,7 +177,7 @@ export default function HeaderSearchOverlay({
                                                     href={r.href}
                                                     target="_blank"
                                                     rel="noreferrer"
-                                                    {...commonProps}
+                                                    className={commonClass}
                                                 >
                                                     {content}
                                                 </a>
@@ -188,7 +185,8 @@ export default function HeaderSearchOverlay({
                                                 <Link
                                                     key={r.id ?? r.href}
                                                     href={r.href}
-                                                    {...commonProps}
+                                                    onClick={onClose}
+                                                    className={commonClass}
                                                 >
                                                     {content}
                                                 </Link>
