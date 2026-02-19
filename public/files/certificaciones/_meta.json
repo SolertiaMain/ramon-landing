@@ -1,0 +1,32 @@
+{
+    "CERTIFICACIÓNDECONSULTORASYCONSULTORESENGESTIÓNYPRESUPUESTACIÓNBASADAENRESULTADOS.pdf": {
+        "id": "consultoria-gbr",
+        "title": "Gestión por resultados (Consultoría)",
+        "subtitle": "Consultoras y consultores en gestión y presupuestación basada en resultados"
+    },
+    "CERTIFICACIÓNDECONSULTORASYCONSULTORESENPRÁCTICASDEIGUALDADLABORALYNODISCRIMINACIÓN.pdf": {
+        "id": "consultoria-igualdad",
+        "title": "Igualdad laboral (Consultoría)",
+        "subtitle": "Consultoras y consultores en prácticas de igualdad laboral y no discriminación"
+    },
+    "CERTIFICACIÓNDEPERSONASENPRÁCTICASINSTITUCIONALESDEGESTIÓNYPRESUPUESTACIÓNBASADAENRESULTADOS.pdf": {
+        "id": "institucional-gbr",
+        "title": "Gestión por resultados (Institucional)",
+        "subtitle": "Personas en prácticas institucionales de gestión y presupuestación basada en resultados"
+    },
+    "CERTIFICACIÓNDEPERSONASQUEREALIZANLAIMPLEMENTACIÓNYEVALUACIÓNCORPORATIVADEPRÁCTICASDEIGUALDADLABORALYNODISCRIMINACIÓN.pdf": {
+        "id": "corporativa-igualdad",
+        "title": "Igualdad laboral (Corporativa)",
+        "subtitle": "Implementación y evaluación corporativa de prácticas de igualdad laboral y no discriminación"
+    },
+    "CERTIFICACIÓNENGESTIÓNCORPORATIVADELPROTOCOLOPARA PREVENIRATENDERYSANCIONARACTOSDEVIOLENCIALABORALYDISCRIMINACIÓN.pdf": {
+        "id": "gestion-protocolo-violencia",
+        "title": "Protocolo de violencia laboral",
+        "subtitle": "Gestión corporativa del protocolo para prevenir, atender y sancionar violencia laboral y discriminación"
+    },
+    "CERTIFICACIÓNPARAPERSONASOMBUDSPERSON.pdf": {
+        "id": "ombudsperson",
+        "title": "Ombudsperson",
+        "subtitle": "Certificación de Ombudsperson"
+    }
+}
