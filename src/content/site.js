@@ -6,13 +6,13 @@ export const site = {
     { label: "Blog", href: "/blog" },
   ],
   hero: {
-    name: "Ramón C. Martínez",
+    name: "Ramón Cuevas Martínez",
     tagline: "Impulso completo",
     cta: { label: "Contacto", href: "#contacto" },
   },
   statement: {
     text: "Una persona sólo puede mirar a otra persona hacia abajo, cuando es para ayudarle a levantarse.",
-    author: "— Ramón C. Martínez",
+    author: "— Ramón Cuevas Martínez",
   },
   letter: {
     title: "Sobre mí",
@@ -96,7 +96,7 @@ export const site = {
         align: "right",
         spacingTop: "5rem",
         text: [
-          { t: "Ramón C. Martínez", italic: true }
+          { t: "Ramón Cuevas Martínez", italic: true }
         ]
       }
     ]    
