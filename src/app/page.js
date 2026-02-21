@@ -9,18 +9,6 @@ export default function Page() {
       <Hero data={site.hero} />
       <Statement data={site.statement} />
       <Letter data={site.letter} />
-      
     </main>
   );
 }
-
-<CertificationHolder
-  title={cert.title}
-  description={cert.description}
-  href={cert.href}
-  badge="Certificación"
-  metaLeft="Programa profesional"
-  metaRight="PDF"
-  delay={idx * 120}
-  mounted={mounted}
-/>
