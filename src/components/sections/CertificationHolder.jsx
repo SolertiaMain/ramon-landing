@@ -30,7 +30,7 @@ export default function CertificationHolder({
       <div className="flex items-start gap-4 p-6">
 
         {/* Icon */}
-        <div className="relative w-28 h-24 shrink-0">
+        <div className="relative w-68 h-45 shrink-0">
 
         {/* Imagen principal */}
         <div className="w-full h-full rounded-2xl overflow-hidden border border-neutral-200 shadow-sm bg-white">
@@ -42,7 +42,7 @@ export default function CertificationHolder({
         </div>
 
         {/* Badge arriba derecha */}
-        <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full overflow-hidden border border-white shadow-md bg-white">
+        <div className="absolute -top-2 -right-2 w-15 h-15 rounded-full overflow-hidden border border-white shadow-md bg-white">
             <img
             src={badgeTop}
             alt="Badge"
@@ -51,7 +51,7 @@ export default function CertificationHolder({
         </div>
 
         {/* Badge abajo izquierda */}
-        <div className="absolute -bottom-2 -left-2 w-8 h-8 rounded-full overflow-hidden border border-white shadow-md bg-white">
+        <div className="absolute -bottom-2 -left-2 w-15 h-15 rounded-full overflow-hidden border border-white shadow-md bg-white">
             <img
             src={badgeBottom}
             alt="Badge"
