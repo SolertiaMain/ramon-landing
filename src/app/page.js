@@ -13,3 +13,14 @@ export default function Page() {
     </main>
   );
 }
+
+<CertificationHolder
+  title={cert.title}
+  description={cert.description}
+  href={cert.href}
+  badge="Certificación"
+  metaLeft="Programa profesional"
+  metaRight="PDF"
+  delay={idx * 120}
+  mounted={mounted}
+/>
