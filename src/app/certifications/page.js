@@ -3,6 +3,9 @@
 import { useEffect, useState } from "react";
 import CertificationHolder from "@/components/sections/CertificationHolder";
 
+const SCHEME_IMAGE = "/files/certificaciones/shared/Esquema.jpeg";
+const FIT_IMAGE = "/files/certificaciones/shared/Parati.jpeg";
+
 const CERTS = [
   {
     title:
@@ -14,6 +17,8 @@ const CERTS = [
     mainImage: "/images/certificaciones/certificado.png",
     badgeTop: "/images/certificaciones/certificado_por_maxan.png",
     badgeBottom: "/images/certificaciones/avalado_por_ramon.png",
+    schemeImage: SCHEME_IMAGE,
+    fitImage: FIT_IMAGE,
   },
   {
     title: "Consultoras y Consultores en Gestión basada en Resultados",
@@ -24,6 +29,8 @@ const CERTS = [
     mainImage: "/images/certificaciones/certificado.png",
     badgeTop: "/images/certificaciones/certificado_por_maxan.png",
     badgeBottom: "/images/certificaciones/avalado_por_ramon.png",
+    schemeImage: SCHEME_IMAGE,
+    fitImage: FIT_IMAGE,
   },
   {
     title:
@@ -35,6 +42,8 @@ const CERTS = [
     mainImage: "/images/certificaciones/certificado.png",
     badgeTop: "/images/certificaciones/certificado_por_maxan.png",
     badgeBottom: "/images/certificaciones/avalado_por_ramon.png",
+    schemeImage: SCHEME_IMAGE,
+    fitImage: FIT_IMAGE,
   },
   {
     title: "Certificación de Ombudsperson",
@@ -45,44 +54,104 @@ const CERTS = [
     mainImage: "/images/certificaciones/certificado.png",
     badgeTop: "/images/certificaciones/certificado_por_maxan.png",
     badgeBottom: "/images/certificaciones/avalado_por_ramon.png",
+    schemeImage: SCHEME_IMAGE,
+    fitImage: FIT_IMAGE,
   },
 ];
+
+function ModalShell({ open, title, children, onClose }) {
+  // ESC
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e) => e.key === "Escape" && onClose?.();
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open, onClose]);
+
+  // lock scroll
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [open]);
+
+  return (
+    <div
+      className={`fixed inset-0 z-[9999] ${
+        open ? "pointer-events-auto" : "pointer-events-none"
+      }`}
+      aria-hidden={!open}
+    >
+      {/* overlay */}
+      <div
+        onClick={onClose}
+        className={`absolute inset-0 transition-all duration-300 ${
+          open ? "bg-black/40 backdrop-blur-sm opacity-100" : "opacity-0"
+        }`}
+      />
+
+      {/* panel */}
+      <div className="absolute inset-0 flex items-center justify-center p-4">
+        <div
+          className={`w-full max-w-5xl rounded-2xl bg-white shadow-2xl border border-neutral-200 overflow-hidden transform transition-all duration-300 ${
+            open
+              ? "opacity-100 translate-y-0 scale-100"
+              : "opacity-0 translate-y-2 scale-[0.98]"
+          }`}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="flex items-center justify-between gap-3 px-6 py-4 border-b border-neutral-200">
+            <div className="min-w-0">
+              <div className="text-xs text-neutral-500">Vista previa</div>
+              <div className="text-base font-semibold text-neutral-900 truncate">
+                {title}
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={onClose}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-neutral-200 hover:bg-neutral-50 transition"
+              aria-label="Cerrar"
+            >
+              ✕
+            </button>
+          </div>
+
+          <div className="p-6">{children}</div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function CertificacionesPage() {
   const [mounted, setMounted] = useState(false);
 
-  //  modal state
+  // 3 modales
   const [videoModal, setVideoModal] = useState({
     open: false,
     title: "",
     videoUrl: "",
+  });
+  const [schemeModal, setSchemeModal] = useState({
+    open: false,
+    title: "",
+    schemeImage: "",
+  });
+  const [fitModal, setFitModal] = useState({
+    open: false,
+    title: "",
+    fitImage: "",
   });
 
   useEffect(() => {
     const t = setTimeout(() => setMounted(true), 60);
     return () => clearTimeout(t);
   }, []);
-
-  //  cerrar con ESC
-  useEffect(() => {
-    const onKeyDown = (e) => {
-      if (e.key === "Escape") {
-        setVideoModal((v) => ({ ...v, open: false }));
-      }
-    };
-    if (videoModal.open) window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [videoModal.open]);
-
-  //  bloquear scroll cuando modal está abierto
-  useEffect(() => {
-    if (!videoModal.open) return;
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = prev;
-    };
-  }, [videoModal.open]);
 
   return (
     <main className="min-h-screen bg-stone-200">
@@ -118,6 +187,8 @@ export default function CertificacionesPage() {
               description={cert.description}
               href={cert.href}
               videoUrl={cert.videoUrl}
+              schemeImage={cert.schemeImage}
+              fitImage={cert.fitImage}
               mainImage={cert.mainImage}
               badgeTop={cert.badgeTop}
               badgeBottom={cert.badgeBottom}
@@ -129,79 +200,72 @@ export default function CertificacionesPage() {
               onOpenVideo={({ title, videoUrl }) =>
                 setVideoModal({ open: true, title, videoUrl })
               }
+              onOpenScheme={({ title, schemeImage }) =>
+                setSchemeModal({ open: true, title, schemeImage })
+              }
+              onOpenFit={({ title, fitImage }) =>
+                setFitModal({ open: true, title, fitImage })
+              }
             />
           ))}
         </div>
       </section>
 
-      {/*  MODAL VIDEO */}
-      <div
-        className={`fixed inset-0 z-[9999] ${
-          videoModal.open ? "pointer-events-auto" : "pointer-events-none"
-        }`}
-        aria-hidden={!videoModal.open}
+      {/* MODAL: VIDEO */}
+      <ModalShell
+        open={videoModal.open}
+        title={videoModal.title}
+        onClose={() => setVideoModal((v) => ({ ...v, open: false }))}
       >
-        {/* overlay + blur */}
-        <div
-          onClick={() => setVideoModal((v) => ({ ...v, open: false }))}
-          className={`absolute inset-0 transition-all duration-300 ${
-            videoModal.open
-              ? "bg-black/40 backdrop-blur-sm opacity-100"
-              : "opacity-0"
-          }`}
-        />
-
-        {/* modal panel */}
-        <div className="absolute inset-0 flex items-center justify-center p-4">
-          <div
-            className={`w-full max-w-4xl rounded-2xl bg-white shadow-2xl border border-neutral-200 overflow-hidden transform transition-all duration-300 ${
-              videoModal.open
-                ? "opacity-100 translate-y-0 scale-100"
-                : "opacity-0 translate-y-2 scale-[0.98]"
-            }`}
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* header */}
-            <div className="flex items-center justify-between gap-3 px-6 py-4 border-b border-neutral-200">
-              <div className="min-w-0">
-                <div className="text-xs text-neutral-500">Vista previa</div>
-                <div className="text-base font-semibold text-neutral-900 truncate">
-                  {videoModal.title}
-                </div>
-              </div>
-
-              {/* close */}
-              <button
-                type="button"
-                onClick={() => setVideoModal((v) => ({ ...v, open: false }))}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-neutral-200 hover:bg-neutral-50 transition"
-                aria-label="Cerrar"
-              >
-                ✕
-              </button>
-            </div>
-
-            {/* content */}
-            <div className="p-6">
-              <div className="aspect-video w-full overflow-hidden rounded-xl border border-neutral-200 bg-black">
-                {videoModal.open && (
-                  <iframe
-                    key={videoModal.videoUrl} 
-                    src={videoModal.videoUrl}
-                    className="w-full h-full"
-                    allow="autoplay; encrypted-media"
-                    allowFullScreen
-                  />
-                )}
-              </div>
-
-              <div className="mt-4 text-xs text-neutral-500">
-                Tip: presiona <span className="font-medium">ESC</span> para cerrar.
-              </div>
-            </div>
-          </div>
+        <div className="aspect-video w-full overflow-hidden rounded-xl border border-neutral-200 bg-black">
+          {videoModal.open && (
+            <iframe
+              key={videoModal.videoUrl}
+              src={videoModal.videoUrl}
+              className="w-full h-full"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+            />
+          )}
         </div>
-      </div>
+        <div className="mt-4 text-xs text-neutral-500">
+          Tip: presiona <span className="font-medium">ESC</span> para cerrar.
+        </div>
+      </ModalShell>
+
+      {/* MODAL: CÓMO FUNCIONA (Esquema.jpeg) */}
+      <ModalShell
+        open={schemeModal.open}
+        title={`${schemeModal.title} — Cómo funciona`}
+        onClose={() => setSchemeModal((v) => ({ ...v, open: false }))}
+      >
+        <div className="w-full overflow-hidden rounded-xl border border-neutral-200 bg-white">
+          {schemeModal.open && (
+            <img
+              src={schemeModal.schemeImage}
+              alt="Esquema"
+              className="w-full h-auto object-contain"
+            />
+          )}
+        </div>
+      </ModalShell>
+
+      {/* MODAL: ¿ES PARA TI? (Parati.jpeg) */}
+      <ModalShell
+        open={fitModal.open}
+        title={`${fitModal.title} — ¿Es para ti?`}
+        onClose={() => setFitModal((v) => ({ ...v, open: false }))}
+      >
+        <div className="w-full overflow-hidden rounded-xl border border-neutral-200 bg-white">
+          {fitModal.open && (
+            <img
+              src={fitModal.fitImage}
+              alt="¿Es para ti?"
+              className="w-full h-auto object-contain"
+            />
+          )}
+        </div>
+      </ModalShell>
     </main>
   );
 }
