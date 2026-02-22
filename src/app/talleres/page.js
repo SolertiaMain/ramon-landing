@@ -1,20 +1,28 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
+import CertificationHolder from "@/components/sections/CertificationHolder";
 
-const TALLERES_ITEMS = [
+const TALLERES = [
   {
-    title: "Taller 1",
+    title: "Taller en desarrollo",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    href: "#",
+      "Estamos preparando nuevos talleres orientados a fortalecer capacidades institucionales, habilidades estratégicas y herramientas prácticas para organizaciones públicas y privadas.",
   },
   {
-    title: "Taller 2",
+    title: "Próximamente",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    href: "#",
+      "Esta sección incluirá programas formativos enfocados en liderazgo, cultura organizacional, gestión del cambio y desarrollo profesional.",
+  },
+  {
+    title: "Formación especializada",
+    description:
+      "Se integrarán talleres diseñados para acompañar procesos de mejora organizacional, implementación de políticas internas y fortalecimiento de equipos de trabajo.",
+  },
+  {
+    title: "Innovación y transformación",
+    description:
+      "Nuestros próximos talleres abordarán metodologías actuales para impulsar innovación, eficiencia y toma de decisiones basada en evidencia.",
   },
 ];
 
@@ -34,21 +42,21 @@ export default function TalleresPage() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
- 
   const imgOffset = Math.min(scrollY * 0.18, 95);
   const gradOffset = Math.min(scrollY * 0.30, 140);
   const darkAlpha = Math.min(0.60, 0.33 + scrollY / 1400);
 
   return (
     <main className="min-h-screen bg-stone-200">
+
       {/* HERO */}
       <section className="relative h-[52vh] min-h-[360px] w-full overflow-hidden">
         <img
           src="/images/talleres_ramon.jpg"
           alt="Talleres"
-           className="absolute inset-0 h-full w-full object-cover will-change-transform"
+          className="absolute inset-0 h-full w-full object-cover will-change-transform"
           style={{
-            objectPosition: "center 30%", 
+            objectPosition: "center 30%",
             transform: `translateY(${imgOffset}px) ${
               mounted ? "scale(1.05)" : "scale(1)"
             }`,
@@ -56,13 +64,11 @@ export default function TalleresPage() {
           }}
         />
 
-        {/* Overlay dinámico */}
         <div
           className="absolute inset-0"
           style={{ backgroundColor: `rgba(0,0,0,${darkAlpha})` }}
         />
 
-        {/* Gradiente dinámico */}
         <div
           className="absolute inset-0 will-change-transform"
           style={{
@@ -72,16 +78,13 @@ export default function TalleresPage() {
           }}
         />
 
-        {/* Texto con animación */}
         <div className="relative z-10 mx-auto flex h-full max-w-7xl items-end px-6 pb-14">
           <div className="max-w-3xl">
             <h1
               className={[
                 "text-4xl md:text-6xl font-semibold tracking-tight text-white",
                 "transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]",
-                mounted
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-6",
+                mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6",
               ].join(" ")}
               style={{ transitionDelay: "140ms" }}
             >
@@ -92,9 +95,7 @@ export default function TalleresPage() {
               className={[
                 "mt-4 text-white/85 max-w-2xl",
                 "transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]",
-                mounted
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-6",
+                mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6",
               ].join(" ")}
               style={{ transitionDelay: "320ms" }}
             >
@@ -110,42 +111,31 @@ export default function TalleresPage() {
         </div>
       </section>
 
-      {/* CONTENT */}
+      {/* CONTENIDO */}
       <section className="mx-auto max-w-7xl px-6 py-16">
-        <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-2">
-          {TALLERES_ITEMS.map((item, idx) => (
-            <div
-              key={item.title}
-              className={[
-                "bg-white rounded-2xl shadow-sm border border-black/5",
-                "p-6 flex flex-col min-h-[240px]",
-                "transition-all duration-700 ease-out",
-                mounted
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-3",
-              ].join(" ")}
-              style={{ transitionDelay: `${idx * 80}ms` }}
-            >
-              <h2 className="text-lg font-semibold text-neutral-900">
-                {item.title}
-              </h2>
+        <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-2">
 
-              <p className="mt-3 text-sm text-neutral-700 leading-relaxed">
-                {item.description}
-              </p>
-
-              <div className="mt-auto pt-6">
-                <Link
-                  href={item.href}
-                  className="inline-flex items-center justify-center rounded-lg border border-neutral-200 bg-white px-3 py-1.5 text-xs font-medium text-neutral-900 hover:bg-neutral-50 transition-colors"
-                >
-                  Ver detalles
-                </Link>
-              </div>
-            </div>
+          {TALLERES.map((taller, idx) => (
+            <CertificationHolder
+              key={taller.title}
+              title={taller.title}
+              description={taller.description}
+              href="#"
+              videoUrl=""
+              mainImage="/images/placeholders/taller_placeholder.jpg"
+              badgeTop=""
+              badgeBottom=""
+              badge="Taller"
+              metaLeft="En preparación"
+              metaRight=""
+              delay={idx * 120}
+              mounted={mounted}
+            />
           ))}
+
         </div>
       </section>
+
     </main>
   );
 }
