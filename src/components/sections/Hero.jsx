@@ -113,7 +113,55 @@ export default function Hero({ data }) {
             <button
               type="button"
               onClick={() => setOpenContact(true)}
-              className="inline-flex rounded-md bg-white px-6 py-3 text-black font-medium hover:opacity-90 transition-opacity"
+              className="
+              relative overflow-hidden
+              inline-flex items-center justify-center
+              rounded-xl
+              bg-white
+              px-6 py-3
+              text-black font-medium
+              shadow-sm
+              border border-white/20
+
+              transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]
+
+              hover:-translate-y-[2px]
+              hover:shadow-md
+
+              active:translate-y-[1px]
+              active:shadow-sm
+
+              focus:outline-none
+              focus-visible:ring-2
+              focus-visible:ring-white/60
+              focus-visible:ring-offset-2
+              focus-visible:ring-offset-black
+
+              before:content-['']
+              before:absolute
+              before:inset-0
+              before:bg-black/0
+              before:transition
+              before:duration-300
+
+              hover:before:bg-black/5
+
+              after:content-['']
+              after:absolute
+              after:top-0
+              after:-left-[120%]
+              after:h-full
+              after:w-[60%]
+              after:bg-gradient-to-r
+              after:from-transparent
+              after:via-white/60
+              after:to-transparent
+              after:skew-x-[-20deg]
+              after:transition-all
+              after:duration-700
+
+              hover:after:left-[130%]
+              "
             >
               {data.cta.label}
             </button>
