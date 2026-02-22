@@ -1,24 +1,25 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
-
 
 export default function CertificationHolder({
   title,
   description,
   href,
   videoUrl,
-  mainImage,
-  badgeTop,
-  badgeBottom,
+
+  onOpenVideo,
+
   badge = "Certificación",
+  metaLeft = "Programa profesional",
   metaRight = "PDF",
   delay = 0,
   mounted = true,
-}) {
-  const [open, setOpen] = useState(false);
 
+  mainImage,
+  badgeTop,
+  badgeBottom,
+}) {
   return (
     <article
       className={`group relative overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-lg ${
@@ -27,86 +28,82 @@ export default function CertificationHolder({
       style={{ transitionDelay: `${delay}ms` }}
     >
       {/* HEADER */}
-      <div className="flex flex-col lg:flex-row lg:items-start gap-4 p-4 sm:p-6">
+      <div className="flex items-start gap-5 p-6">
+        {/* Imagen principal + badges */}
+        <div className="relative w-28 h-28 shrink-0">
+          <div className="w-full h-full rounded-2xl overflow-hidden border border-neutral-200 shadow-sm bg-white">
+            {mainImage ? (
+              <img
+                src={mainImage}
+                alt={`Imagen de ${title}`}
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            ) : (
+              <div className="w-full h-full bg-neutral-100" />
+            )}
+          </div>
 
-        {/* Icon */}
-        <div className="relative w-full lg:w-[320px] shrink-0">
+          {badgeTop && (
+            <div className="absolute -top-2 -right-2 w-10 h-10 rounded-full overflow-hidden border border-white shadow-md bg-white">
+              <img
+                src={badgeTop}
+                alt="Badge superior"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          )}
 
-        {/* Imagen principal */}
-        <div className="w-full aspect-[16/10] md:aspect-[16/10] rounded-2xl overflow-hidden border border-neutral-200 shadow-sm bg-white">
-            <img
-            src={mainImage}
-            alt="Certificación"
-            className="w-full h-full object-cover"
-            />
+          {badgeBottom && (
+            <div className="absolute -bottom-2 -left-2 w-10 h-10 rounded-full overflow-hidden border border-white shadow-md bg-white">
+              <img
+                src={badgeBottom}
+                alt="Badge inferior"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          )}
         </div>
 
-        {/* Badge arriba derecha */}
-        <div className="absolute -top-2 -right-2 w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border border-white shadow-md bg-white">
-            <img
-            src={badgeTop}
-            alt="Badge"
-            className="w-full h-full object-cover"
-            />
-        </div>
-
-        {/* Badge abajo izquierda */}
-        <div className="absolute -bottom-2 -left-2 w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border border-white shadow-md bg-white">
-            <img
-            src={badgeBottom}
-            alt="Badge"
-            className="w-full h-full object-cover"
-            />
-        </div>
-
-        </div>
-
-        <div className="flex-1">
-          {/* Badge */}
+        <div className="flex-1 min-w-0">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="rounded-full border px-2.5 py-1 text-xs font-medium text-neutral-700">
+            <span className="rounded-full border border-neutral-300 px-2.5 py-1 text-xs font-medium text-neutral-700">
               {badge}
             </span>
-
             <span className="rounded-full bg-neutral-900 px-2.5 py-1 text-xs font-medium text-white">
               {metaRight}
             </span>
           </div>
 
-          {/* Title */}
-          <h2 className="mt-3 text-base sm:text-lg font-semibold text-neutral-900">
+          <h2 className="mt-3 text-lg font-semibold text-neutral-900 leading-snug">
             {title}
           </h2>
 
-          {/* Meta */}
-          <div className="mt-2 flex items-center gap-3 text-xs text-neutral-500">
-          </div>
+          <div className="mt-2 text-sm text-neutral-500">{metaLeft}</div>
         </div>
       </div>
 
-      {/* Divider */}
       <div className="mx-6 h-px bg-neutral-200" />
 
       {/* BODY */}
       <div className="p-6 pt-5">
-        <p className="text-sm text-neutral-700 leading-relaxed">
-          {description}
-        </p>
+        <p className="text-sm text-neutral-700 leading-relaxed">{description}</p>
 
-        {/* ACTIONS */}
         <div className="mt-6 flex flex-wrap gap-3">
-
-          {/* VIDEO BUTTON */}
+          {/* VER VIDEO => ABRE MODAL */}
           {videoUrl && (
             <button
-              onClick={() => setOpen(!open)}
+              type="button"
+              onClick={() => onOpenVideo?.({ title, videoUrl })}
               className="inline-flex items-center gap-2 rounded-xl border border-neutral-200 px-4 py-2 text-sm font-medium text-neutral-800 hover:bg-neutral-50 transition"
             >
-              {open ? "Ocultar video" : "Ver video"}
+              Ver video
             </button>
           )}
 
-          {/* PDF BUTTON (SABER MÁS) */}
+          {/* PDF */}
           <Link
             href={href}
             target="_blank"
@@ -118,29 +115,7 @@ export default function CertificationHolder({
               ↗
             </span>
           </Link>
-
         </div>
-
-        {/* VIDEO EXPANDIBLE */}
-        <div
-          className={`grid transition-all duration-500 ease-in-out ${
-            open ? "grid-rows-[1fr] mt-6" : "grid-rows-[0fr]"
-          }`}
-        >
-          <div className="overflow-hidden">
-            {videoUrl && (
-              <div className="aspect-video w-full rounded-xl overflow-hidden border mt-4">
-                <iframe
-                  src={videoUrl}
-                  className="w-full h-full"
-                  allow="autoplay; encrypted-media"
-                  allowFullScreen
-                />
-              </div>
-            )}
-          </div>
-        </div>
-
       </div>
     </article>
   );
