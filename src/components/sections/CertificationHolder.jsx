@@ -27,13 +27,13 @@ export default function CertificationHolder({
       style={{ transitionDelay: `${delay}ms` }}
     >
       {/* HEADER */}
-      <div className="flex items-start gap-4 p-6">
+      <div className="flex flex-col lg:flex-row lg:items-start gap-4 p-4 sm:p-6">
 
         {/* Icon */}
-        <div className="relative w-68 h-45 shrink-0">
+        <div className="relative w-full lg:w-[320px] shrink-0">
 
         {/* Imagen principal */}
-        <div className="w-full h-full rounded-2xl overflow-hidden border border-neutral-200 shadow-sm bg-white">
+        <div className="w-full aspect-[16/10] md:aspect-[16/10] rounded-2xl overflow-hidden border border-neutral-200 shadow-sm bg-white">
             <img
             src={mainImage}
             alt="Certificación"
@@ -42,7 +42,7 @@ export default function CertificationHolder({
         </div>
 
         {/* Badge arriba derecha */}
-        <div className="absolute -top-2 -right-2 w-15 h-15 rounded-full overflow-hidden border border-white shadow-md bg-white">
+        <div className="absolute -top-2 -right-2 w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border border-white shadow-md bg-white">
             <img
             src={badgeTop}
             alt="Badge"
@@ -51,7 +51,7 @@ export default function CertificationHolder({
         </div>
 
         {/* Badge abajo izquierda */}
-        <div className="absolute -bottom-2 -left-2 w-15 h-15 rounded-full overflow-hidden border border-white shadow-md bg-white">
+        <div className="absolute -bottom-2 -left-2 w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border border-white shadow-md bg-white">
             <img
             src={badgeBottom}
             alt="Badge"
@@ -74,7 +74,7 @@ export default function CertificationHolder({
           </div>
 
           {/* Title */}
-          <h2 className="mt-3 text-lg font-semibold text-neutral-900">
+          <h2 className="mt-3 text-base sm:text-lg font-semibold text-neutral-900">
             {title}
           </h2>
 
