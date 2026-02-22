@@ -8,7 +8,14 @@ export default function CertificationHolder({
   href,
   videoUrl,
 
+  // modales controlados por el padre
   onOpenVideo,
+  onOpenScheme,
+  onOpenFit,
+
+  // assets extra
+  schemeImage, // ruta a imagen (Esquema)
+  fitImage,    // ruta a imagen (Para ti)
 
   badge = "Certificación",
   metaLeft = "Programa profesional",
@@ -20,6 +27,13 @@ export default function CertificationHolder({
   badgeTop,
   badgeBottom,
 }) {
+  const baseBtn =
+    "inline-flex items-center rounded-xl border border-neutral-200 px-4 py-2 text-sm font-medium text-neutral-800 bg-white transition will-change-transform";
+  const hoverBtn =
+    "hover:bg-neutral-50 hover:-translate-y-[1px] active:translate-y-0 active:scale-[0.99]";
+  const focusBtn =
+    "focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900/20 focus-visible:ring-offset-2 focus-visible:ring-offset-white";
+
   return (
     <article
       className={`group relative overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-lg ${
@@ -36,7 +50,7 @@ export default function CertificationHolder({
               <img
                 src={mainImage}
                 alt={`Imagen de ${title}`}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                 loading="lazy"
               />
             ) : (
@@ -91,30 +105,53 @@ export default function CertificationHolder({
       <div className="p-6 pt-5">
         <p className="text-sm text-neutral-700 leading-relaxed">{description}</p>
 
+        {/* ACTIONS */}
         <div className="mt-6 flex flex-wrap gap-3">
-          {/* VER VIDEO => ABRE MODAL */}
+          {/* Ver video */}
           {videoUrl && (
             <button
               type="button"
               onClick={() => onOpenVideo?.({ title, videoUrl })}
-              className="inline-flex items-center gap-2 rounded-xl border border-neutral-200 px-4 py-2 text-sm font-medium text-neutral-800 hover:bg-neutral-50 transition"
+              className={`${baseBtn} ${hoverBtn} ${focusBtn}`}
             >
               Ver video
             </button>
           )}
 
-          {/* PDF */}
+          {/* Saber más (PDF) - único con iconito */}
           <Link
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-xl border border-neutral-200 px-4 py-2 text-sm font-medium text-neutral-800 hover:bg-neutral-50 transition"
+            className={`${baseBtn} ${hoverBtn} ${focusBtn} group inline-flex items-center gap-2`}
           >
             Saber más
-            <span className="inline-flex h-6 w-6 items-center justify-center rounded-lg bg-neutral-900 text-white text-xs">
+            <span className="inline-flex h-6 w-6 items-center justify-center rounded-lg bg-neutral-900 text-white text-xs transition-transform duration-200 group-hover:translate-x-[1px]">
               ↗
             </span>
           </Link>
+
+          {/* Cómo funciona (Esquema) */}
+          {schemeImage && (
+            <button
+              type="button"
+              onClick={() => onOpenScheme?.({ title, schemeImage })}
+              className={`${baseBtn} ${hoverBtn} ${focusBtn}`}
+            >
+              Cómo funciona
+            </button>
+          )}
+
+          {/* ¿Es para ti? (Parati) */}
+          {fitImage && (
+            <button
+              type="button"
+              onClick={() => onOpenFit?.({ title, fitImage })}
+              className={`${baseBtn} ${hoverBtn} ${focusBtn}`}
+            >
+              ¿Es para ti?
+            </button>
+          )}
         </div>
       </div>
     </article>
