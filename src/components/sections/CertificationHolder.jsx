@@ -44,7 +44,7 @@ export default function CertificationHolder({
       {/* HEADER */}
       <div className="flex items-start gap-5 p-6">
         {/* Imagen principal + badges */}
-        <div className="relative w-28 h-28 shrink-0">
+        <div className="relative w-42 h-30 shrink-0">
           <div className="w-full h-full rounded-2xl overflow-hidden border border-neutral-200 shadow-sm bg-white">
             {mainImage ? (
               <img
@@ -59,7 +59,7 @@ export default function CertificationHolder({
           </div>
 
           {badgeTop && (
-            <div className="absolute -top-2 -right-2 w-10 h-10 rounded-full overflow-hidden border border-white shadow-md bg-white">
+            <div className="absolute -top-2 -right-2 w-11 h-11 rounded-full overflow-hidden border border-white shadow-md bg-white">
               <img
                 src={badgeTop}
                 alt="Badge superior"
@@ -70,7 +70,7 @@ export default function CertificationHolder({
           )}
 
           {badgeBottom && (
-            <div className="absolute -bottom-2 -left-2 w-10 h-10 rounded-full overflow-hidden border border-white shadow-md bg-white">
+            <div className="absolute -bottom-2 -left-2 w-11 h-11 rounded-full overflow-hidden border border-white shadow-md bg-white">
               <img
                 src={badgeBottom}
                 alt="Badge inferior"
