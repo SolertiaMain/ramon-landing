@@ -4,10 +4,12 @@ import { useEffect, useState } from "react";
 import Container from "../layout/Container";
 import Image from "next/image";
 import { heroFont } from "@/app/layout";
+import ContactModal from "./ContactModal";
 
 export default function Hero({ data }) {
   const [mounted, setMounted] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const [openContact, setOpenContact] = useState(false);
 
   useEffect(() => {
     const t = setTimeout(() => setMounted(true), 60);
@@ -108,18 +110,20 @@ export default function Hero({ data }) {
             ].join(" ")}
             style={{ transitionDelay: "500ms" }}
           >
-            <a
-              href={data.cta.href}
+            <button
+              type="button"
+              onClick={() => setOpenContact(true)}
               className="inline-flex rounded-md bg-white px-6 py-3 text-black font-medium hover:opacity-90 transition-opacity"
             >
               {data.cta.label}
-            </a>
+            </button>
+
           </div>
 
         </div>
       </Container>
 
-
+      <ContactModal open={openContact} onClose={() => setOpenContact(false)} />
     </section>
   );
 }
