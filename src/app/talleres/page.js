@@ -16,7 +16,7 @@ const TALLERES = [
     esquemaImage: "/images/talleres/esquema_TALLER.jpeg",
     paraQuienImage: "/images/talleres/paraquien_TALLER.jpeg",
     duration: "3 horas",
-    metaLeft: "Taller corporativo"
+    metaLeft: "Taller corporativo",
   },
   {
     title: "Prevenir la violencia laboral",
@@ -30,7 +30,7 @@ const TALLERES = [
     esquemaImage: "/images/talleres/esquema_TALLER.jpeg",
     paraQuienImage: "/images/talleres/paraquien_TALLER.jpeg",
     duration: "6 horas",
-    metaLeft: "Taller corporativo"
+    metaLeft: "Taller corporativo",
   },
   {
     title: "Calidad en mi trabajo y vida de calidad",
@@ -44,7 +44,7 @@ const TALLERES = [
     esquemaImage: "/images/talleres/esquema_TALLER.jpeg",
     paraQuienImage: "/images/talleres/paraquien_TALLER.jpeg",
     duration: "3 horas",
-    metaLeft: "Conferencia corporativa"
+    metaLeft: "Conferencia corporativa",
   },
   {
     title: "Alineamiento corporativo con NMX-R-025-SCFI-2015",
@@ -58,7 +58,7 @@ const TALLERES = [
     esquemaImage: "/images/talleres/esquema_TALLER.jpeg",
     paraQuienImage: "/images/talleres/paraquien_TALLER.jpeg",
     duration: "6 horas",
-    metaLeft: "Taller corporativo"
+    metaLeft: "Taller corporativo",
   },
   {
     title: "Criterios técnicos para la igualdad salarial",
@@ -72,7 +72,7 @@ const TALLERES = [
     esquemaImage: "/images/talleres/esquema_TALLER.jpeg",
     paraQuienImage: "/images/talleres/paraquien_TALLER.jpeg",
     duration: "6 horas",
-    metaLeft: "Taller corporativo"
+    metaLeft: "Taller corporativo",
   },
   {
     title: "Gestión eficaz del Protocolo de violencia laboral",
@@ -86,7 +86,7 @@ const TALLERES = [
     esquemaImage: "/images/talleres/esquema_TALLER.jpeg",
     paraQuienImage: "/images/talleres/paraquien_TALLER.jpeg",
     duration: "6 horas",
-    metaLeft: "Taller corporativo"
+    metaLeft: "Taller corporativo",
   },
   {
     title: "Inducción a igualdad, no discriminación y atención de violencia",
@@ -100,7 +100,7 @@ const TALLERES = [
     esquemaImage: "/images/talleres/esquema_TALLER.jpeg",
     paraQuienImage: "/images/talleres/paraquien_TALLER.jpeg",
     duration: "3 horas",
-    metaLeft: "Taller corporativo"
+    metaLeft: "Taller corporativo",
   },
   {
     title: "Planes de acción para igualdad laboral y no discriminación",
@@ -114,7 +114,7 @@ const TALLERES = [
     esquemaImage: "/images/talleres/esquema_TALLER.jpeg",
     paraQuienImage: "/images/talleres/paraquien_TALLER.jpeg",
     duration: "5 horas",
-    metaLeft: "Taller corporativo"
+    metaLeft: "Taller corporativo",
   },
 ];
 
@@ -140,7 +140,7 @@ export default function TalleresPage() {
 
   return (
     <main className="min-h-screen bg-stone-200">
-      {/* HERO (NO CHANGE) */}
+      {/* HERO */}
       <section className="relative h-[52vh] min-h-[360px] w-full overflow-hidden">
         <img
           src="/images/talleres_ramon.jpg"
@@ -174,9 +174,7 @@ export default function TalleresPage() {
               className={[
                 "text-4xl md:text-6xl font-semibold tracking-tight text-white",
                 "transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]",
-                mounted
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-6",
+                mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6",
               ].join(" ")}
               style={{ transitionDelay: "140ms" }}
             >
@@ -187,9 +185,7 @@ export default function TalleresPage() {
               className={[
                 "mt-4 text-white/85 max-w-2xl",
                 "transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]",
-                mounted
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-6",
+                mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6",
               ].join(" ")}
               style={{ transitionDelay: "320ms" }}
             >
@@ -203,7 +199,7 @@ export default function TalleresPage() {
         </div>
       </section>
 
-      {/* CONTENIDO (copiado estilo Certificaciones) */}
+      {/* CONTENIDO */}
       <section className="mx-auto max-w-7xl px-6 py-16">
         <div className="columns-1 lg:columns-2 gap-8">
           {TALLERES.map((item, idx) => (
