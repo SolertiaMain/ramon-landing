@@ -201,9 +201,9 @@ export default function TalleresPage() {
 
       {/* CONTENIDO */}
       <section className="mx-auto max-w-7xl px-6 py-16">
-        <div className="columns-1 lg:columns-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {TALLERES.map((item, idx) => (
-            <div key={item.href} className="mb-8 break-inside-avoid">
+            <div key={item.href}>
               <TallerHolder
                 title={item.title}
                 description={item.description}

@@ -100,10 +100,10 @@ export default function TallerHolder({
             style={{ transitionDelay: `${delay}ms` }}
         >
             {/* HEADER */}
-            <div className="flex items-start gap-4 p-6">
+            <div className="flex flex-col sm:flex-row items-start gap-4 p-6">
 
                 {/* Icon */}
-                <div className="relative w-68 h-45 shrink-0">
+                <div className="relative w-full sm:w-[17rem] h-[11.25rem] sm:shrink-0">
 
                     {/* Imagen principal */}
                     <div className="w-full h-full rounded-2xl overflow-hidden border border-neutral-200 shadow-sm bg-white">
@@ -134,7 +134,7 @@ export default function TallerHolder({
 
                 </div>
 
-                <div className="flex-1">
+                <div className="flex-1 min-w-0">
                     {/* Badge */}
                     <div className="flex flex-wrap items-center gap-2">
                         <span className="rounded-full border px-2.5 py-1 text-xs font-medium text-neutral-700">
@@ -147,7 +147,7 @@ export default function TallerHolder({
                     </div>
 
                     {/* Title */}
-                    <h2 className="mt-3 text-lg font-semibold text-neutral-900">
+                    <h2 className="mt-3 text-lg font-semibold text-neutral-900 break-words">
                         {title}
                     </h2>
 
