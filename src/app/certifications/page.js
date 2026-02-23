@@ -169,7 +169,9 @@ export default function CertificacionesPage() {
               Certificaciones
             </h1>
             <p className="mt-4 text-white/85">
-              Descubre nuestras certificaciones. <br />
+            <strong className="text-white">Descubre nuestros talleres.</strong>
+
+               <br />
               Encuentra una explicación breve de cada una y haz clic en el botón
               para conocer más información.
             </p>
