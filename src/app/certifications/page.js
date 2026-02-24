@@ -57,6 +57,32 @@ const CERTS = [
     schemeImage: SCHEME_IMAGE,
     fitImage: FIT_IMAGE,
   },
+  {
+  title:
+    "Personas en Prácticas Institucionales de Gestión y Presupuestación Basada en Resultados",
+ description:
+    "Formación institucional para comprender y aplicar el enfoque de Gestión para Resultados y Presupuesto basado en Resultados, utilizando herramientas de planeación, monitoreo y evaluación para fortalecer la efectividad institucional.",
+  href: "/files/certificaciones/CERTIFICACIÓNDEPERSONASENPRÁCTICASINSTITUCIONALESDEGESTIÓNYPRESUPUESTACIÓNBASADAENRESULTADOS.pdf",
+  videoUrl: "https://www.youtube.com/embed/VIDEO_ID",
+  mainImage: "/images/certificaciones/certificado.png",
+  badgeTop: "/images/certificaciones/certificado_por_maxan.png",
+  badgeBottom: "/images/certificaciones/avalado_por_ramon.png",
+  schemeImage: SCHEME_IMAGE,
+  fitImage: FIT_IMAGE,
+},
+{
+  title:
+    "Gestión Corporativa de Protocolo para Prevenir, Atender y Sancionar Actos de Violencia Laboral y Discriminación",
+  description:
+  "Certificación orientada a comprender y gestionar el Protocolo para prevenir, atender y sancionar la violencia laboral y la discriminación, promoviendo entornos seguros e incluyentes bajo un enfoque de derechos humanos.",
+  href: "files/certificaciones/CERTIFICACIÓNENGESTIÓNCORPORATIVADELPROTOCOLOPARAPREVENIRATENDERYSANCIONARACTOSDEVIOLENCIALABORALYDISCRIMINACIÓN.pdf",
+  videoUrl: "https://www.youtube.com/embed/VIDEO_ID",
+  mainImage: "/images/certificaciones/certificado.png",
+  badgeTop: "/images/certificaciones/certificado_por_maxan.png",
+  badgeBottom: "/images/certificaciones/avalado_por_ramon.png",
+  schemeImage: SCHEME_IMAGE,
+  fitImage: FIT_IMAGE,
+},
 ];
 
 function ModalShell({ open, title, children, onClose }) {
@@ -169,7 +195,7 @@ export default function CertificacionesPage() {
               Certificaciones
             </h1>
             <p className="mt-4 text-white/85">
-            <strong className="text-white">Descubre nuestros talleres.</strong>
+            <strong className="text-white">Descubre nuestras certificaciones.</strong>
 
                <br />
               Encuentra una explicación breve de cada una y haz clic en el botón
