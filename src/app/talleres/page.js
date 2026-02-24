@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react"; 
 import TallerHolder from "@/components/sections/TallerHolder";
 
 const TALLERES = [
@@ -17,6 +17,7 @@ const TALLERES = [
     paraQuienImage: "/images/talleres/paraquien_TALLER.jpeg",
     duration: "3 horas",
     metaLeft: "Taller corporativo",
+    badge: "Taller",
   },
   {
     title: "Prevenir la violencia laboral",
@@ -31,6 +32,7 @@ const TALLERES = [
     paraQuienImage: "/images/talleres/paraquien_TALLER.jpeg",
     duration: "6 horas",
     metaLeft: "Taller corporativo",
+    badge: "Taller",
   },
   {
     title: "Calidad en mi trabajo y vida de calidad",
@@ -45,6 +47,7 @@ const TALLERES = [
     paraQuienImage: "/images/talleres/paraquien_TALLER.jpeg",
     duration: "3 horas",
     metaLeft: "Conferencia corporativa",
+    badge: "Conferencia", // ✅ FIX: pill says Conferencia
   },
   {
     title: "Alineamiento corporativo con NMX-R-025-SCFI-2015",
@@ -59,6 +62,7 @@ const TALLERES = [
     paraQuienImage: "/images/talleres/paraquien_TALLER.jpeg",
     duration: "6 horas",
     metaLeft: "Taller corporativo",
+    badge: "Taller",
   },
   {
     title: "Criterios técnicos para la igualdad salarial",
@@ -73,6 +77,7 @@ const TALLERES = [
     paraQuienImage: "/images/talleres/paraquien_TALLER.jpeg",
     duration: "6 horas",
     metaLeft: "Taller corporativo",
+    badge: "Taller",
   },
   {
     title: "Gestión eficaz del Protocolo de violencia laboral",
@@ -87,6 +92,7 @@ const TALLERES = [
     paraQuienImage: "/images/talleres/paraquien_TALLER.jpeg",
     duration: "6 horas",
     metaLeft: "Taller corporativo",
+    badge: "Taller",
   },
   {
     title: "Inducción a igualdad, no discriminación y atención de violencia",
@@ -101,6 +107,7 @@ const TALLERES = [
     paraQuienImage: "/images/talleres/paraquien_TALLER.jpeg",
     duration: "3 horas",
     metaLeft: "Taller corporativo",
+    badge: "Taller",
   },
   {
     title: "Planes de acción para igualdad laboral y no discriminación",
@@ -115,12 +122,157 @@ const TALLERES = [
     paraQuienImage: "/images/talleres/paraquien_TALLER.jpeg",
     duration: "5 horas",
     metaLeft: "Taller corporativo",
+    badge: "Taller",
   },
 ];
+
+// ✅ Smooth open + smooth close + click-outside closes reliably
+function ModalShell({ open, title, children, onClose }) {
+  const ANIM_MS = 320;
+
+  const [isRendered, setIsRendered] = useState(open);
+  const [isActive, setIsActive] = useState(false); // IMPORTANT: start false so enter anim plays
+
+  useEffect(() => {
+    if (open) {
+      setIsRendered(true);
+      return;
+    }
+
+    // exit animation
+    setIsActive(false);
+    const t = setTimeout(() => setIsRendered(false), ANIM_MS);
+    return () => clearTimeout(t);
+  }, [open]);
+
+  useLayoutEffect(() => {
+    if (!isRendered) return;
+
+    // start from closed styles
+    setIsActive(false);
+
+    // next frame -> open styles
+    const raf = requestAnimationFrame(() => {
+      setIsActive(true);
+    });
+
+    return () => cancelAnimationFrame(raf);
+  }, [isRendered]);
+
+  // ESC closes
+  useEffect(() => {
+    if (!isRendered) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") onClose?.();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [isRendered, onClose]);
+
+  // lock scroll + prevent scrollbar jump
+  useEffect(() => {
+    if (!isRendered) return;
+
+    const prevOverflow = document.body.style.overflow;
+    const prevPaddingRight = document.body.style.paddingRight;
+
+    const scrollbarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
+
+    document.body.style.overflow = "hidden";
+    if (scrollbarWidth > 0) {
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+    }
+
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      document.body.style.paddingRight = prevPaddingRight;
+    };
+  }, [isRendered]);
+
+  if (!isRendered) return null;
+
+  return (
+    <div
+      className={`fixed inset-0 z-[9999] ${isActive ? "pointer-events-auto" : "pointer-events-none"
+        }`}
+      aria-hidden={!isActive}
+    >
+      {/* overlay (click closes) */}
+      <div
+        onClick={onClose}
+        className={`absolute inset-0 transition-all duration-300 cursor-pointer ${isActive
+            ? "bg-black/40 backdrop-blur-sm opacity-100"
+            : "opacity-0"
+          }`}
+      />
+
+      {/* wrapper (click outside closes) */}
+      <div
+        className="absolute inset-0 flex items-center justify-center p-4"
+        onClick={onClose}
+      >
+        {/* panel */}
+        <div
+          className={`w-full max-w-5xl max-h-[85vh] sm:max-h-[88vh] rounded-2xl bg-white shadow-2xl border border-neutral-200 overflow-hidden transform transition-all duration-300 ${isActive
+            ? "opacity-100 translate-y-0 scale-100"
+            : "opacity-0 translate-y-2 scale-[0.985]"
+            }`}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="flex items-center justify-between gap-3 px-6 py-4 border-b border-neutral-200">
+            <div className="min-w-0">
+              <div className="text-xs text-neutral-500">Vista previa</div>
+              <div className="text-base font-semibold text-neutral-900 truncate">
+                {title}
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={onClose}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-neutral-200 hover:bg-neutral-50 transition cursor-pointer"
+              aria-label="Cerrar"
+            >
+              ✕
+            </button>
+          </div>
+
+          {/* IMPORTANT:
+              - supports normal JSX children
+              - ALSO supports function-children (in case you still have one somewhere)
+              - prevents "Functions are not valid as a React child"
+          */}
+          <div className="p-6 overflow-y-auto max-h-[calc(85vh-72px)] sm:max-h-[calc(88vh-72px)]">
+            {typeof children === "function" ? children({ active: isActive }) : children}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function TalleresPage() {
   const [mounted, setMounted] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+
+  const [videoModal, setVideoModal] = useState({
+    open: false,
+    title: "",
+    videoUrl: "",
+  });
+
+  const [schemeModal, setSchemeModal] = useState({
+    open: false,
+    title: "",
+    schemeImage: "",
+  });
+
+  const [fitModal, setFitModal] = useState({
+    open: false,
+    title: "",
+    fitImage: "",
+  });
 
   useEffect(() => {
     const t = setTimeout(() => setMounted(true), 60);
@@ -220,11 +372,67 @@ export default function TalleresPage() {
                 paraQuienImage={item.paraQuienImage}
                 delay={idx * 120}
                 mounted={mounted}
+                onOpenVideo={({ title, videoUrl }) =>
+                  setVideoModal({ open: true, title, videoUrl })
+                }
+                onOpenScheme={({ title, schemeImage }) =>
+                  setSchemeModal({ open: true, title, schemeImage })
+                }
+                onOpenFit={({ title, fitImage }) =>
+                  setFitModal({ open: true, title, fitImage })
+                }
               />
             </div>
           ))}
         </div>
       </section>
+
+      {/* MODAL: VIDEO */}
+      <ModalShell
+        open={videoModal.open}
+        title={videoModal.title}
+        onClose={() => setVideoModal((v) => ({ ...v, open: false }))}
+      >
+        <div className="aspect-video w-full overflow-hidden rounded-xl border border-neutral-200 bg-black">
+          <iframe
+            key={videoModal.videoUrl}
+            src={videoModal.videoUrl}
+            className="w-full h-full"
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+          />
+        </div>
+      </ModalShell>
+
+      {/* MODAL: ESQUEMA */}
+      <ModalShell
+        open={schemeModal.open}
+        title={`${schemeModal.title} — Cómo funciona`}
+        onClose={() => setSchemeModal((v) => ({ ...v, open: false }))}
+      >
+        <div className="w-full overflow-hidden rounded-xl border border-neutral-200 bg-white">
+          <img
+            src={schemeModal.schemeImage}
+            alt="Esquema"
+            className="w-full max-h-[70vh] object-contain"
+          />
+        </div>
+      </ModalShell>
+
+      {/* MODAL: PARA QUIÉN */}
+      <ModalShell
+        open={fitModal.open}
+        title={`${fitModal.title} — ¿Es para ti?`}
+        onClose={() => setFitModal((v) => ({ ...v, open: false }))}
+      >
+        <div className="w-full overflow-hidden rounded-xl border border-neutral-200 bg-white">
+          <img
+            src={fitModal.fitImage}
+            alt="¿Es para ti?"
+            className="w-full max-h-[70vh] object-contain"
+          />
+        </div>
+      </ModalShell>
     </main>
   );
 }
