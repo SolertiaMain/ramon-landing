@@ -118,7 +118,7 @@ export default function TallerHolder({
                         onClick={() => onOpenScheme?.({ title, schemeImage: esquemaImage })}
                         className={`${baseBtn} ${hoverBtn} ${focusBtn}`}
                     >
-                        Cómo funciona
+                        ¿Cómo funciona?
                     </button>
 
                     {/* 3) Ver video */}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import CertificationHolder from "@/components/sections/CertificationHolder";
 
 const SCHEME_IMAGE = "/files/certificaciones/shared/Esquema.jpeg";
@@ -75,7 +75,7 @@ const CERTS = [
     "Gestión Corporativa de Protocolo para Prevenir, Atender y Sancionar Actos de Violencia Laboral y Discriminación",
   description:
   "Certificación orientada a comprender y gestionar el Protocolo para prevenir, atender y sancionar la violencia laboral y la discriminación, promoviendo entornos seguros e incluyentes bajo un enfoque de derechos humanos.",
-  href: "files/certificaciones/CERTIFICACIÓNENGESTIÓNCORPORATIVADELPROTOCOLOPARAPREVENIRATENDERYSANCIONARACTOSDEVIOLENCIALABORALYDISCRIMINACIÓN.pdf",
+  href: "/files/certificaciones/CERTIFICACIÓNENGESTIÓNCORPORATIVADELPROTOCOLOPARAPREVENIRATENDERYSANCIONARACTOSDEVIOLENCIALABORALYDISCRIMINACIÓN.pdf",
   videoUrl: "https://www.youtube.com/embed/VIDEO_ID",
   mainImage: "/images/certificaciones/certificado.png",
   badgeTop: "/images/certificaciones/certificado_por_maxan.png",
@@ -85,51 +85,101 @@ const CERTS = [
 },
 ];
 
+// ✅ Smooth open + smooth close + click-outside closes reliably
 function ModalShell({ open, title, children, onClose }) {
-  // ESC
+  const ANIM_MS = 320;
+
+  const [isRendered, setIsRendered] = useState(open);
+  const [isActive, setIsActive] = useState(false); // IMPORTANT: start false so enter anim plays
+
   useEffect(() => {
-    if (!open) return;
-    const onKey = (e) => e.key === "Escape" && onClose?.();
+    if (open) {
+      setIsRendered(true);
+      return;
+    }
+
+    // exit animation
+    setIsActive(false);
+    const t = setTimeout(() => setIsRendered(false), ANIM_MS);
+    return () => clearTimeout(t);
+  }, [open]);
+
+  useLayoutEffect(() => {
+    if (!isRendered) return;
+
+    // start from closed styles
+    setIsActive(false);
+
+    // next frame -> open styles
+    const raf = requestAnimationFrame(() => {
+      setIsActive(true);
+    });
+
+    return () => cancelAnimationFrame(raf);
+  }, [isRendered]);
+
+  // ESC closes
+  useEffect(() => {
+    if (!isRendered) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") onClose?.();
+    };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [open, onClose]);
+  }, [isRendered, onClose]);
 
-  // lock scroll
+  // lock scroll + prevent scrollbar jump
   useEffect(() => {
-    if (!open) return;
-    const prev = document.body.style.overflow;
+    if (!isRendered) return;
+
+    const prevOverflow = document.body.style.overflow;
+    const prevPaddingRight = document.body.style.paddingRight;
+
+    const scrollbarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
+
     document.body.style.overflow = "hidden";
+    if (scrollbarWidth > 0) {
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+    }
+
     return () => {
-      document.body.style.overflow = prev;
+      document.body.style.overflow = prevOverflow;
+      document.body.style.paddingRight = prevPaddingRight;
     };
-  }, [open]);
+  }, [isRendered]);
+
+  if (!isRendered) return null;
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] ${
-        open ? "pointer-events-auto" : "pointer-events-none"
-      }`}
-      aria-hidden={!open}
+      className={`fixed inset-0 z-[9999] ${isActive ? "pointer-events-auto" : "pointer-events-none"
+        }`}
+      aria-hidden={!isActive}
     >
-      {/* overlay */}
+      {/* overlay (click closes) */}
       <div
         onClick={onClose}
-        className={`absolute inset-0 transition-all duration-300 ${
-          open ? "bg-black/40 backdrop-blur-sm opacity-100" : "opacity-0"
-        }`}
+        className={`absolute inset-0 transition-all duration-300 cursor-pointer ${isActive
+          ? "bg-black/40 backdrop-blur-sm opacity-100"
+          : "opacity-0"
+          }`}
       />
 
-      {/* panel */}
-      <div className="absolute inset-0 flex items-center justify-center p-4">
+      {/* wrapper (click outside closes) */}
+      <div
+        className="absolute inset-0 flex items-center justify-center p-4"
+        onClick={onClose}
+      >
+        {/* panel */}
         <div
-          className={`w-full max-w-5xl rounded-2xl bg-white shadow-2xl border border-neutral-200 overflow-hidden transform transition-all duration-300 ${
-            open
-              ? "opacity-100 translate-y-0 scale-100"
-              : "opacity-0 translate-y-2 scale-[0.98]"
-          }`}
+          className={`w-full max-w-5xl max-h-[85vh] sm:max-h-[88vh] rounded-2xl bg-white shadow-2xl border border-neutral-200 overflow-hidden transform transition-all duration-300 ${isActive
+            ? "opacity-100 translate-y-0 scale-100"
+            : "opacity-0 translate-y-2 scale-[0.985]"
+            }`}
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="flex items-center justify-between gap-3 px-6 py-4 border-b border-neutral-200">
+          <div className="flex h-[72px] items-center justify-between gap-3 px-6 border-b border-neutral-200">
             <div className="min-w-0">
               <div className="text-xs text-neutral-500">Vista previa</div>
               <div className="text-base font-semibold text-neutral-900 truncate">
@@ -140,14 +190,21 @@ function ModalShell({ open, title, children, onClose }) {
             <button
               type="button"
               onClick={onClose}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-neutral-200 hover:bg-neutral-50 transition"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-neutral-200 hover:bg-neutral-50 transition cursor-pointer"
               aria-label="Cerrar"
             >
               ✕
             </button>
           </div>
 
-          <div className="p-6">{children}</div>
+          {/* IMPORTANT:
+              - supports normal JSX children
+              - ALSO supports function-children (in case you still have one somewhere)
+              - prevents "Functions are not valid as a React child"
+          */}
+          <div className="p-6 overflow-y-auto max-h-[calc(85vh-72px)] sm:max-h-[calc(88vh-72px)]">
+            {typeof children === "function" ? children({ active: isActive }) : children}
+          </div>
         </div>
       </div>
     </div>
@@ -207,7 +264,7 @@ export default function CertificacionesPage() {
 
       {/* CONTENIDO */}
       <section className="mx-auto max-w-7xl px-6 py-16">
-        <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-2">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {CERTS.map((cert, idx) => (
             <CertificationHolder
               key={cert.title}
@@ -246,35 +303,28 @@ export default function CertificacionesPage() {
         onClose={() => setVideoModal((v) => ({ ...v, open: false }))}
       >
         <div className="aspect-video w-full overflow-hidden rounded-xl border border-neutral-200 bg-black">
-          {videoModal.open && (
-            <iframe
-              key={videoModal.videoUrl}
-              src={videoModal.videoUrl}
-              className="w-full h-full"
-              allow="autoplay; encrypted-media"
-              allowFullScreen
-            />
-          )}
-        </div>
-        <div className="mt-4 text-xs text-neutral-500">
-          Tip: presiona <span className="font-medium">ESC</span> para cerrar.
+          <iframe
+            key={videoModal.videoUrl}
+            src={videoModal.videoUrl}
+            className="w-full h-full"
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+          />
         </div>
       </ModalShell>
 
       {/* MODAL: CÓMO FUNCIONA (Esquema.jpeg) */}
       <ModalShell
         open={schemeModal.open}
-        title={`${schemeModal.title} — Cómo funciona`}
+        title={`${schemeModal.title} — ¿Cómo funciona?`}
         onClose={() => setSchemeModal((v) => ({ ...v, open: false }))}
       >
         <div className="w-full overflow-hidden rounded-xl border border-neutral-200 bg-white">
-          {schemeModal.open && (
-            <img
-              src={schemeModal.schemeImage}
-              alt="Esquema"
-              className="w-full h-auto object-contain"
-            />
-          )}
+          <img
+            src={schemeModal.schemeImage}
+            alt="Esquema"
+            className="w-full max-h-[70vh] object-contain"
+          />
         </div>
       </ModalShell>
 
@@ -285,13 +335,11 @@ export default function CertificacionesPage() {
         onClose={() => setFitModal((v) => ({ ...v, open: false }))}
       >
         <div className="w-full overflow-hidden rounded-xl border border-neutral-200 bg-white">
-          {fitModal.open && (
-            <img
-              src={fitModal.fitImage}
-              alt="¿Es para ti?"
-              className="w-full h-auto object-contain"
-            />
-          )}
+          <img
+            src={fitModal.fitImage}
+            alt="¿Es para ti?"
+            className="w-full max-h-[70vh] object-contain"
+          />
         </div>
       </ModalShell>
     </main>
