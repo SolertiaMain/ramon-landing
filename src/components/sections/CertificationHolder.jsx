@@ -108,26 +108,37 @@ export default function CertificationHolder({
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Divider */}
-        <div className="mx-6 h-px bg-neutral-200" />
+      {/* Divider */}
+      <div className="mx-6 h-px bg-neutral-200" />
 
-        {/* BODY */}
-        <div className="p-6 pt-5">
-          <p className="text-sm text-neutral-700 leading-relaxed">{description}</p>
+      {/* BODY */}
+      <div className="p-6 pt-5">
+        <p className="text-sm text-neutral-700 leading-relaxed">{description}</p>
 
-          {/* ACTIONS — ORDER FIXED (igual que TallerHolder) */}
-          <div className="mt-6 grid grid-cols-1 gap-3 md:flex md:flex-wrap md:gap-3 md:justify-center">
-            {/* 1) ¿Es para ti? */}
-            <button
-              type="button"
-              onClick={() => onOpenFit?.({ title, fitImage })}
-              className={`${baseBtn} ${hoverBtn} ${focusBtn}`}
-            >
-              ¿Es para ti?
-            </button>
+        {/* ACTIONS — ORDER FIXED (igual que TallerHolder) */}
+        <div className="mt-6 grid grid-cols-1 gap-3 md:flex md:flex-wrap md:gap-3 md:justify-center">
+          {/* 1) ¿Es para ti? */}
+          <button
+            type="button"
+            onClick={() => onOpenFit?.({ title, fitImage })}
+            className={`${baseBtn} ${hoverBtn} ${focusBtn}`}
+          >
+            ¿Es para ti?
+          </button>
 
-            {/* 2) Cómo funciona */}
+          {/* 2) Cómo funciona */}
+          <button
+            type="button"
+            onClick={() => onOpenScheme?.({ title, schemeImage })}
+            className={`${baseBtn} ${hoverBtn} ${focusBtn}`}
+          >
+            ¿Cómo funciona?
+          </button>
+
+          {/* 3) Ver video */}
+          {hasVideo && (
             <button
               type="button"
               onClick={() => onOpenScheme?.({ title, schemeImage })}
