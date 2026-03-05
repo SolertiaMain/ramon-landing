@@ -133,7 +133,7 @@ export default function CertificationHolder({
             onClick={() => onOpenScheme?.({ title, schemeImage })}
             className={`${baseBtn} ${hoverBtn} ${focusBtn}`}
           >
-            Cómo funciona
+            ¿Cómo funciona?
           </button>
 
           {/* 3) Ver video */}

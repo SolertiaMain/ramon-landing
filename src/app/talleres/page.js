@@ -407,7 +407,7 @@ export default function TalleresPage() {
       {/* MODAL: ESQUEMA */}
       <ModalShell
         open={schemeModal.open}
-        title={`${schemeModal.title} — Cómo funciona`}
+        title={`${schemeModal.title} — ¿Cómo funciona?`}
         onClose={() => setSchemeModal((v) => ({ ...v, open: false }))}
       >
         <div className="w-full overflow-hidden rounded-xl border border-neutral-200 bg-white">
