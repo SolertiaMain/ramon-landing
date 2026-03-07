@@ -52,23 +52,27 @@ export default function TallerHolder({
                             />
                         </div>
 
-                        <div className="absolute -top-2 -right-2 w-15 h-15 rounded-full overflow-hidden border border-white shadow-md bg-white">
-                            <img
-                                src={badgeTop}
-                                alt="Badge"
-                                className="w-full h-full object-cover"
-                                loading="lazy"
-                            />
-                        </div>
+                        {badgeTop ? (
+                            <div className="absolute -top-10 -right-2 w-18 h-14 overflow-hidden rounded-t-full border border-white shadow-md bg-white">
+                                <img
+                                    src={badgeTop}
+                                    alt="Badge superior"
+                                    className="w-full h-full object-cover object-top"
+                                    loading="lazy"
+                                />
+                            </div>
+                        ) : null}
 
-                        <div className="absolute -bottom-2 -left-2 w-15 h-15 rounded-full overflow-hidden border border-white shadow-md bg-white">
-                            <img
-                                src={badgeBottom}
-                                alt="Badge"
-                                className="w-full h-full object-cover"
-                                loading="lazy"
-                            />
-                        </div>
+                        {badgeBottom ? (
+                            <div className="absolute -bottom-10 -left-2 w-18 h-14 overflow-hidden rounded-b-full border border-white shadow-md bg-white">
+                                <img
+                                    src={badgeBottom}
+                                    alt="Badge inferior"
+                                    className="w-full h-full object-cover object-bottom"
+                                    loading="lazy"
+                                />
+                            </div>
+                        ) : null}
                     </div>
 
                     <div className="flex-1 min-w-0 text-center md:text-left">
