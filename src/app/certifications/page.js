@@ -85,12 +85,12 @@ const CERTS = [
 },
 ];
 
-// ✅ Smooth open + smooth close + click-outside closes reliably
+//Smooth open + smooth close + click-outside closes reliably
 function ModalShell({ open, title, children, onClose }) {
   const ANIM_MS = 320;
 
   const [isRendered, setIsRendered] = useState(open);
-  const [isActive, setIsActive] = useState(false); // IMPORTANT: start false so enter anim plays
+  const [isActive, setIsActive] = useState(false); // 
 
   useEffect(() => {
     if (open) {
