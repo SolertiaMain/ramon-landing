@@ -33,7 +33,6 @@ export default function TallerHolder({
 
     return (
         <article className="group relative overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-lg">
-            {/* This wrapper keeps your staggered entrance delay WITHOUT affecting hover */}
             <div
                 className={`transition-all duration-500 ease-out ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
                     }`}
@@ -49,34 +48,36 @@ export default function TallerHolder({
                                 alt={badge}
                                 className="w-full h-full object-cover"
                                 loading="lazy"
+                                decoding="async"
                             />
                         </div>
 
                         {badgeTop ? (
-                            <div className="absolute -top-10 -right-2 w-18 h-14 overflow-hidden rounded-t-full border border-white shadow-md bg-white">
+                            <div className="pointer-events-none absolute -top-10 -right-2 z-10 w-[4.5rem] h-[4.5rem] bg-transparent">
                                 <img
                                     src={badgeTop}
                                     alt="Badge superior"
-                                    className="w-full h-full object-cover object-top"
+                                    className="w-full h-full object-contain"
                                     loading="lazy"
+                                    decoding="async"
                                 />
                             </div>
                         ) : null}
 
                         {badgeBottom ? (
-                            <div className="absolute -bottom-10 -left-2 w-18 h-14 overflow-hidden rounded-b-full border border-white shadow-md bg-white">
+                            <div className="pointer-events-none absolute -bottom-10 -left-2 z-10 w-[4.5rem] h-[4.5rem] bg-transparent">
                                 <img
                                     src={badgeBottom}
                                     alt="Badge inferior"
-                                    className="w-full h-full object-cover object-bottom"
+                                    className="w-full h-full object-contain"
                                     loading="lazy"
+                                    decoding="async"
                                 />
                             </div>
                         ) : null}
                     </div>
 
                     <div className="flex-1 min-w-0 text-center md:text-left">
-                        {/* Pills */}
                         <div className="flex flex-wrap items-center gap-2 justify-center md:justify-start">
                             <span className="rounded-full border px-2.5 py-1 text-xs font-medium text-neutral-700">
                                 {badge}
@@ -107,16 +108,13 @@ export default function TallerHolder({
                     </div>
                 </div>
 
-                {/* Divider */}
                 <div className="mx-6 h-px bg-neutral-200" />
 
                 {/* BODY */}
                 <div className="p-6 pt-5">
                     <p className="text-sm text-neutral-700 leading-relaxed">{description}</p>
 
-                    {/* ACTIONS — ORDER FIXED */}
                     <div className="mt-6 grid grid-cols-1 gap-3 md:flex md:flex-wrap md:gap-3 md:justify-center">
-                        {/* 1) ¿Es para ti? */}
                         <button
                             type="button"
                             onClick={() => onOpenFit?.({ title, fitImage: paraQuienImage })}
@@ -125,7 +123,6 @@ export default function TallerHolder({
                             ¿Es para ti?
                         </button>
 
-                        {/* 2) Cómo funciona */}
                         <button
                             type="button"
                             onClick={() => onOpenScheme?.({ title, schemeImage: esquemaImage })}
@@ -134,7 +131,6 @@ export default function TallerHolder({
                             ¿Cómo funciona?
                         </button>
 
-                        {/* 3) Ver video */}
                         {hasVideo && (
                             <button
                                 type="button"
@@ -145,7 +141,6 @@ export default function TallerHolder({
                             </button>
                         )}
 
-                        {/* 4) Saber más */}
                         <Link
                             href={href}
                             target="_blank"
