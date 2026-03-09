@@ -4,8 +4,6 @@ import { useEffect, useLayoutEffect, useState } from "react";
 import CertificationHolder from "@/components/sections/CertificationHolder";
 
 const SCHEME_IMAGE = "/files/certificaciones/shared/Esquema.jpeg";
-const FIT_IMAGE = "/files/certificaciones/shared/Parati.jpeg";
-
 const CERTS = [
   {
     title:
@@ -14,11 +12,11 @@ const CERTS = [
       "Formación orientada a comprender e implementar prácticas clave de la Norma Mexicana NMX-R-025-SCFI-2015, fortaleciendo capacidades de acompañamiento y mejora en centros de trabajo.",
     href: "/files/certificaciones/sabermas/CONSULTORASYCONSULTORESENPRACTICASDEIGUALDADLABORALYNODISCRIMINACIONI.pdf",
     videoUrl: "https://www.youtube.com/embed/VIDEO_ID",
-    mainImage: "/images/certificaciones/certificado.png",
+    mainImage: "/files/certificaciones/certificados/CONSULTORIAENPRACTICASDEIGUALDADLABORALYNODISCRIMINACION.jpeg",
     badgeTop: "/files/certificaciones/confianza/CERTIFICADOPORMAXAN.png",
     badgeBottom: "/files/certificaciones/confianza/AVALADOPORIMPULSOCOMPLETO.png",
     schemeImage: SCHEME_IMAGE,
-    fitImage: FIT_IMAGE,
+    fitImage: "/files/certificaciones/esparati/CONSULTORASYCONSULTORESENPRACTICASDEIGUALDADLABORALYNODISCRIMINACION.jpeg",
   },
   {
     title: "Consultoras y Consultores en Gestión basada en Resultados",
@@ -26,11 +24,11 @@ const CERTS = [
       "Enfoque para planear, dar seguimiento y evaluar programas y proyectos con orientación a resultados, monitoreo y evaluación, fortaleciendo la toma de decisiones y la rendición de cuentas.",
     href: "/files/certificaciones/sabermas/CONSULTORASYCONSULTORESENGESTIONYPRESUPUESTACIONBASADAENRESULTADOS.pdf",
     videoUrl: "https://www.youtube.com/embed/VIDEO_ID",
-    mainImage: "/images/certificaciones/certificado.png",
+    mainImage: "/files/certificaciones/certificados/GESTIONYPRESUPUESTACIONBASADAENRESULTADOS.jpeg",
     badgeTop: "/files/certificaciones/confianza/CERTIFICADOPORGOBERNOVA.png",
     badgeBottom: "/files/certificaciones/confianza/AVALADOPORIMPULSOCOMPLETO.png",
     schemeImage: SCHEME_IMAGE,
-    fitImage: FIT_IMAGE,
+    fitImage: "/files/certificaciones/esparati/GESTIONYPRESUPUESTACIONBASADAENRESULTADOS.jpeg",
   },
   {
     title:
@@ -39,11 +37,11 @@ const CERTS = [
       "Acompañamiento para preparar y certificar al centro de trabajo en la Norma Mexicana NMX-R-025-SCFI-2015, con énfasis en requisitos, evidencia y procesos de auditoría.",
     href: "/files/certificaciones/sabermas/PERSONASQUEREALIZANLAIMPLEMENTACIONYEVALUACIONCORPORATIVA.pdf",
     videoUrl: "https://www.youtube.com/embed/VIDEO_ID",
-    mainImage: "/images/certificaciones/certificado.png",
+    mainImage: "/files/certificaciones/certificados/GESTIONYACREDITACIONCORPORATIVADEPRACTICASDEIGUALDADLABORALYNODISCRIMINACION.jpeg",
     badgeTop: "/files/certificaciones/confianza/CERTIFICADOPORMAXAN.png",
     badgeBottom: "/files/certificaciones/confianza/AVALADOPORIMPULSOCOMPLETO.png",
     schemeImage: SCHEME_IMAGE,
-    fitImage: FIT_IMAGE,
+    fitImage: "/files/certificaciones/esparati/GESTIONYACREDITACIONCORPORATIVADEPRACTICASDEIGUALDADLABORALYNODISCRIMINACION.jpeg",
   },
   {
     title: "Certificación de Ombudsperson",
@@ -51,11 +49,11 @@ const CERTS = [
       "Certificación/curso especializado para fortalecer la atención imparcial de quejas y conflictos internos, promoviendo entornos laborales respetuosos y mecanismos institucionales de resolución.",
     href: "/files/certificaciones/sabermas/PARAPERSONASOMBUDSPERSON.pdf",
     videoUrl: "https://www.youtube.com/embed/VIDEO_ID",
-    mainImage: "/images/certificaciones/certificado.png",
+    mainImage: "/files/certificaciones/certificados/OMBUDSPERSON.jpeg",
     badgeTop: "/files/certificaciones/confianza/CERTIFICADOPORMAXAN.png",
     badgeBottom: "/files/certificaciones/confianza/AVALADOPORIMPULSOCOMPLETO.png",
     schemeImage: SCHEME_IMAGE,
-    fitImage: FIT_IMAGE,
+    fitImage: "/files/certificaciones/esparati/OMBUDSPERSON.jpeg",
   },
   {
   title:
@@ -64,11 +62,11 @@ const CERTS = [
     "Formación institucional para comprender y aplicar el enfoque de Gestión para Resultados y Presupuesto basado en Resultados, utilizando herramientas de planeación, monitoreo y evaluación para fortalecer la efectividad institucional.",
   href: "/files/certificaciones/sabermas/PERSONASENPRACTICASINSTITUCIONALESDEGESTIONYPRESUPUESTACIONBASADAENRESULTADOS.pdf",
   videoUrl: "https://www.youtube.com/embed/VIDEO_ID",
-  mainImage: "/images/certificaciones/certificado.png",
+  mainImage: "/files/certificaciones/certificados/PRACTICASINSTITUCIONALESDEGESTIONYPRESUPUESTACIONBASADAENRESULTADOS.jpeg",
   badgeTop: "/files/certificaciones/confianza/CERTIFICADOPORGOBERNOVA.png",
   badgeBottom: "/files/certificaciones/confianza/AVALADOPORIMPULSOCOMPLETO.png",
   schemeImage: SCHEME_IMAGE,
-  fitImage: FIT_IMAGE,
+  fitImage: "/files/certificaciones/esparati/PRACTICASINSTITUCIONALESDEGESTIONYPRESUPUESTACIONBASADAENRESULTADOS.jpeg",
 },
 {
   title:
@@ -77,11 +75,11 @@ const CERTS = [
   "Certificación orientada a comprender y gestionar el Protocolo para prevenir, atender y sancionar la violencia laboral y la discriminación, promoviendo entornos seguros e incluyentes bajo un enfoque de derechos humanos.",
   href: "/files/certificaciones/sabermas/GESTIONCORPORATIVADELPROTOCOLOPARAPREVENIRATENDERYSANCIONARACTOSDEVIOLENCIALABORALYDISCRIMINACION.pdf",
   videoUrl: "https://www.youtube.com/embed/VIDEO_ID",
-  mainImage: "/images/certificaciones/certificado.png",
+  mainImage: "/files/certificaciones/certificados/GESTIONCORPORATIVADELPROTOCOLOPARAPREVENIRATENDERYSANCIONARACTOSDEVIOLENCIALABORALYDISCRIMINACION.jpeg",
   badgeTop: "/files/certificaciones/confianza/CERTIFICADOPORMAXAN.png",
   badgeBottom: "/files/certificaciones/confianza/AVALADOPORIMPULSOCOMPLETO.png",
   schemeImage: SCHEME_IMAGE,
-  fitImage: FIT_IMAGE,
+  fitImage: "/files/certificaciones/esparati/GESTIONCORPORATIVADELPROTOCOLOPARAPREVENIRATENDERYSANCIONARACTOSDEVIOLENCIALABORALYDISCRIMINACION.jpeg",
 },
 ];
 
