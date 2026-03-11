@@ -1,19 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
-const BLOG_ITEMS = [
-  {
-    title:
-      "¿En qué consiste la reforma a la Ley Federal del Trabajo para sistematizar la prevención y eliminación de la violencia laboral hacia las mujeres?",
-    description:
-      "La reforma a la LFT publicada el 15 de enero de 2026 establece la necesidad de contar con entornos laborales libres de violencia y sin discriminación.",
-    images: [
-      "/files/blogs/REFORMALFTPREVENCIONYELIMINACIONDELAVIOLENCIALABORALHACIALASMUJERES/REFORMALFTPREVENCIONYELIMINACIONDELAVIOLENCIALABORALHACIALASMUJERES1.png",
-      "/files/blogs/REFORMALFTPREVENCIONYELIMINACIONDELAVIOLENCIALABORALHACIALASMUJERES/REFORMALFTPREVENCIONYELIMINACIONDELAVIOLENCIALABORALHACIALASMUJERES2.png",
-    ],
-  },
-];
+import { BLOG_POSTS } from "@/content/blogPosts";
+import BlogCard from "@/components/BlogCard";
 
 export default function BlogPage() {
   const [mounted, setMounted] = useState(false);
@@ -37,7 +26,6 @@ export default function BlogPage() {
 
   return (
     <main className="min-h-screen bg-stone-200">
-      {/* HERO */}
       <section className="relative h-[52vh] min-h-[360px] w-full overflow-hidden">
         <img
           src="/images/blog_ramon.jpg"
@@ -45,9 +33,8 @@ export default function BlogPage() {
           className="absolute inset-0 h-full w-full object-cover"
           style={{
             objectPosition: "center 20%",
-            transform: `translateY(${imgOffset}px) ${
-              mounted ? "scale(1.05)" : "scale(1)"
-            }`,
+            transform: `translateY(${imgOffset}px) ${mounted ? "scale(1.05)" : "scale(1)"
+              }`,
             transition: "transform 1600ms cubic-bezier(0.22,1,0.36,1)",
           }}
         />
@@ -71,7 +58,7 @@ export default function BlogPage() {
             <h1 className="text-4xl md:text-6xl font-semibold tracking-tight text-white">
               Blog
             </h1>
-            <p className="mt-4 text-white/85 max-w-2xl">
+            <p className="mt-4 max-w-2xl text-white/85">
               <strong className="text-white">Explora nuestro blog.</strong>
               <br />
               Encuentra análisis, herramientas y reflexiones orientadas al
@@ -81,39 +68,13 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* CONTENT */}
       <section className="mx-auto max-w-4xl px-6 py-16">
-        {BLOG_ITEMS.map((item, idx) => (
-          <article
-            key={idx}
-            className="bg-white rounded-2xl shadow-md border border-black/5 p-6 md:p-10"
-          >
-            <h2 className="text-xl md:text-2xl font-semibold text-neutral-900">
-              {item.title}
-            </h2>
-
-            <p className="mt-4 text-sm text-neutral-700 leading-relaxed">
-              {item.description}
-            </p>
-
-            {/* Imágenes tipo “lámina” */}
-            <div className="mt-8 space-y-6">
-              {item.images.map((src, i) => (
-                <div
-                  key={i}
-                  className="rounded-xl overflow-hidden border border-black/5 shadow-sm bg-stone-50"
-                >
-                  <img
-                    src={src}
-                    alt={`Página ${i + 1}`}
-                    className="w-full h-auto block"
-                  />
-                </div>
-              ))}
-            </div>
-          </article>
-        ))}
+        <div className="space-y-8">
+          {BLOG_POSTS.map((post) => (
+            <BlogCard key={post.slug} post={post} />
+          ))}
+        </div>
       </section>
     </main>
   );
-} 
+}

@@ -126,12 +126,11 @@ const TALLERES = [
   },
 ];
 
-// ✅ Smooth open + smooth close + click-outside closes reliably
 function ModalShell({ open, title, children, onClose }) {
   const ANIM_MS = 320;
 
   const [isRendered, setIsRendered] = useState(open);
-  const [isActive, setIsActive] = useState(false); // IMPORTANT: start false so enter anim plays
+  const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
     if (open) {
@@ -238,11 +237,6 @@ function ModalShell({ open, title, children, onClose }) {
             </button>
           </div>
 
-          {/* IMPORTANT:
-              - supports normal JSX children
-              - ALSO supports function-children (in case you still have one somewhere)
-              - prevents "Functions are not valid as a React child"
-          */}
           <div className="p-6 overflow-y-auto max-h-[calc(85vh-72px)] sm:max-h-[calc(88vh-72px)]">
             {typeof children === "function" ? children({ active: isActive }) : children}
           </div>
