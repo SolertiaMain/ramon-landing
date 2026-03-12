@@ -3,7 +3,6 @@
 import { useEffect, useLayoutEffect, useState } from "react";
 import CertificationHolder from "@/components/sections/CertificationHolder";
 
-const SCHEME_IMAGE = "/files/certificaciones/shared/Esquema.jpeg";
 const CERTS = [
   {
     title:
@@ -15,7 +14,7 @@ const CERTS = [
     mainImage: "/files/certificaciones/certificados/CONSULTORIAENPRACTICASDEIGUALDADLABORALYNODISCRIMINACION.jpeg",
     badgeTop: "/files/certificaciones/confianza/CERTIFICADOPORMAXAN.png",
     badgeBottom: "/files/certificaciones/confianza/AVALADOPORIMPULSOCOMPLETO.png",
-    schemeImage: SCHEME_IMAGE,
+    schemeImage: "/files/certificaciones/comofunciona/CONSULTORASYCONSULTORESENPRACTICASDEIGUALDADLABORALYNODISCRIMINACION.jpeg",
     fitImage: "/files/certificaciones/esparati/CONSULTORASYCONSULTORESENPRACTICASDEIGUALDADLABORALYNODISCRIMINACION.jpeg",
   },
   {
@@ -27,7 +26,7 @@ const CERTS = [
     mainImage: "/files/certificaciones/certificados/GESTIONYPRESUPUESTACIONBASADAENRESULTADOS.jpeg",
     badgeTop: "/files/certificaciones/confianza/CERTIFICADOPORGOBERNOVA.png",
     badgeBottom: "/files/certificaciones/confianza/AVALADOPORIMPULSOCOMPLETO.png",
-    schemeImage: SCHEME_IMAGE,
+    schemeImage: "/files/certificaciones/comofunciona/CONSULTORASYCONSULTORESENGESTIONYPRESUPUESTACIONBASADAENRESULTADOS.jpeg",
     fitImage: "/files/certificaciones/esparati/GESTIONYPRESUPUESTACIONBASADAENRESULTADOS.jpeg",
   },
   {
@@ -40,7 +39,7 @@ const CERTS = [
     mainImage: "/files/certificaciones/certificados/GESTIONYACREDITACIONCORPORATIVADEPRACTICASDEIGUALDADLABORALYNODISCRIMINACION.jpeg",
     badgeTop: "/files/certificaciones/confianza/CERTIFICADOPORMAXAN.png",
     badgeBottom: "/files/certificaciones/confianza/AVALADOPORIMPULSOCOMPLETO.png",
-    schemeImage: SCHEME_IMAGE,
+    schemeImage: "/files/certificaciones/comofunciona/PERSONASQUEREALIZANLAIMPLEMENTACIONYEVALUACIONCORPORATIVADEPRACTICASDEIGUALDADLABORALYNODISCRIMINACION.jpeg",
     fitImage: "/files/certificaciones/esparati/GESTIONYACREDITACIONCORPORATIVADEPRACTICASDEIGUALDADLABORALYNODISCRIMINACION.jpeg",
   },
   {
@@ -52,7 +51,7 @@ const CERTS = [
     mainImage: "/files/certificaciones/certificados/OMBUDSPERSON.jpeg",
     badgeTop: "/files/certificaciones/confianza/CERTIFICADOPORMAXAN.png",
     badgeBottom: "/files/certificaciones/confianza/AVALADOPORIMPULSOCOMPLETO.png",
-    schemeImage: SCHEME_IMAGE,
+    schemeImage: "/files/certificaciones/comofunciona/PERSONASOMBUDSPERSON.jpeg",
     fitImage: "/files/certificaciones/esparati/OMBUDSPERSON.jpeg",
   },
   {
@@ -65,7 +64,7 @@ const CERTS = [
   mainImage: "/files/certificaciones/certificados/PRACTICASINSTITUCIONALESDEGESTIONYPRESUPUESTACIONBASADAENRESULTADOS.jpeg",
   badgeTop: "/files/certificaciones/confianza/CERTIFICADOPORGOBERNOVA.png",
   badgeBottom: "/files/certificaciones/confianza/AVALADOPORIMPULSOCOMPLETO.png",
-  schemeImage: SCHEME_IMAGE,
+  schemeImage: "/files/certificaciones/comofunciona/PERSONASENPRACTICASINSTITUCIONALESDEGESTIONYPRESUPUESTACIONBASADAENRESULTADOS.jpeg",
   fitImage: "/files/certificaciones/esparati/PRACTICASINSTITUCIONALESDEGESTIONYPRESUPUESTACIONBASADAENRESULTADOS.jpeg",
 },
 {
@@ -78,7 +77,7 @@ const CERTS = [
   mainImage: "/files/certificaciones/certificados/GESTIONCORPORATIVADELPROTOCOLOPARAPREVENIRATENDERYSANCIONARACTOSDEVIOLENCIALABORALYDISCRIMINACION.jpeg",
   badgeTop: "/files/certificaciones/confianza/CERTIFICADOPORMAXAN.png",
   badgeBottom: "/files/certificaciones/confianza/AVALADOPORIMPULSOCOMPLETO.png",
-  schemeImage: SCHEME_IMAGE,
+  schemeImage: "/files/certificaciones/comofunciona/GESTIONCORPORATIVADELPROTOCOLOPARAPREVENIRATENDERYSANCIONARACTOSDEVIOLENCIALABORALYDISCRIMINACION.jpeg",
   fitImage: "/files/certificaciones/esparati/GESTIONCORPORATIVADELPROTOCOLOPARAPREVENIRATENDERYSANCIONARACTOSDEVIOLENCIALABORALYDISCRIMINACION.jpeg",
 },
 ];
