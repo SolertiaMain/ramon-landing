@@ -1,16 +1,3 @@
-/**
- * Header Layout Component
- *
- * Responsibilities:
- * - Renders main navigation
- * - Controls search overlay open/close state
- * - Handles animation timing and body scroll locking
- * - Delegates search UI to HeaderSearchOverlay
- * - Delegates search logic to useHeaderSearch hook
- *
- * Does NOT contain search filtering logic or search data.
- */
-
 "use client";
 
 import { useEffect, useState, useRef } from "react";
@@ -28,7 +15,7 @@ export default function Header() {
   const [shouldRenderSearch, setShouldRenderSearch] = useState(false);
 
   // search engine 
-  const { query, setQuery, results, runSearch, reset } = useHeaderSearch(searchOpen);
+  const { query, setQuery, results, runSearch, clearResults } = useHeaderSearch(searchOpen);
 
   const centerRef = useRef(null);
   const searchBtnRef = useRef(null);
@@ -74,7 +61,7 @@ export default function Header() {
 
   const closeSearch = () => {
     setSearchOpen(false);
-    reset();
+    clearResults();
   };
 
   return (

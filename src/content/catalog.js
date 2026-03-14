@@ -1,34 +1,72 @@
-/**
- * Content Catalog
- *
- * Central source of truth for site content metadata:
- * - Blog posts
- * - Podcast episodes
- * - Talleres
- * - Certifications
- *
- * Used by pages and search system.
- */
+// src/content/catalog.js
 
-import pdfManifest from "@/content/generated/pdfs.json";
+import { BLOG_POSTS } from "@/content/blogPosts";
+import { TALLERES } from "@/content/talleres";
+import { CERTIFICATIONS } from "@/content/certifications";
 
-export const BLOG_ITEMS = [
-    { 
-        id: "Reforma a la Ley Federal del Trabajo",
-        title: "Reforma a la Ley Federal del Trabajo",
-        subtitle: "Prevencion y eliminación de la violencia laboral hacia las mujeres",
-        href: "/files/blogs/reformaLFT.pdf" },
-];
+function stripHtml(value) {
+    return String(value ?? "").replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+}
 
-export const PODCAST_ITEMS = [
-    { id: "episodio-01", title: "Episodio 01", href: "/podcast#episodio-01" },
-    { id: "episodio-02", title: "Episodio 02", href: "/podcast#episodio-02" },
-];
+function blogBodyToText(body = []) {
+    return body
+        .map((block) => {
+            if (!block) return "";
+            if (typeof block.text === "string") return stripHtml(block.text);
+            return "";
+        })
+        .filter(Boolean)
+        .join(" ");
+}
 
-export const TALLERES_ITEMS = [
-    { id: "taller-1", title: "Taller 1", href: "/talleres#taller-1" },
-    { id: "taller-2", title: "Taller 2", href: "/talleres#taller-2" },
-];
+export const BLOG_ITEMS = BLOG_POSTS.map((post) => ({
+    id: post.slug,
+    title: post.title,
+    subtitle: post.author || "Blog",
+    description: post.excerpt || "",
+    href: `/blog/${post.slug}`,
+    section: "blog",
+    keywords: [
+        post.author,
+        ...(post.credentials || []),
+        post.place,
+        post.date,
+    ].filter(Boolean),
+    bodyText: blogBodyToText(post.body),
+}));
 
-export const CERTS = pdfManifest.certs;
+export const TALLERES_ITEMS = TALLERES.map((item) => ({
+    id: item.id,
+    title: item.title,
+    subtitle: item.subtitle || item.metaLeft || "Taller",
+    description: item.description || "",
+    href: `/talleres#${item.id}`,
+    pdfHref: item.href,
+    section: "talleres",
+    keywords: item.keywords || [],
+    bodyText: [item.badge, item.metaLeft, item.duration].filter(Boolean).join(" "),
+}));
 
+export const CERTIFICATION_ITEMS = CERTIFICATIONS.map((item) => ({
+    id: item.id,
+    title: item.title,
+    subtitle: item.subtitle || "Certificación",
+    description: item.description || "",
+    href: `/certifications#${item.id}`,
+    pdfHref: item.href,
+    section: "certificaciones",
+    keywords: item.keywords || [],
+    bodyText: "",
+}));
+
+export const PODCAST_PAGE = {
+    id: "podcast",
+    title: "Podcast",
+    subtitle: "Escucha el podcast",
+    description:
+        "Accede al podcast en Spotify o Amazon Music desde la página oficial.",
+    href: "/podcast",
+    section: "podcast",
+    keywords: ["spotify", "amazon music", "podcast", "ramón cuevas martínez"],
+    bodyText: "",
+};

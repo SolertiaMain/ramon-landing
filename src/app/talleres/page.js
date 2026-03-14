@@ -2,129 +2,7 @@
 
 import { useEffect, useLayoutEffect, useState } from "react"; 
 import TallerHolder from "@/components/sections/TallerHolder";
-
-const TALLERES = [
-  {
-    title: "Corresponsabilidad laboral, familiar y personal",
-    description:
-      "Taller corporativo para impulsar prácticas de corresponsabilidad y bienestar en el entorno laboral.",
-    href: "/files/talleres/sabermas/DETERMINARACCIONESDECORRESPONSABILIDADLABORALFAMILIARYPERSONAL.pdf",
-    videoUrl: "https://www.youtube.com/embed/N8yu8Xtf-VM",
-    mainImage: "/images/talleres/TALLER_CORRESPONSABILIDAD.jpeg",
-    badgeTop: "/files/talleres/confianza/CERTIFICADOPORMAXAN.png",
-    badgeBottom: "/files/talleres/confianza/AVALADOPORIMPULSOCOMPLETO.png",
-    esquemaImage: "/files/talleres/comofunciona/CORPORATIVOPARADETERMINARACCIONESDECORRESPONSABILIDADLABORALFAMILIARYPERSONAL.jpeg",
-    paraQuienImage: "/files/talleres/esparati/ESPARA TI_TALLERES-01.jpg.jpeg",
-    duration: "3 horas",
-    metaLeft: "Taller corporativo",
-    badge: "Taller",
-  },
-  {
-    title: "Prevenir la violencia laboral",
-    description:
-      "Taller corporativo para identificar, prevenir y atender conductas de violencia laboral en el centro de trabajo.",
-    href: "/files/talleres/sabermas/CORPORATIVOPARAPREVENIRLAVIOLENCIALABORAL.pdf",
-    videoUrl: "https://www.youtube.com/embed/N8yu8Xtf-VM",
-    mainImage: "/images/talleres/TALLER_VIOLENCIA_LABORAL.jpeg",
-    badgeTop: "/files/talleres/confianza/CERTIFICADOPORMAXAN.png",
-    badgeBottom: "/files/talleres/confianza/AVALADOPORIMPULSOCOMPLETO.png",
-    esquemaImage: "/files/talleres/comofunciona/CORPORATIVOPARAPREVENIRLAVIOLENCIALABORAL.jpeg",
-    paraQuienImage: "/files/talleres/esparati/ESPARA TI_TALLERES-02.jpg.jpeg",
-    duration: "6 horas",
-    metaLeft: "Taller corporativo",
-    badge: "Taller",
-  },
-  {
-    title: "Calidad en mi trabajo y vida de calidad",
-    description:
-      "Conferencia para fortalecer hábitos, enfoque y bienestar: desempeño sostenible con calidad de vida.",
-    href: "/files/talleres/sabermas/CONFERENCIACORPORATIVA.pdf",
-    videoUrl: "https://www.youtube.com/embed/N8yu8Xtf-VM",
-    mainImage: "/images/talleres/CONFERENCIA_CALIDAD_VIDA.jpeg",
-    badgeTop: "/files/talleres/confianza/CERTIFICADOPORMAXAN.png",
-    badgeBottom: "/files/talleres/confianza/AVALADOPORIMPULSOCOMPLETO.png",
-    esquemaImage: "/files/talleres/comofunciona/",
-    paraQuienImage: "/files/talleres/esparati/ESPARA TI_TALLERES-08.jpg.jpeg",
-    duration: "3 horas",
-    metaLeft: "Conferencia corporativa",
-    badge: "Conferencia", 
-  },
-  {
-    title: "Alineamiento corporativo con NMX-R-025-SCFI-2015",
-    description:
-      "Taller para alinear procesos y cultura organizacional con prácticas de igualdad laboral y no discriminación.",
-    href: "/files/talleres/sabermas/CORPORATIVOALINEAMIENTOCONLANORMAMEXICANADEIGUALDADLABORALYNODISCRIMINACION.pdf",
-    videoUrl: "https://www.youtube.com/embed/N8yu8Xtf-VM",
-    mainImage: "/images/talleres/TALLER_ALINEAMIENTO_NMX025.jpeg",
-    badgeTop: "/files/talleres/confianza/CERTIFICADOPORMAXAN.png",
-    badgeBottom: "/files/talleres/confianza/AVALADOPORIMPULSOCOMPLETO.png",
-    esquemaImage: "/files/talleres/comofunciona/CORPORATIVOGESTIONEFICAZDELPROTOCOLODEVIOLENCIALABORAL.jpeg",
-    paraQuienImage: "/files/talleres/esparati/ESPARA TI_TALLERES-03.jpg.jpeg",
-    duration: "6 horas",
-    metaLeft: "Taller corporativo",
-    badge: "Taller",
-  },
-  {
-    title: "Criterios técnicos para la igualdad salarial",
-    description:
-      "Taller para identificar brechas salariales y diseñar estrategias de corrección con criterios técnicos y normativos.",
-    href: "/files/talleres/sabermas/CORPORATIVODECRITERIOSTECNICOSPARALAIGUALDADSALARIAL.pdf",
-    videoUrl: "https://www.youtube.com/embed/N8yu8Xtf-VM",
-    mainImage: "/images/talleres/TALLER_IGUALDAD_SALARIAL.jpeg",
-    badgeTop: "/files/talleres/confianza/CERTIFICADOPORMAXAN.png",
-    badgeBottom: "/files/talleres/confianza/AVALADOPORIMPULSOCOMPLETO.png",
-    esquemaImage: "/files/talleres/comofunciona/CORPORATIVOGESTIONEFICAZDELPROTOCOLODEVIOLENCIALABORAL.jpeg",
-    paraQuienImage: "/files/talleres/esparati/ESPARA TI_TALLERES-04.jpg.jpeg",
-    duration: "6 horas",
-    metaLeft: "Taller corporativo",
-    badge: "Taller",
-  },
-  {
-    title: "Gestión eficaz del Protocolo de violencia laboral",
-    description:
-      "Taller para implementar y operar protocolos internos de prevención, atención y sanción de violencia laboral.",
-    href: "/files/talleres/sabermas/CORPORATIVOPARALAGESTIONEFICAZDELPROTOCOLODEVIOLENCIALABORAL.pdf",
-    videoUrl: "https://www.youtube.com/embed/N8yu8Xtf-VM",
-    mainImage: "/images/talleres/TALLER_PROTOCOLO_VIOLENCIA.jpeg",
-    badgeTop: "/files/talleres/confianza/CERTIFICADOPORMAXAN.png",
-    badgeBottom: "/files/talleres/confianza/AVALADOPORIMPULSOCOMPLETO.png",
-    esquemaImage: "/files/talleres/comofunciona/CORPORATIVOPARALAGESTIONDELPROTOCOLODEVIOLENCIALABORAL.jpeg",
-    paraQuienImage: "/files/talleres/esparati/ESPARA TI_TALLERES-05.jpg.jpeg",
-    duration: "6 horas",
-    metaLeft: "Taller corporativo",
-    badge: "Taller",
-  },
-  {
-    title: "Inducción a igualdad, no discriminación y atención de violencia",
-    description:
-      "Taller para sensibilizar, establecer criterios y promover prácticas de igualdad y no discriminación en equipos.",
-    href: "/files/talleres/sabermas/CORPORATIVOINDUCCIONALAIGUALDADALANODISCRIMINACIONYALAATENCIONDELAVIOLENCIALABORAL.pdf",
-    videoUrl: "https://www.youtube.com/embed/N8yu8Xtf-VM",
-    mainImage: "/images/talleres/TALLER_INDUCCION_IGUALDAD.jpeg",
-    badgeTop: "/files/talleres/confianza/CERTIFICADOPORMAXAN.png",
-    badgeBottom: "/files/talleres/confianza/AVALADOPORIMPULSOCOMPLETO.png",
-    esquemaImage: "/files/talleres/comofunciona/",
-    paraQuienImage: "/files/talleres/esparati/ESPARA TI_TALLERES-06.jpg.jpeg",
-    duration: "3 horas",
-    metaLeft: "Taller corporativo",
-    badge: "Taller",
-  },
-  {
-    title: "Planes de acción para igualdad laboral y no discriminación",
-    description:
-      "Taller para estructurar planes de acción medibles y sostenibles alineados a metas de igualdad laboral.",
-    href: "/files/talleres/sabermas/PARALAINTEGRACIONDEPLANESDEACCIONPARALOGRARLAIGUALDADLABORALYLANODISCRIMINACION.pdf",
-    videoUrl: "https://www.youtube.com/embed/N8yu8Xtf-VM",
-    mainImage: "/images/talleres/TALLER_PLAN_ACCION_IGUALDAD.jpeg",
-    badgeTop: "/files/talleres/confianza/CERTIFICADOPORMAXAN.png",
-    badgeBottom: "/files/talleres/confianza/AVALADOPORIMPULSOCOMPLETO.png",
-    esquemaImage: "/files/talleres/comofunciona/CORPORATIVOPARALAINTEGRACIONDEPLANESDEACCIONPARALOGRARLAIGUALDADLABORALYLANODISCRIMINACION.jpeg",
-    paraQuienImage: "/files/talleres/esparati/ESPARA TI_TALLERES-07.jpg.jpeg",
-    duration: "5 horas",
-    metaLeft: "Taller corporativo",
-    badge: "Taller",
-  },
-];
+import { TALLERES } from "@/content/talleres";
 
 function ModalShell({ open, title, children, onClose }) {
   const ANIM_MS = 320;
@@ -349,7 +227,11 @@ export default function TalleresPage() {
       <section className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {TALLERES.map((item, idx) => (
-            <div key={item.href}>
+            <section
+              key={item.id}
+              id={item.id}
+              className="scroll-mt-28"
+            >
               <TallerHolder
                 title={item.title}
                 description={item.description}
@@ -376,7 +258,7 @@ export default function TalleresPage() {
                   setFitModal({ open: true, title, fitImage })
                 }
               />
-            </div>
+            </section>
           ))}
         </div>
       </section>
