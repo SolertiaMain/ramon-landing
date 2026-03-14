@@ -2,87 +2,8 @@
 
 import { useEffect, useLayoutEffect, useState } from "react";
 import CertificationHolder from "@/components/sections/CertificationHolder";
+import { CERTIFICATIONS as CERTS } from "@/content/certifications";
 
-const CERTS = [
-  {
-    title:
-      "Consultoras y Consultores en Prácticas de Igualdad Laboral y No Discriminación",
-    description:
-      "Formación orientada a comprender e implementar prácticas clave de la Norma Mexicana NMX-R-025-SCFI-2015, fortaleciendo capacidades de acompañamiento y mejora en centros de trabajo.",
-    href: "/files/certificaciones/sabermas/CONSULTORASYCONSULTORESENPRACTICASDEIGUALDADLABORALYNODISCRIMINACIONI.pdf",
-    videoUrl: "https://www.youtube.com/embed/VIDEO_ID",
-    mainImage: "/files/certificaciones/certificados/CONSULTORIAENPRACTICASDEIGUALDADLABORALYNODISCRIMINACION.jpeg",
-    badgeTop: "/files/certificaciones/confianza/CERTIFICADOPORMAXAN.png",
-    badgeBottom: "/files/certificaciones/confianza/AVALADOPORIMPULSOCOMPLETO.png",
-    schemeImage: "/files/certificaciones/comofunciona/CONSULTORASYCONSULTORESENPRACTICASDEIGUALDADLABORALYNODISCRIMINACION.jpeg",
-    fitImage: "/files/certificaciones/esparati/CONSULTORASYCONSULTORESENPRACTICASDEIGUALDADLABORALYNODISCRIMINACION.jpeg",
-  },
-  {
-    title: "Consultoras y Consultores en Gestión basada en Resultados",
-    description:
-      "Enfoque para planear, dar seguimiento y evaluar programas y proyectos con orientación a resultados, monitoreo y evaluación, fortaleciendo la toma de decisiones y la rendición de cuentas.",
-    href: "/files/certificaciones/sabermas/CONSULTORASYCONSULTORESENGESTIONYPRESUPUESTACIONBASADAENRESULTADOS.pdf",
-    videoUrl: "https://www.youtube.com/embed/VIDEO_ID",
-    mainImage: "/files/certificaciones/certificados/GESTIONYPRESUPUESTACIONBASADAENRESULTADOS.jpeg",
-    badgeTop: "/files/certificaciones/confianza/CERTIFICADOPORGOBERNOVA.png",
-    badgeBottom: "/files/certificaciones/confianza/AVALADOPORIMPULSOCOMPLETO.png",
-    schemeImage: "/files/certificaciones/comofunciona/CONSULTORASYCONSULTORESENGESTIONYPRESUPUESTACIONBASADAENRESULTADOS.jpeg",
-    fitImage: "/files/certificaciones/esparati/GESTIONYPRESUPUESTACIONBASADAENRESULTADOS.jpeg",
-  },
-  {
-    title:
-      "Personas que Realizan la Implementación y Evaluación Corporativa en Prácticas de Igualdad Laboral y no Discriminación",
-    description:
-      "Acompañamiento para preparar y certificar al centro de trabajo en la Norma Mexicana NMX-R-025-SCFI-2015, con énfasis en requisitos, evidencia y procesos de auditoría.",
-    href: "/files/certificaciones/sabermas/PERSONASQUEREALIZANLAIMPLEMENTACIONYEVALUACIONCORPORATIVA.pdf",
-    videoUrl: "https://www.youtube.com/embed/VIDEO_ID",
-    mainImage: "/files/certificaciones/certificados/GESTIONYACREDITACIONCORPORATIVADEPRACTICASDEIGUALDADLABORALYNODISCRIMINACION.jpeg",
-    badgeTop: "/files/certificaciones/confianza/CERTIFICADOPORMAXAN.png",
-    badgeBottom: "/files/certificaciones/confianza/AVALADOPORIMPULSOCOMPLETO.png",
-    schemeImage: "/files/certificaciones/comofunciona/PERSONASQUEREALIZANLAIMPLEMENTACIONYEVALUACIONCORPORATIVADEPRACTICASDEIGUALDADLABORALYNODISCRIMINACION.jpeg",
-    fitImage: "/files/certificaciones/esparati/GESTIONYACREDITACIONCORPORATIVADEPRACTICASDEIGUALDADLABORALYNODISCRIMINACION.jpeg",
-  },
-  {
-    title: "Certificación de Ombudsperson",
-    description:
-      "Certificación/curso especializado para fortalecer la atención imparcial de quejas y conflictos internos, promoviendo entornos laborales respetuosos y mecanismos institucionales de resolución.",
-    href: "/files/certificaciones/sabermas/PARAPERSONASOMBUDSPERSON.pdf",
-    videoUrl: "https://www.youtube.com/embed/VIDEO_ID",
-    mainImage: "/files/certificaciones/certificados/OMBUDSPERSON.jpeg",
-    badgeTop: "/files/certificaciones/confianza/CERTIFICADOPORMAXAN.png",
-    badgeBottom: "/files/certificaciones/confianza/AVALADOPORIMPULSOCOMPLETO.png",
-    schemeImage: "/files/certificaciones/comofunciona/PERSONASOMBUDSPERSON.jpeg",
-    fitImage: "/files/certificaciones/esparati/OMBUDSPERSON.jpeg",
-  },
-  {
-  title:
-    "Personas en Prácticas Institucionales de Gestión y Presupuestación Basada en Resultados",
- description:
-    "Formación institucional para comprender y aplicar el enfoque de Gestión para Resultados y Presupuesto basado en Resultados, utilizando herramientas de planeación, monitoreo y evaluación para fortalecer la efectividad institucional.",
-  href: "/files/certificaciones/sabermas/PERSONASENPRACTICASINSTITUCIONALESDEGESTIONYPRESUPUESTACIONBASADAENRESULTADOS.pdf",
-  videoUrl: "https://www.youtube.com/embed/VIDEO_ID",
-  mainImage: "/files/certificaciones/certificados/PRACTICASINSTITUCIONALESDEGESTIONYPRESUPUESTACIONBASADAENRESULTADOS.jpeg",
-  badgeTop: "/files/certificaciones/confianza/CERTIFICADOPORGOBERNOVA.png",
-  badgeBottom: "/files/certificaciones/confianza/AVALADOPORIMPULSOCOMPLETO.png",
-  schemeImage: "/files/certificaciones/comofunciona/PERSONASENPRACTICASINSTITUCIONALESDEGESTIONYPRESUPUESTACIONBASADAENRESULTADOS.jpeg",
-  fitImage: "/files/certificaciones/esparati/PRACTICASINSTITUCIONALESDEGESTIONYPRESUPUESTACIONBASADAENRESULTADOS.jpeg",
-},
-{
-  title:
-    "Gestión Corporativa de Protocolo para Prevenir, Atender y Sancionar Actos de Violencia Laboral y Discriminación",
-  description:
-  "Certificación orientada a comprender y gestionar el Protocolo para prevenir, atender y sancionar la violencia laboral y la discriminación, promoviendo entornos seguros e incluyentes bajo un enfoque de derechos humanos.",
-  href: "/files/certificaciones/sabermas/GESTIONCORPORATIVADELPROTOCOLOPARAPREVENIRATENDERYSANCIONARACTOSDEVIOLENCIALABORALYDISCRIMINACION.pdf",
-  videoUrl: "https://www.youtube.com/embed/VIDEO_ID",
-  mainImage: "/files/certificaciones/certificados/GESTIONCORPORATIVADELPROTOCOLOPARAPREVENIRATENDERYSANCIONARACTOSDEVIOLENCIALABORALYDISCRIMINACION.jpeg",
-  badgeTop: "/files/certificaciones/confianza/CERTIFICADOPORMAXAN.png",
-  badgeBottom: "/files/certificaciones/confianza/AVALADOPORIMPULSOCOMPLETO.png",
-  schemeImage: "/files/certificaciones/comofunciona/GESTIONCORPORATIVADELPROTOCOLOPARAPREVENIRATENDERYSANCIONARACTOSDEVIOLENCIALABORALYDISCRIMINACION.jpeg",
-  fitImage: "/files/certificaciones/esparati/GESTIONCORPORATIVADELPROTOCOLOPARAPREVENIRATENDERYSANCIONARACTOSDEVIOLENCIALABORALYDISCRIMINACION.jpeg",
-},
-];
-
-//Smooth open + smooth close + click-outside closes reliably
 function ModalShell({ open, title, children, onClose }) {
   const ANIM_MS = 320;
 
@@ -263,32 +184,37 @@ export default function CertificacionesPage() {
       <section className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {CERTS.map((cert, idx) => (
-            <CertificationHolder
-              key={cert.title}
-              title={cert.title}
-              description={cert.description}
-              href={cert.href}
-              videoUrl={cert.videoUrl}
-              schemeImage={cert.schemeImage}
-              fitImage={cert.fitImage}
-              mainImage={cert.mainImage}
-              badgeTop={cert.badgeTop}
-              badgeBottom={cert.badgeBottom}
-              badge="Certificación"
-              metaLeft="Programa profesional"
-              metaRight="PDF"
-              delay={idx * 120}
-              mounted={mounted}
-              onOpenVideo={({ title, videoUrl }) =>
-                setVideoModal({ open: true, title, videoUrl })
-              }
-              onOpenScheme={({ title, schemeImage }) =>
-                setSchemeModal({ open: true, title, schemeImage })
-              }
-              onOpenFit={({ title, fitImage }) =>
-                setFitModal({ open: true, title, fitImage })
-              }
-            />
+            <section
+              key={cert.id}
+              id={cert.id}
+              className="scroll-mt-28"
+            >
+              <CertificationHolder
+                title={cert.title}
+                description={cert.description}
+                href={cert.href}
+                videoUrl={cert.videoUrl}
+                schemeImage={cert.schemeImage}
+                fitImage={cert.fitImage}
+                mainImage={cert.mainImage}
+                badgeTop={cert.badgeTop}
+                badgeBottom={cert.badgeBottom}
+                badge="Certificación"
+                metaLeft="Programa profesional"
+                metaRight="PDF"
+                delay={idx * 120}
+                mounted={mounted}
+                onOpenVideo={({ title, videoUrl }) =>
+                  setVideoModal({ open: true, title, videoUrl })
+                }
+                onOpenScheme={({ title, schemeImage }) =>
+                  setSchemeModal({ open: true, title, schemeImage })
+                }
+                onOpenFit={({ title, fitImage }) =>
+                  setFitModal({ open: true, title, fitImage })
+                }
+              />
+            </section>
           ))}
         </div>
       </section>
