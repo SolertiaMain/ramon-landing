@@ -124,7 +124,7 @@ export const CERTIFICATIONS = [
     {
         id: "gestion-protocolo-violencia",
         title:
-            "Gestión Corporativa del Protocolo para Prevenir, Atender y Sancionar Actos de Violencia Laboral y Discriminación",
+            "Gestión Corporativa de Protocolo para Prevenir, Atender y Sancionar Actos de Violencia Laboral y Discriminación",
         subtitle: "Certificación",
         description:
             "Certificación orientada a comprender y gestionar el Protocolo para prevenir, atender y sancionar la violencia laboral y la discriminación, promoviendo entornos seguros e incluyentes bajo un enfoque de derechos humanos.",

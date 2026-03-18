@@ -79,7 +79,7 @@ export const TALLERES = [
     },
     {
         id: "alineamiento-corporativo-nmx-r-025-scfi-2015",
-        title: "Alineamiento corporativo con la Norma Mexicana NMX-R-025-SCFI-2015 en Igualdad Laboral y No Discriminación",
+        title: "Alineamiento Corporativo con la Norma Mexicana NMX-R-025-SCFI-2015 en Igualdad Laboral y No Discriminación",
         subtitle: "Taller corporativo",
         description:
             "Taller para alinear procesos y cultura organizacional con prácticas de igualdad laboral y no discriminación.",
@@ -155,7 +155,7 @@ export const TALLERES = [
     },
     {
         id: "induccion-igualdad-no-discriminacion-atencion-violencia",
-        title: "Inducción a Igualdad, No Discriminación y Atención de Violencias",
+        title: "Inducción a Igualdad, La No Discriminación y La Atención de Violencias",
         subtitle: "Taller corporativo",
         description:
             "Taller para sensibilizar, establecer criterios y promover prácticas de igualdad y no discriminación en equipos.",
