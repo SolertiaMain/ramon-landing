@@ -3,7 +3,7 @@
 export const TALLERES = [
     {
         id: "corresponsabilidad-laboral-familiar-personal",
-        title: "Corresponsabilidad laboral, familiar y personal",
+        title: "Corresponsabilidad Laboral, Familiar y Personal",
         subtitle: "Taller corporativo",
         description:
             "Taller corporativo para impulsar prácticas de corresponsabilidad y bienestar en el entorno laboral.",
@@ -29,7 +29,7 @@ export const TALLERES = [
     },
     {
         id: "prevenir-violencia-laboral",
-        title: "Prevenir la violencia laboral",
+        title: "Prevenir la Violencia Laboral",
         subtitle: "Taller corporativo",
         description:
             "Taller corporativo para identificar, prevenir y atender conductas de violencia laboral en el centro de trabajo.",
@@ -54,7 +54,7 @@ export const TALLERES = [
     },
     {
         id: "calidad-en-mi-trabajo-y-vida-de-calidad",
-        title: "Calidad en mi trabajo y vida de calidad",
+        title: "Calidad en mi Trabajo y Vida de Calidad",
         subtitle: "Conferencia corporativa",
         description:
             "Conferencia para fortalecer hábitos, enfoque y bienestar: desempeño sostenible con calidad de vida.",
@@ -79,7 +79,7 @@ export const TALLERES = [
     },
     {
         id: "alineamiento-corporativo-nmx-r-025-scfi-2015",
-        title: "Alineamiento corporativo con NMX-R-025-SCFI-2015",
+        title: "Alineamiento Corporativo con la Norma Mexicana NMX-R-025-SCFI-2015 en Igualdad Laboral y No Discriminación",
         subtitle: "Taller corporativo",
         description:
             "Taller para alinear procesos y cultura organizacional con prácticas de igualdad laboral y no discriminación.",
@@ -104,7 +104,7 @@ export const TALLERES = [
     },
     {
         id: "criterios-tecnicos-igualdad-salarial",
-        title: "Criterios técnicos para la igualdad salarial",
+        title: "Criterios Técnicos para la Igualdad Salarial",
         subtitle: "Taller corporativo",
         description:
             "Taller para identificar brechas salariales y diseñar estrategias de corrección con criterios técnicos y normativos.",
@@ -129,7 +129,7 @@ export const TALLERES = [
     },
     {
         id: "gestion-eficaz-protocolo-violencia-laboral",
-        title: "Gestión eficaz del Protocolo de violencia laboral",
+        title: "Gestión Eficaz del Protocolo de Violencia Laboral",
         subtitle: "Taller corporativo",
         description:
             "Taller para implementar y operar protocolos internos de prevención, atención y sanción de violencia laboral.",
@@ -155,7 +155,7 @@ export const TALLERES = [
     },
     {
         id: "induccion-igualdad-no-discriminacion-atencion-violencia",
-        title: "Inducción a igualdad, no discriminación y atención de violencia",
+        title: "Inducción a Igualdad, La No Discriminación y La Atención de Violencias",
         subtitle: "Taller corporativo",
         description:
             "Taller para sensibilizar, establecer criterios y promover prácticas de igualdad y no discriminación en equipos.",
@@ -179,7 +179,7 @@ export const TALLERES = [
     },
     {
         id: "planes-de-accion-igualdad-laboral-no-discriminacion",
-        title: "Planes de acción para igualdad laboral y no discriminación",
+        title: "Planes de Acción para Lograr la Igualdad Laboral y la No Discriminación",
         subtitle: "Taller corporativo",
         description:
             "Taller para estructurar planes de acción medibles y sostenibles alineados a metas de igualdad laboral.",

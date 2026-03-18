@@ -4,7 +4,7 @@ export const CERTIFICATIONS = [
     {
         id: "consultoria-igualdad",
         title:
-            "Consultoras y Consultores en Prácticas de Igualdad Laboral y No Discriminación",
+            "Prácticas de Igualdad Laboral y no Discriminación para Consultoras y Consultores",
         subtitle: "Certificación",
         description:
             "Formación orientada a comprender e implementar prácticas clave de la Norma Mexicana NMX-R-025-SCFI-2015, fortaleciendo capacidades de acompañamiento y mejora en centros de trabajo.",
@@ -28,7 +28,7 @@ export const CERTIFICATIONS = [
     },
     {
         id: "consultoria-gbr",
-        title: "Consultoras y Consultores en Gestión basada en Resultados",
+        title: "Consultoría en Gestión y Presupuestación Basada en Resultados",
         subtitle: "Certificación",
         description:
             "Enfoque para planear, dar seguimiento y evaluar programas y proyectos con orientación a resultados, monitoreo y evaluación, fortaleciendo la toma de decisiones y la rendición de cuentas.",
@@ -53,7 +53,7 @@ export const CERTIFICATIONS = [
     {
         id: "corporativa-igualdad",
         title:
-            "Personas que Realizan la Implementación y Evaluación Corporativa en Prácticas de Igualdad Laboral y no Discriminación",
+            "Gestión y Acreditación Corporativa de Prácticas de Igualdad Laboral y no Discriminación",
         subtitle: "Certificación",
         description:
             "Acompañamiento para preparar y certificar al centro de trabajo en la Norma Mexicana NMX-R-025-SCFI-2015, con énfasis en requisitos, evidencia y procesos de auditoría.",
@@ -99,7 +99,7 @@ export const CERTIFICATIONS = [
     {
         id: "institucional-gbr",
         title:
-            "Personas en Prácticas Institucionales de Gestión y Presupuestación Basada en Resultados",
+            "Prácticas Institucionales de Gestión y Presupuestación Basada en Resultados",
         subtitle: "Certificación",
         description:
             "Formación institucional para comprender y aplicar el enfoque de Gestión para Resultados y Presupuesto basado en Resultados, utilizando herramientas de planeación, monitoreo y evaluación para fortalecer la efectividad institucional.",
