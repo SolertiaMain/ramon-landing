@@ -11,7 +11,6 @@ export const heroFont = Cormorant_Garamond({
   weight: ["400", "500", "600"],
 });
 
-
 export const signatureFont = Imperial_Script({
   subsets: ["latin"],
   weight: ["400"],
