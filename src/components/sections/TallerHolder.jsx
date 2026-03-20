@@ -53,27 +53,28 @@ export default function TallerHolder({
                         </div>
 
                         {badgeTop ? (
-                            <div className="pointer-events-none absolute -top-10 -right-2 z-10 w-[4.5rem] h-[4.5rem] bg-transparent">
-                                <img
-                                    src={badgeTop}
-                                    alt="Badge superior"
-                                    className="w-full h-full object-contain"
-                                    loading="lazy"
-                                    decoding="async"
-                                />
-                            </div>
+                        //<div className="pointer-events-none absolute -top-6.5 left-7/12 -translate-x-7/12 z-10 w-[4.5rem] h-[3.5rem] bg-transparent">
+                            <div className="pointer-events-none absolute -top-6 -right-0 z-10 w-[5rem] h-[4.5rem] bg-transparent">
+                            <img
+                            src={badgeTop}
+                            alt="Badge superior"
+                            className="w-full h-full object-contain"
+                            loading="lazy"
+                            decoding="async"
+                            />
+                        </div>
                         ) : null}
 
                         {badgeBottom ? (
-                            <div className="pointer-events-none absolute -bottom-10 -left-2 z-10 w-[4.5rem] h-[4.5rem] bg-transparent">
-                                <img
-                                    src={badgeBottom}
-                                    alt="Badge inferior"
-                                    className="w-full h-full object-contain"
-                                    loading="lazy"
-                                    decoding="async"
-                                />
-                            </div>
+                        <div className="pointer-events-none absolute -bottom-10 -left-2 z-10 w-[5rem] h-[4.5rem] bg-transparent">
+                            <img
+                            src={badgeBottom}
+                            alt="Badge inferior"
+                            className="w-full h-full object-contain"
+                            loading="lazy"
+                            decoding="async"
+                            />
+                        </div>
                         ) : null}
                     </div>
 
