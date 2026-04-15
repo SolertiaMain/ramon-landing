@@ -31,7 +31,7 @@ export const TALLERES = [
         id: "prevenir-violencia-laboral",
         title: "Prevenir la Violencia Laboral",
         subtitle: "Taller corporativo",
-        description:
+        description:        
             "Taller corporativo para identificar, prevenir y atender conductas de violencia laboral en el centro de trabajo.",
         href: "/files/talleres/sabermas/CORPORATIVOPARAPREVENIRLAVIOLENCIALABORAL.pdf",
         videoUrl: "https://www.youtube.com/embed/x4jGt6ZVUAs",
@@ -59,7 +59,7 @@ export const TALLERES = [
         description:
             "Conferencia para fortalecer hábitos, enfoque y bienestar: desempeño sostenible con calidad de vida.",
         href: "/files/talleres/sabermas/CONFERENCIACORPORATIVA.pdf",
-        videoUrl: "https://www.youtube.com/embed/N8yu8Xtf-VM",
+        videoUrl: "https://www.youtube.com/embed/O4Zv_YaDneg",
         mainImage: "/images/talleres/CONFERENCIA_CALIDAD_VIDA.jpeg",
         badgeTop: "/files/talleres/confianza/CERTIFICADOPORMAXAN.png",
         badgeBottom: "/files/talleres/confianza/AVALADOPORIMPULSOCOMPLETO.png",
