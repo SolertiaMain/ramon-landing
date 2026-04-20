@@ -1,6 +1,8 @@
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
 export const runtime = "nodejs";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 function isEmail(s = "") {
   return typeof s === "string" && s.includes("@") && s.includes(".");
@@ -22,66 +24,31 @@ export async function POST(req) {
       );
     }
 
-    const {
-      SMTP_HOST,
-      SMTP_PORT,
-      SMTP_USER,
-      SMTP_PASS,
-      CONTACT_TO,
-      CONTACT_FROM,
-    } = process.env;
-
-    if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS || !CONTACT_TO) {
-      return Response.json(
-        { error: "Faltan variables de entorno del correo (SMTP_*, CONTACT_TO)." },
-        { status: 500 }
-      );
-    }
-
-    const transporter = nodemailer.createTransport({
-      host: SMTP_HOST,
-      port: Number(SMTP_PORT),
-      secure: Number(SMTP_PORT) === 465, 
-      auth: {
-        user: SMTP_USER,
-        pass: SMTP_PASS,
-      },
-    });
-
-    const subject = `Nuevo contacto desde la web: ${nombre}`;
-    const text = [
-      `Nombre: ${nombre}`,
-      `Correo: ${correo}`,
-      `Teléfono: ${telefono}`,
-      "",
-      "Motivo:",
-      motivo,
-    ].join("\n");
-
-    await transporter.sendMail({
-    from: CONTACT_FROM || `Sitio Web Ramón Cuevas <${SMTP_USER}>`,
-    to: CONTACT_TO,
-    replyTo: correo,
-    subject,
-    text,
-    html: `
+    await resend.emails.send({
+      from: "onboarding@resend.dev", // temporal
+      to: process.env.CONTACT_TO,
+      subject: `Nuevo contacto desde la web: ${nombre}`,
+      reply_to: correo,
+      html: `
         <div style="font-family:Arial,sans-serif;line-height:1.5;color:#111">
-        <h2 style="margin:0 0 12px 0;">Nuevo contacto desde la web</h2>
-        <p style="margin:0 0 10px 0;"><strong>Nombre:</strong> ${nombre}</p>
-        <p style="margin:0 0 10px 0;"><strong>Correo:</strong> ${correo}</p>
-        <p style="margin:0 0 10px 0;"><strong>Teléfono:</strong> ${telefono}</p>
-        <p style="margin:16px 0 6px 0;"><strong>Motivo:</strong></p>
-        <div style="padding:12px;border:1px solid #eee;border-radius:10px;background:#fafafa;">
+          <h2>Nuevo contacto desde la web</h2>
+          <p><strong>Nombre:</strong> ${nombre}</p>
+          <p><strong>Correo:</strong> ${correo}</p>
+          <p><strong>Teléfono:</strong> ${telefono}</p>
+          <p><strong>Motivo:</strong></p>
+          <div style="padding:12px;border:1px solid #eee;border-radius:10px;background:#fafafa;">
             ${motivo.replace(/\n/g, "<br/>")}
+          </div>
         </div>
-        </div>
-    `,
+      `,
     });
 
     return Response.json({ ok: true });
+
   } catch (e) {
+    console.error("ERROR EN /api/contact:", e);
     return Response.json(
-      { error: "Error enviando el mensaje. Intenta de nuevo." },
+      { error: e?.message || "Error enviando el mensaje. Intenta de nuevo." },
       { status: 500 }
     );
   }
