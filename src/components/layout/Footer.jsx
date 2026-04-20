@@ -161,7 +161,7 @@ export default function Footer() {
                   />
 
                   <span className="transition-transform duration-200 ease-out group-hover:-translate-y-[1px] group-focus-visible:-translate-y-[1px]">
-                    informes@ramoncuevas.com
+                    informes@ramoncuevas.mx
                   </span>
                 </a>
 

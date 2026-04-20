@@ -8,7 +8,7 @@ export const TALLERES = [
         description:
             "Taller corporativo para impulsar prácticas de corresponsabilidad y bienestar en el entorno laboral.",
         href: "/files/talleres/sabermas/DETERMINARACCIONESDECORRESPONSABILIDADLABORALFAMILIARYPERSONAL.pdf",
-        videoUrl: "https://www.youtube.com/embed/N8yu8Xtf-VM",
+        videoUrl: "https://www.youtube.com/embed/rnr5jAY_hPQ",
         mainImage: "/images/talleres/TALLER_CORRESPONSABILIDAD.jpeg",
         badgeTop: "/files/talleres/confianza/CERTIFICADOPORMAXAN.png",
         badgeBottom: "/files/talleres/confianza/AVALADOPORIMPULSOCOMPLETO.png",
@@ -31,10 +31,10 @@ export const TALLERES = [
         id: "prevenir-violencia-laboral",
         title: "Prevenir la Violencia Laboral",
         subtitle: "Taller corporativo",
-        description:
+        description:        
             "Taller corporativo para identificar, prevenir y atender conductas de violencia laboral en el centro de trabajo.",
         href: "/files/talleres/sabermas/CORPORATIVOPARAPREVENIRLAVIOLENCIALABORAL.pdf",
-        videoUrl: "https://www.youtube.com/embed/N8yu8Xtf-VM",
+        videoUrl: "https://www.youtube.com/embed/x4jGt6ZVUAs",
         mainImage: "/images/talleres/TALLER_VIOLENCIA_LABORAL.jpeg",
         badgeTop: "/files/talleres/confianza/CERTIFICADOPORMAXAN.png",
         badgeBottom: "/files/talleres/confianza/AVALADOPORIMPULSOCOMPLETO.png",
@@ -59,7 +59,7 @@ export const TALLERES = [
         description:
             "Conferencia para fortalecer hábitos, enfoque y bienestar: desempeño sostenible con calidad de vida.",
         href: "/files/talleres/sabermas/CONFERENCIACORPORATIVA.pdf",
-        videoUrl: "https://www.youtube.com/embed/N8yu8Xtf-VM",
+        videoUrl: "https://www.youtube.com/embed/O4Zv_YaDneg",
         mainImage: "/images/talleres/CONFERENCIA_CALIDAD_VIDA.jpeg",
         badgeTop: "/files/talleres/confianza/CERTIFICADOPORMAXAN.png",
         badgeBottom: "/files/talleres/confianza/AVALADOPORIMPULSOCOMPLETO.png",
@@ -84,7 +84,7 @@ export const TALLERES = [
         description:
             "Taller para alinear procesos y cultura organizacional con prácticas de igualdad laboral y no discriminación.",
         href: "/files/talleres/sabermas/CORPORATIVOALINEAMIENTOCONLANORMAMEXICANADEIGUALDADLABORALYNODISCRIMINACION.pdf",
-        videoUrl: "https://www.youtube.com/embed/N8yu8Xtf-VM",
+        videoUrl: "https://www.youtube.com/embed/yNtVu9sZbjE",
         mainImage: "/images/talleres/TALLER_ALINEAMIENTO_NMX025.jpeg",
         badgeTop: "/files/talleres/confianza/CERTIFICADOPORMAXAN.png",
         badgeBottom: "/files/talleres/confianza/AVALADOPORIMPULSOCOMPLETO.png",
@@ -109,7 +109,7 @@ export const TALLERES = [
         description:
             "Taller para identificar brechas salariales y diseñar estrategias de corrección con criterios técnicos y normativos.",
         href: "/files/talleres/sabermas/CORPORATIVODECRITERIOSTECNICOSPARALAIGUALDADSALARIAL.pdf",
-        videoUrl: "https://www.youtube.com/embed/N8yu8Xtf-VM",
+        videoUrl: "https://www.youtube.com/embed/B_GWfZrJ23c",
         mainImage: "/images/talleres/TALLER_IGUALDAD_SALARIAL.jpeg",
         badgeTop: "/files/talleres/confianza/CERTIFICADOPORMAXAN.png",
         badgeBottom: "/files/talleres/confianza/AVALADOPORIMPULSOCOMPLETO.png",
@@ -134,7 +134,7 @@ export const TALLERES = [
         description:
             "Taller para implementar y operar protocolos internos de prevención, atención y sanción de violencia laboral.",
         href: "/files/talleres/sabermas/CORPORATIVOPARALAGESTIONEFICAZDELPROTOCOLODEVIOLENCIALABORAL.pdf",
-        videoUrl: "https://www.youtube.com/embed/N8yu8Xtf-VM",
+        videoUrl: "https://www.youtube.com/embed/070YVvIPU3U",
         mainImage: "/images/talleres/TALLER_PROTOCOLO_VIOLENCIA.jpeg",
         badgeTop: "/files/talleres/confianza/CERTIFICADOPORMAXAN.png",
         badgeBottom: "/files/talleres/confianza/AVALADOPORIMPULSOCOMPLETO.png",
@@ -160,7 +160,7 @@ export const TALLERES = [
         description:
             "Taller para sensibilizar, establecer criterios y promover prácticas de igualdad y no discriminación en equipos.",
         href: "/files/talleres/sabermas/CORPORATIVOINDUCCIONALAIGUALDADALANODISCRIMINACIONYALAATENCIONDELAVIOLENCIALABORAL.pdf",
-        videoUrl: "https://www.youtube.com/embed/N8yu8Xtf-VM",
+        videoUrl: "https://www.youtube.com/embed/fL9mHLVpkw8",
         mainImage: "/images/talleres/TALLER_INDUCCION_IGUALDAD.jpeg",
         badgeTop: "/files/talleres/confianza/CERTIFICADOPORMAXAN.png",
         badgeBottom: "/files/talleres/confianza/AVALADOPORIMPULSOCOMPLETO.png",
@@ -184,7 +184,7 @@ export const TALLERES = [
         description:
             "Taller para estructurar planes de acción medibles y sostenibles alineados a metas de igualdad laboral.",
         href: "/files/talleres/sabermas/PARALAINTEGRACIONDEPLANESDEACCIONPARALOGRARLAIGUALDADLABORALYLANODISCRIMINACION.pdf",
-        videoUrl: "https://www.youtube.com/embed/N8yu8Xtf-VM",
+        videoUrl: "https://www.youtube.com/embed/V4R_CfISggI",
         mainImage: "/images/talleres/TALLER_PLAN_ACCION_IGUALDAD.jpeg",
         badgeTop: "/files/talleres/confianza/CERTIFICADOPORMAXAN.png",
         badgeBottom: "/files/talleres/confianza/AVALADOPORIMPULSOCOMPLETO.png",
