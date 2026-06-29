@@ -236,4 +236,71 @@ export const BLOG_POSTS = [
             "Ibidem.",
         ],
     },
+    {
+    slug: "gestion-del-conocimiento-futbol",
+
+    title:
+        "Aprendamos del futbol a gestionar el conocimiento de bueno y lo malo que nos pasa, en nuestro beneficio",
+
+    excerpt:
+        "Los Sistemas de Gestión y el aprendizaje organizacional nos enseñan a aprovechar tanto nuestros errores como nuestros aciertos — igual que lo hicieron Aguirre, Zagallo y Ferretti en el futbol.",
+
+    author: "Ramón Cuevas Martínez",
+
+    credentials: [
+        "",
+    ],
+
+    date: "2026",
+    place: "México",
+
+    body: [
+        {
+            type: "paragraph",
+            text: "Desde la niñez las personas mayores nos repiten, ya sea cada vez que nos machucamos un dedo, cuando nos enfermamos de la panza por no lavarnos las manos, o cuando nos caemos en la casa por andar corriendo con el piso mojado, que debemos aprender de nuestros errores para que no nos vuelva a pasar.",
+        },
+        {
+            type: "paragraph",
+            text: "Esa forma negativa de ir tropezando por la vida para aprender, nos hace perder de vista que también podemos aprender de las cosas buenas que nos pasan, ¡para que nos sigan pasando!",
+        },
+        {
+            type: "paragraph",
+            text: "En lo personal nunca discrimino, ya sean cosas malas o buenas, las sumo por igual para aprovecharlas positivamente.",
+        },
+        {
+            type: "paragraph",
+            text: "Los Sistemas de Gestión a partir de las Normas ISO son capaces de enseñarnos a gestionar nuevo conocimiento a partir del anterior, a través de un proceso de aprendizaje organizacional continuo.",
+        },
+        {
+            type: "paragraph",
+            text: "Aprovechar y aplicar el conocimiento adquirido, nos lleva a dominar una actividad y tener éxito en la realización de tareas específicas.",
+        },
+        {
+            type: "heading",
+            text: "Tres ejemplos futboleros para valorar la correcta gestión del conocimiento",
+        },
+        {
+            type: "paragraph",
+            text: " 1. Javier (Vasco) Aguirre fue capaz de llevar a México al Mundial de 2010 y 2026, aprovechando su experiencia previa como seleccionador en 2002. No había razón para contratar a otro entrenador, Javier lo había logrado ya dos veces.",
+        },
+        {
+            type: "paragraph",
+            text: " 2. Mario (Lobo) Zagallo ganó dos Copas del Mundo como jugador, y una Copa del Mundo como entrenador con Brasil en 1970, y aunque en 1974 quedó en 4º. Lugar, estuvo presente como auxiliar y motivador de las selecciones brasileras hasta el mundial de 2002. Los cariocas han ganado 5 copas del mundo.",
+        },
+        {
+            type: "paragraph",
+            text: " 3. Ricardo (Tuca) Ferretti mostró en un video que se hizo viral la forma cómo se debe golpear el balón en un centro. El jugador de su equipo, Jorge (Chaka) Rodríguez, es, a mi juicio, quien mejor replicó sus enseñanzas hasta hace poco que se retiró.",
+        },
+        {
+            type: "paragraph",
+            text: "Los seres humanos generamos conocimiento todos los días, ya sea cuando después de machucarnos un dedo tenemos más cuidado de cerrar la puerta, o bien cuando nos esforzamos en hacer un trabajo y nos felicitan por ser \"bienhechos\".",
+        },
+        {
+            type: "paragraph",
+            text: "Sin embargo, seguimos dominándonos por vieja costumbre de aprender solo de nuestros errores, sobre todo cuando nos resistimos a llamar a quiénes tienen la experiencia previa para resolver las crisis en las que nos metemos. Cuando seamos capaces de aprovechar experiencias previas tanto nuestras cómo de otras personas que tomaron decisiones acertadas en situaciones similares, salvaríamos, para empezar, nuestra salud, ya que estaríamos eliminando las enfermedades derivadas del estrés que llenan los hospitales.",
+        },
+    ],
+
+    footnotes: [],
+},
 ];
