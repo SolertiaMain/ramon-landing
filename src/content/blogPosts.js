@@ -240,7 +240,7 @@ export const BLOG_POSTS = [
     slug: "gestion-del-conocimiento-futbol",
 
     title:
-        "Aprendamos del futbol a gestionar el conocimiento de bueno y lo malo que nos pasa, en nuestro beneficio",
+        "Aprendamos del futbol a gestionar el conocimiento de lo bueno y lo malo que nos pasa, en nuestro beneficio",
 
     excerpt:
         "Los Sistemas de Gestión y el aprendizaje organizacional nos enseñan a aprovechar tanto nuestros errores como nuestros aciertos — igual que lo hicieron Aguirre, Zagallo y Ferretti en el futbol.",
