@@ -175,7 +175,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 border-t border-white/10 pt-6 text-xs text-stone-500">
-          © {currentYear} {site.hero.name}. Todos los derechos reservados.
+          © {currentYear} {site.hero.name}. Todos los derechos reservados
         </div>
       </Container>
     </footer>
