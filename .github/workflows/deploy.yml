@@ -10,13 +10,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Deploy al servidor
+      - name: Ejecutar deploy por SSH
         uses: appleboy/ssh-action@v1.2.0
 
         with:
           host: ${{ vars.HOST }}
           username: ${{ vars.USERNAME }}
           key: ${{ secrets.DEPLOY_KEY }}
-
           script: |
             sudo /root/scripts/deploy-ramon.sh
